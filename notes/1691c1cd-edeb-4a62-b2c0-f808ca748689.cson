@@ -1,0 +1,31 @@
+createdAt: "2020-01-29T17:52:04.654Z"
+updatedAt: "2020-01-29T17:53:11.704Z"
+type: "MARKDOWN_NOTE"
+folder: "77ebb855011a338bfaaf"
+title: "Soapbox ML-Staging"
+tags: []
+content: '''
+  # Soapbox ML-Staging
+  
+  SSH into AWS server
+  ```bash
+  ~$ ssh ml-staging
+  ```
+  
+  Checkout own branch inside staging server
+  ```bash
+  forge@ml-staging:~$ git clone —branch <branch-name> github@github.com:Soapbox/ml-api.git <name-of-clone-folder>
+  ```
+  
+  Copy CSV files
+  ```bash
+  forge@ml-staging:~$ cp ~/data/next_steps.csv data/
+  ```
+  Do your own preprocessing in your own branch
+  
+  PII = Personally Identifiable Information / Scrubbing
+  - use the past coop's jupyter notebook
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -108,7 +108,7 @@
     {
       "key": "8cd261b1e637a7ff44d3",
       "color": "#E8D252",
-      "name": "Interview"
+      "name": "SE Interview"
     },
     {
       "key": "7539635a810c6ccf5652",
@@ -119,6 +119,11 @@
       "key": "0a01770fe0f110bd79e1",
       "color": "#3FD941",
       "name": "Time Series"
+    },
+    {
+      "key": "77ebb855011a338bfaaf",
+      "color": "#E8D252",
+      "name": "AWS"
     }
   ],
   "version": "1.0"
