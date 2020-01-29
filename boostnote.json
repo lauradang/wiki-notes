@@ -126,9 +126,14 @@
       "name": "AWS"
     },
     {
-        "key": "945e6a3edd398eb32344",
-        "color": "#2BA5F7",
-        "name": "Rasa"
+      "key": "945e6a3edd398eb32344",
+      "color": "#2BA5F7",
+      "name": "Rasa"
+    },
+    {
+      "key": "af3804676d0d869cf4ee",
+      "color": "#FF8E00",
+      "name": "Spacy"
     }
   ],
   "version": "1.0"
