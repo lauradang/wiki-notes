@@ -119,6 +119,11 @@
       "key": "0a01770fe0f110bd79e1",
       "color": "#3FD941",
       "name": "Time Series"
+    },
+    {
+      "key": "945e6a3edd398eb32344",
+      "color": "#2BA5F7",
+      "name": "Rasa"
     }
   ],
   "version": "1.0"
