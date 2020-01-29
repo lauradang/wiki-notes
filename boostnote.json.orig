@@ -121,14 +121,15 @@
       "name": "Time Series"
     },
     {
+<<<<<<< HEAD
       "key": "77ebb855011a338bfaaf",
       "color": "#E8D252",
       "name": "AWS"
-    },
-    {
-        "key": "945e6a3edd398eb32344",
-        "color": "#2BA5F7",
-        "name": "Rasa"
+=======
+      "key": "945e6a3edd398eb32344",
+      "color": "#2BA5F7",
+      "name": "Rasa"
+>>>>>>> 4616be4c0bf93f5bf43cb94014c77f89a2cdc38f
     }
   ],
   "version": "1.0"
