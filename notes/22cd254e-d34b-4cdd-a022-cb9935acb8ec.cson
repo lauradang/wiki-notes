@@ -1,0 +1,27 @@
+createdAt: "2019-07-06T02:18:19.583Z"
+updatedAt: "2019-08-20T12:34:45.627Z"
+type: "MARKDOWN_NOTE"
+folder: "6d3bd10e36acaa4abd95"
+title: "Committing/Pushing"
+tags: []
+content: '''
+  ### Committing/Pushing
+  ```bash
+  $ git add .
+  $ git commit
+  $ git push
+  ```
+  
+  ### Fix a commit
+  ```bash
+  $ git commit -amend
+  ```
+  
+  ### Undo a commit without losing local files
+  ```bash
+  git reset HEAD~1
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,44 @@
+createdAt: "2019-07-06T03:59:47.577Z"
+updatedAt: "2019-07-06T05:05:21.280Z"
+type: "MARKDOWN_NOTE"
+folder: "f25a50634b437a550e14"
+title: "Tor"
+tags: []
+content: '''
+  ## Tor
+  
+  #### Set Up
+  ```bash
+  $ brew install tor
+  ```
+  Be in folder with .torr
+  ```bash
+  $ touch .torrc
+  $ open .torrc
+  $ tor --hash-password "$PASSWORD"
+  ```
+  Copy and paste output into .torrc
+  ```
+  SOCKSPort 9050
+  HashedControlPassword #:RANDOMCAPS
+  CookieAuthentication 1
+  ```
+  #### Code
+  ```bash
+  $ tor
+  ```
+  ```python
+  from torrequest import TorRequest
+  import requests
+  
+  session = requests.session()
+  session.proxies = {}
+  session.proxies['http'] = 'socks5h://localhost:9050'
+  session.proxies['https'] = 'socks5h://localhost:9050'
+  
+  source_start = session.get(url)
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

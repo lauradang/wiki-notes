@@ -1,0 +1,13 @@
+createdAt: "2019-09-29T15:59:04.970Z"
+updatedAt: "2019-11-30T18:23:44.648Z"
+type: "MARKDOWN_NOTE"
+folder: "3daccd16afe284a3c637"
+title: "Questions for CS246 A2:"
+tags: []
+content: '''
+  Questions for CS246 A2:
+  for errors: in the .out file, do you print the error or nothing because its in stderr not stdout
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: true

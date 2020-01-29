@@ -1,0 +1,29 @@
+createdAt: "2020-01-18T19:24:24.828Z"
+updatedAt: "2020-01-18T19:25:07.236Z"
+type: "MARKDOWN_NOTE"
+folder: "3259a9ed3c40bcb28bfa"
+title: "Fairtax region dictionary"
+tags: []
+content: '''
+  ### Fairtax region dictionary
+  ```python
+  region_dict = {
+      2:"Alberta",
+      3:"British Columbia",
+      4:"Manitoba",
+      5:"Ontario"
+      6:"Newfoundland and Labrador"
+      7:"New Brunswick",
+      8:"Northwest Territories",
+      9:"Nova Scotia",
+      10:"Nunavut",
+      11:"Prince Edward Island",
+      12:"Quebec",
+      13:"Saskatchewan",
+      14:"Yukon"
+  }
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

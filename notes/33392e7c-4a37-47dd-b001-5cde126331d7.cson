@@ -1,0 +1,19 @@
+createdAt: "2019-10-06T20:59:22.806Z"
+updatedAt: "2019-10-06T21:02:58.776Z"
+type: "MARKDOWN_NOTE"
+folder: "3daccd16afe284a3c637"
+title: "Notes to Rememeber"
+tags: []
+content: '''
+  # Notes to Rememeber
+  ### Main() parameters:
+  - Can have two parameters:
+    - **argc** is an integer **parameter** (**ARGUMENT COUNT**)
+      - number of **arguments** passed to the program
+      - program name is always the first **argument**, so there will be at least one **argument** to a program and the minimum value of **argc** will be one.
+    -   **argv** is an array (**ARGUMENT VECTOR**)
+        - Stores arguments into array (first element is always the program name)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

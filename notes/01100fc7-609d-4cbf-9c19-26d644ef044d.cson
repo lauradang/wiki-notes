@@ -1,0 +1,24 @@
+createdAt: "2019-07-08T15:51:24.970Z"
+updatedAt: "2019-08-20T15:40:06.002Z"
+type: "MARKDOWN_NOTE"
+folder: "f25a50634b437a550e14"
+title: "PDF to CSV"
+tags: []
+content: '''
+  ## PDF to CSV
+  #### Tabula
+  
+  ```python
+  import tabula
+  df = tabula.read_pdf("file.pdf")
+  tabula.convert_into(pdf, "output.csv", output_format="csv")
+  ```
+  
+  #### Dealing with multi-line tables
+  ```python
+  tabula.read_pdf("BC Civil Forefeiture 2014-15 Grant Recipients.pdf",spreadsheet=True, pages='all')
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

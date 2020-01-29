@@ -1,0 +1,20 @@
+createdAt: "2019-07-06T03:05:53.457Z"
+updatedAt: "2019-07-06T03:50:28.810Z"
+type: "MARKDOWN_NOTE"
+folder: "47ad8cc93fc6522e71af"
+title: "Foreign Key"
+tags: []
+content: '''
+  ### Foreign Key
+  
+  #### Show foreign key entries
+  ```sql
+  SELECT * FROM table1 A 
+  INNER JOIN table2 B 
+  ON A.foreign_key_field = B.foreign_key_field
+  WHERE B.some_field = 1
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

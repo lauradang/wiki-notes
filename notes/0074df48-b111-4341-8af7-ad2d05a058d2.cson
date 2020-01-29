@@ -1,0 +1,28 @@
+createdAt: "2019-07-09T03:38:38.462Z"
+updatedAt: "2019-07-09T03:40:32.959Z"
+type: "MARKDOWN_NOTE"
+folder: "2ed70fde1277a2b12b07"
+title: "Virtual Environment"
+tags: []
+content: '''
+  # Virtual Environment
+  ### Make virtual environment
+  ```bash
+  $ pip install virtualenv
+  $ virtualenv mypython
+  
+  ```
+  
+  ### Start virtual environment
+  ```bash
+  $ source mypython/bin/activate
+  ```
+  
+  ### Deactivate virtual environment
+  ```bash
+  $ deactivate
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,24 @@
+createdAt: "2019-07-10T18:52:09.735Z"
+updatedAt: "2019-07-11T13:26:44.208Z"
+type: "MARKDOWN_NOTE"
+folder: "437f2cd316585150fcfd"
+title: "Migrations"
+tags: []
+content: '''
+  # Migrations
+  
+  ```bash
+  $ ssh vagrant@192.168.20.10
+  $ cd fairtax..
+  $ php artisan make:migration fippa_trackings_documents_add_checksum
+  …
+  $ php artisan migrate
+  ```
+  ### Rollbacks
+  ```bash
+  $ php artisan migrate:rollback
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

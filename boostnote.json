@@ -1,0 +1,125 @@
+{
+  "folders": [
+    {
+      "key": "437f2cd316585150fcfd",
+      "color": "#30D5C8",
+      "name": "Laravel"
+    },
+    {
+      "key": "5b3648b746c86a3ed243",
+      "color": "#FF8E00",
+      "name": "Regex"
+    },
+    {
+      "key": "6d3bd10e36acaa4abd95",
+      "color": "#E8D252",
+      "name": "Github"
+    },
+    {
+      "key": "31497fd6ff3f43e1d9b9",
+      "color": "#3FD941",
+      "name": "Django"
+    },
+    {
+      "key": "47ad8cc93fc6522e71af",
+      "color": "#E10051",
+      "name": "SQL/Databases"
+    },
+    {
+      "key": "705e9de139f487021fe0",
+      "color": "#2BA5F7",
+      "name": "Selenium"
+    },
+    {
+      "key": "a3794fd75e7f26f55d4d",
+      "color": "#FF8E00",
+      "name": "Pandas"
+    },
+    {
+      "key": "f25a50634b437a550e14",
+      "color": "#E8D252",
+      "name": "Web Scraping"
+    },
+    {
+      "key": "ec77ba57824a813be579",
+      "color": "#3FD941",
+      "name": "Android Development"
+    },
+    {
+      "key": "7f09f784791ea8ae2c2b",
+      "color": "#30D5C8",
+      "name": "Machine Learning"
+    },
+    {
+      "key": "26872b0e77e0d363e7b6",
+      "color": "#3FD941",
+      "name": "Deep Learning"
+    },
+    {
+      "key": "2ed70fde1277a2b12b07",
+      "color": "#E8D252",
+      "name": "Bash"
+    },
+    {
+      "key": "19084091c3fe839cb9cb",
+      "color": "#E8D252",
+      "name": "Jupyter Notebooks"
+    },
+    {
+      "key": "ff6fa2d6f4f58910d364",
+      "color": "#B013A4",
+      "name": "OS"
+    },
+    {
+      "key": "2fa92d2b903b97ccc967",
+      "color": "#2BA5F7",
+      "name": "Object-Oriented Programming"
+    },
+    {
+      "key": "521524e236bf8f916304",
+      "color": "#30D5C8",
+      "name": "React"
+    },
+    {
+      "key": "96d656616328a11edf97",
+      "color": "#B013A4",
+      "name": "General"
+    },
+    {
+      "key": "4ae2e7a7a24d8ac3b468",
+      "color": "#30D5C8",
+      "name": "Natural Language Processing"
+    },
+    {
+      "key": "0418b4ad9718d2855ddc",
+      "color": "#3FD941",
+      "name": "Data Structures in Python"
+    },
+    {
+      "key": "3259a9ed3c40bcb28bfa",
+      "color": "#30D5C8",
+      "name": "Fairtax"
+    },
+    {
+      "key": "3daccd16afe284a3c637",
+      "color": "#2BA5F7",
+      "name": "CS246"
+    },
+    {
+      "key": "8cd261b1e637a7ff44d3",
+      "color": "#E8D252",
+      "name": "Interview"
+    },
+    {
+      "key": "7539635a810c6ccf5652",
+      "color": "#3FD941",
+      "name": "Data Science"
+    },
+    {
+      "key": "0a01770fe0f110bd79e1",
+      "color": "#3FD941",
+      "name": "Time Series"
+    }
+  ],
+  "version": "1.0"
+}

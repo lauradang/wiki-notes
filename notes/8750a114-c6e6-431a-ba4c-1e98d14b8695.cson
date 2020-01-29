@@ -1,0 +1,17 @@
+createdAt: "2019-07-19T12:40:47.810Z"
+updatedAt: "2019-07-19T12:41:06.227Z"
+type: "MARKDOWN_NOTE"
+folder: "a3794fd75e7f26f55d4d"
+title: "Troubleshooting"
+tags: []
+content: '''
+  # Troubleshooting
+  ### Unicode Error
+  Try:
+  ```python
+  df = pd.read_csv("fdd-report.csv", encoding = "ISO-8859-1")
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

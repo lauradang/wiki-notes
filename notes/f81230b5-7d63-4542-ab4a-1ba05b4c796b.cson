@@ -1,0 +1,17 @@
+createdAt: "2019-07-18T20:04:17.854Z"
+updatedAt: "2019-07-18T20:04:55.555Z"
+type: "MARKDOWN_NOTE"
+folder: "ff6fa2d6f4f58910d364"
+title: "Files in Folders"
+tags: []
+content: '''
+  # Files in Folders
+  
+  ### List all files in folder
+  ```python
+  os.listdir()
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,15 @@
+createdAt: "2019-07-24T12:58:29.827Z"
+updatedAt: "2019-07-24T13:10:18.590Z"
+type: "MARKDOWN_NOTE"
+folder: "31497fd6ff3f43e1d9b9"
+title: "Running Tests"
+tags: []
+content: '''
+  # Running Tests
+  ```bash
+  $ pytest
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

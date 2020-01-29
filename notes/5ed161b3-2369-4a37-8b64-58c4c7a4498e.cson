@@ -1,0 +1,17 @@
+createdAt: "2019-07-06T02:59:59.789Z"
+updatedAt: "2019-07-06T03:00:40.538Z"
+type: "MARKDOWN_NOTE"
+folder: "31497fd6ff3f43e1d9b9"
+title: "Signals"
+tags: []
+content: '''
+  ### Signals
+  - Do not communicate with each other
+  - “Bark” at the ether 
+  - pre_save, post_save do not rely on one another
+    - cannot pass these functions into one another
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

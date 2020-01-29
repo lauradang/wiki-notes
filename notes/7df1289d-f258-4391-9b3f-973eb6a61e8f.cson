@@ -1,0 +1,25 @@
+createdAt: "2019-07-06T02:31:10.509Z"
+updatedAt: "2019-07-23T13:29:55.867Z"
+type: "MARKDOWN_NOTE"
+folder: "6d3bd10e36acaa4abd95"
+title: "Creating a New Branch"
+tags: []
+content: '''
+  ### Creating a New Branch
+  ```bash
+  $ git branch
+  $ git branch (name of new branch)
+  $ git checkout (name of new branch)
+  $ git push origin (name of new branch)
+  ```
+  
+  ### Reset to last git commit 
+  ```bash
+  $ git reset --hard HEAD
+  ```
+'''
+linesHighlighted: [
+  2
+]
+isStarred: false
+isTrashed: false
