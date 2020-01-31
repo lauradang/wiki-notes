@@ -1,0 +1,6 @@
+# Running Tests
+
+```bash
+$ pytest
+```
+
