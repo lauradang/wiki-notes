@@ -1,6 +1,6 @@
 # Table of contents
 
-* [wiki](README.md)
+* [Overview](README.md)
 * [Django](django/README.md)
   * [Activating Grantmatch](django/activating-grantmatch.md)
   * [Manipulating Models](django/manipulating-models.md)
