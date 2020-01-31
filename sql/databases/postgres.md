@@ -1,18 +1,13 @@
-# Postgres
-
 ## Postgres
-
 Download Postgres: [PostgreSQL: Downloads](https://www.postgresql.org/download/)
 
 ### Set up database credentials
-
 ```bash
 postgres=# \password new_name
 postgres=# CREATE DATABASE db_name;
 ```
 
 ### Connection
-
 ```python
 from psycopg2 import sql
 
@@ -25,15 +20,11 @@ conn = psycopg2.connect(
 )
 cursor = conn.cursor()
 ```
-
 ### Commit Changes
-
 ```python
 conn.commit()
 ```
-
 ### Create Table
-
 ```python
 table = (
         """
@@ -51,8 +42,7 @@ table = (
 cursor.execute(table)
 ```
 
-### Insert
-
+### Insert 
 ```python
 insert = """
     INSERT INTO 
@@ -63,7 +53,6 @@ cursor.execute(insert, ("Hello", "2014-09-03"))
 ```
 
 ### Update
-
 ```python
 update = """
     UPDATE table 
@@ -75,7 +64,6 @@ cursor.execute(update, ("Hi", "2019-03-20"))
 ```
 
 ### Select
-
 ```python
 cursor.execute("""
     SELECT num FROM table 
@@ -84,13 +72,11 @@ cursor.execute("""
 ```
 
 ### Get value in row
-
 ```python
 cursor.fetchone()[column_num]
 ```
 
 ### Rollbacks
-
 ```python
 cursor.execute('SAVEPOINT sp2')
 
@@ -104,8 +90,12 @@ except psycopg2.IntegrityError:
 ```
 
 ## Convert Postgres Database to CSV
-
 ```sql
 COPY table_name/query TO '/Users/laura/...path_to/file.csv' DELIMITER ',' CSV HEADER;
 ```
+
+
+
+
+
 

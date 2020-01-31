@@ -7,10 +7,7 @@ $ php artisan make:migration fippa_trackings_documents_add_checksum
 …
 $ php artisan migrate
 ```
-
-## Rollbacks
-
+### Rollbacks
 ```bash
 $ php artisan migrate:rollback
 ```
-
