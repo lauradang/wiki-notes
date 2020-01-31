@@ -51,7 +51,7 @@ def write_boostnote_markdown(data, output, folder_map):
     if not os.path.exists(target_dir):
         os.makedirs(target_dir)
 
-    target_file = os.path.join(target_dir, '{}.md'.format(data['title'].replace('/', '-').replace(" ", "-")))
+    target_file = os.path.join(target_dir, '{}.md'.format(data['title'].lower().replace('/', '-').replace(" ", "-")))
     with open(target_file, 'w') as f:
         f.write(data.get('content', ''))
         print(target_file)
