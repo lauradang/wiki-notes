@@ -1,6 +1,0 @@
-# Running Tests
-
-```bash
-$ pytest
-```
-

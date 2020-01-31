@@ -1,7 +1,7 @@
 # Optimizing Intent
 
 ## Pretrained Embeddings: Intent Classifier Sklearn
-#### What is it? 
+#### What is it?
 - Uses spacy
 - Uses **word embeddings** (vector representations of words)
 - Similar words get converted to similar numeric matrices
