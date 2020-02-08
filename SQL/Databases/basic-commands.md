@@ -1,4 +1,4 @@
-### Basic Commands
+# Basic Commands
 
 #### Select all entries
 ```sql

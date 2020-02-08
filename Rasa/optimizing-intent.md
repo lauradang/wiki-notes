@@ -5,6 +5,7 @@
 - Uses spacy
 - Uses **word embeddings** (vector representations of words)
 - Similar words get converted to similar numeric matrices
+- Trains linear SVM - optimized with gridsearch (hyperparameter tuning to determine optimal values for model)
 - Research paper: [word2vec](https://arxiv.org/abs/1301.3781)
 - Depends on langauge (choose spacy's "en" for english)
   - Can customize word embeddings (look into [Facebook's fastText](https://github.com/facebookresearch/fastText/blob/master/docs/crawl-vectors.md#models))
@@ -35,7 +36,7 @@ Training data: ["best", "bot", "great", "is", "my", "the"]
 "My bot is the best bot." = [1, 2, 0, 1, 1, 1]
 "My bot is great." = [0, 1, 1, 1, 1, 0]
 ```
-**Configuring CountVectorsFeaturizer**:
+**Configuring CountVectorsFeaturizer (recommended featurizer for this classifier)**:
 - change *analyzer* property to char (using ngram counts instead of word token counts)
   - More robust against typos
   

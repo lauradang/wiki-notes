@@ -1,7 +1,8 @@
 #!/bin/bash
 
-for file in $(ls output); do 
-    mv "output/$file" `echo $file | tr '' '_'`
-done
-
-find -name "* *" -type d | rename 's/ /_/g'
+python3 boostnote2md.py
+cd output
+for i in *;do mv "$i" "${i// /-}";done
+cp -r * ../
+cd ..
+rm -r output

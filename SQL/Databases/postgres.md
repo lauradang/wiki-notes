@@ -1,4 +1,4 @@
-## Postgres
+# Postgres
 Download Postgres: [PostgreSQL: Downloads](https://www.postgresql.org/download/)
 
 ### Set up database credentials
