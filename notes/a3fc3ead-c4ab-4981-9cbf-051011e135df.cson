@@ -1,0 +1,19 @@
+createdAt: "2020-01-31T15:14:31.768Z"
+updatedAt: "2020-01-31T15:16:47.816Z"
+type: "MARKDOWN_NOTE"
+folder: "7f09f784791ea8ae2c2b"
+title: "Algorithms Pros and Cons"
+tags: []
+content: '''
+  # Algorithms Pros and Cons
+  
+  ### Support Vector Machine
+  Pros:
+  - supports high-dimensional and sparse data
+  
+  Cons:
+  - not good with large datasets
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,27 @@
+createdAt: "2020-01-31T15:58:54.103Z"
+updatedAt: "2020-01-31T16:04:21.433Z"
+type: "MARKDOWN_NOTE"
+folder: "945e6a3edd398eb32344"
+title: "Tokenizers"
+tags: []
+content: '''
+  # Tokenizers
+  
+  ### WhitespaceTokenizer
+  - Whitespace separated
+  - "today's" does not split
+  
+  ### MitieTokenizer
+  - Creates tokens for MITIE entity extractor
+  
+  ### SpacyTokenizer
+  - requires SpacyNLP
+  - supports splitting by quotations
+  
+  ### ConveRTTokenizer
+  - used when ConveRTFeaturizer is used
+  - [Code Implementation](https://github.com/RasaHQ/rasa/blob/3dccf2052a3400b25fe8108f8cd73dffbff9ef3e/rasa/nlu/tokenizers/convert_tokenizer.py#L85)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

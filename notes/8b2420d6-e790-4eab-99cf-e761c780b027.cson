@@ -1,11 +1,11 @@
 createdAt: "2020-01-30T20:42:44.655Z"
-updatedAt: "2020-01-30T20:56:32.303Z"
+updatedAt: "2020-01-31T15:55:10.890Z"
 type: "MARKDOWN_NOTE"
 folder: "945e6a3edd398eb32344"
-title: "Optimizing Entitiy Recognition"
+title: "Optimizing Entity Recognition"
 tags: []
 content: '''
-  # Optimizing Entitiy Recognition
+  # Optimizing Entity Recognition
   
   ### SpaCy ([SpacyEntityExtractor](https://rasa.com/docs/rasa/nlu/components/#spacyentityextractor)) - `ner_spacy`
   - Pretrained entity extractors

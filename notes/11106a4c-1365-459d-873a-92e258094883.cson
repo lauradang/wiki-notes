@@ -1,11 +1,11 @@
 createdAt: "2019-07-06T03:01:41.494Z"
-updatedAt: "2019-08-02T12:46:14.786Z"
+updatedAt: "2020-02-06T18:47:17.528Z"
 type: "MARKDOWN_NOTE"
 folder: "47ad8cc93fc6522e71af"
 title: "Basic Commands"
 tags: []
 content: '''
-  ### Basic Commands
+  # Basic Commands
   
   #### Select all entries
   ```sql

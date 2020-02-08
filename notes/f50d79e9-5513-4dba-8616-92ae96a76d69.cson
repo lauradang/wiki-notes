@@ -1,0 +1,18 @@
+createdAt: "2020-02-06T19:48:08.363Z"
+updatedAt: "2020-02-06T19:51:17.425Z"
+type: "MARKDOWN_NOTE"
+folder: "a0218a47d5544fd3b833"
+title: "Docker-compose.yml"
+tags: []
+content: '''
+  # Docker-compose.yml
+  
+  ## Setting up database in Docker
+  ### Environment in yaml file:
+  - Tied with config file
+  - In the config file, all the environment variables are set
+  - Then you can use config file in Flask SQL connector
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

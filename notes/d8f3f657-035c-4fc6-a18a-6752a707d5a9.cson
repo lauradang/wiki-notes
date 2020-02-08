@@ -1,0 +1,23 @@
+createdAt: "2020-02-03T14:29:24.297Z"
+updatedAt: "2020-02-03T14:39:29.164Z"
+type: "MARKDOWN_NOTE"
+folder: "35718693df12a579573a"
+title: "NLP and DataBunch"
+tags: []
+content: '''
+  # NLP and DataBunch
+    
+  1. Prepare raw data (.txt, .csv, dataframe, tokens, labels arrays, ids, etc.)
+  2. Assemble raw data in a `DataBunch`(prepares data for NLP)
+  
+  **Different classes that create a `DataBunch`**:
+  | class             | function              |
+  |-------------------|-----------------------|
+  | TextLMDataBunch   | Trains language model |
+  | TextClasDataBunch | Trains RNN classifier |
+  
+  3. Create a `Learner` with a language model using the `DataNumch`
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

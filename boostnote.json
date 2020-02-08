@@ -73,7 +73,7 @@
     {
       "key": "2fa92d2b903b97ccc967",
       "color": "#2BA5F7",
-      "name": "Object-Oriented Programming"
+      "name": "Python Conventions"
     },
     {
       "key": "521524e236bf8f916304",
@@ -113,7 +113,7 @@
     {
       "key": "7539635a810c6ccf5652",
       "color": "#3FD941",
-      "name": "Data Science"
+      "name": "Data Science Interview"
     },
     {
       "key": "0a01770fe0f110bd79e1",
@@ -134,6 +134,16 @@
       "key": "af3804676d0d869cf4ee",
       "color": "#FF8E00",
       "name": "Spacy"
+    },
+    {
+      "key": "35718693df12a579573a",
+      "color": "#30D5C8",
+      "name": "fast.ai"
+    },
+    {
+      "key": "a0218a47d5544fd3b833",
+      "color": "#3FD941",
+      "name": "Docker"
     }
   ],
   "version": "1.0"

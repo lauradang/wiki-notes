@@ -1,5 +1,5 @@
 createdAt: "2020-01-29T18:24:05.000Z"
-updatedAt: "2020-01-29T18:45:40.116Z"
+updatedAt: "2020-02-03T14:27:03.253Z"
 type: "MARKDOWN_NOTE"
 folder: "945e6a3edd398eb32344"
 title: "Improving NLU Model"
@@ -95,6 +95,8 @@ content: '''
   
   
 '''
-linesHighlighted: []
+linesHighlighted: [
+  60
+]
 isStarred: false
 isTrashed: false

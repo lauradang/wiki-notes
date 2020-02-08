@@ -1,0 +1,41 @@
+createdAt: "2020-02-05T14:01:14.658Z"
+updatedAt: "2020-02-05T23:35:11.137Z"
+type: "MARKDOWN_NOTE"
+folder: "77ebb855011a338bfaaf"
+title: "Tmux"
+tags: []
+content: '''
+  # Tmux
+  - Attaching and detaching session
+  - Runs different session on bash even if SSH connection is closed
+  
+  ## Commands
+  
+  ### Start a new session
+  ```bash
+  $ tmux new -s <session-name>
+  ```
+  
+  ### Detach from session (but remains in SSH)
+  ```
+  CTRL + B, then just D
+  ```
+  
+  ### Attach to session 
+  ```bash
+  $ tmux attach -t <session-name>
+  ```
+  
+  ### List sessions
+  ```bash
+  $ tmux list-sessions
+  ```
+  
+  ### Kill session
+  ```bash
+  $ tmux kill-session -t <session-name>
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,27 @@
+createdAt: "2020-02-06T15:35:35.603Z"
+updatedAt: "2020-02-06T15:41:04.820Z"
+type: "MARKDOWN_NOTE"
+folder: "6d3bd10e36acaa4abd95"
+title: "`bash"
+tags: []
+content: '''
+  ```bash
+  $ git add -p
+  - Pick the chunks of code you do want to commit
+  - stage this hunk means are you gonna commit this?
+  
+  Options for Stage this hunk [y, n, ...]?
+  - Press ? if you want more info
+  - Press n to go to next change
+  
+  $ git diff
+  - Shows changes between commits
+  - when you do y for git add -p, git diff will be empty (obviously)
+  
+  $ git reset -p
+  - Pick the chunks of code you do not want to commit
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: true

@@ -1,11 +1,11 @@
 createdAt: "2019-07-06T04:26:06.692Z"
-updatedAt: "2019-08-02T12:46:03.413Z"
+updatedAt: "2020-02-06T18:47:22.565Z"
 type: "MARKDOWN_NOTE"
 folder: "47ad8cc93fc6522e71af"
 title: "Postgres"
 tags: []
 content: '''
-  ## Postgres
+  # Postgres
   Download Postgres: [PostgreSQL: Downloads](https://www.postgresql.org/download/)
   
   ### Set up database credentials
