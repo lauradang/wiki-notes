@@ -144,6 +144,11 @@
       "key": "a0218a47d5544fd3b833",
       "color": "#3FD941",
       "name": "Docker"
+    },
+    {
+      "key": "f36db4c654086d295f73",
+      "color": "#FF8E00",
+      "name": "Scikit-learn"
     }
   ],
   "version": "1.0"
