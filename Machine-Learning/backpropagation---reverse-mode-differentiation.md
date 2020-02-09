@@ -14,7 +14,7 @@ Refer to [Calculus on Computational Graphs: Backpropagation
 **Call Graphs**: Control flow graph of program, what functions call other functions. (i.e. Recursion is represented by cycles in call graphs)
 
 ## High Level Explanation
-- Technique for calculating derivatives quickly
+- Technique for calculating partial derivatives quickly
 - Trains gradient descent faster in modern deep learning neural networks
 - Algorithm reinvented many times
 - Aka **reverse-mode differentiation**

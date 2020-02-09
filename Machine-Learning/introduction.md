@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 #### What is machine learning?
 Making predictions based off of patterns 
 
