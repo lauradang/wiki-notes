@@ -1,11 +1,11 @@
 createdAt: "2019-07-06T20:21:09.981Z"
-updatedAt: "2019-07-06T20:29:16.016Z"
+updatedAt: "2020-02-08T23:37:24.947Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "Introduction"
 tags: []
 content: '''
-  ## Introduction
+  # Introduction
   #### What is machine learning?
   Making predictions based off of patterns 
   

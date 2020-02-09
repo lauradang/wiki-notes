@@ -1,5 +1,5 @@
 createdAt: "2020-02-07T04:35:26.534Z"
-updatedAt: "2020-02-07T06:14:55.708Z"
+updatedAt: "2020-02-09T03:56:29.266Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "Backpropagation / Reverse-mode Differentiation"
@@ -21,7 +21,7 @@ content: '''
   **Call Graphs**: Control flow graph of program, what functions call other functions. (i.e. Recursion is represented by cycles in call graphs)
   
   ## High Level Explanation
-  - Technique for calculating derivatives quickly
+  - Technique for calculating partial derivatives quickly
   - Trains gradient descent faster in modern deep learning neural networks
   - Algorithm reinvented many times
   - Aka **reverse-mode differentiation**
@@ -111,6 +111,8 @@ content: '''
   
   
 '''
-linesHighlighted: []
+linesHighlighted: [
+  62
+]
 isStarred: false
 isTrashed: false
