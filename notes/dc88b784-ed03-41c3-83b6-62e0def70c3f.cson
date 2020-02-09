@@ -1,5 +1,5 @@
 createdAt: "2020-02-09T01:32:16.768Z"
-updatedAt: "2020-02-09T16:38:00.648Z"
+updatedAt: "2020-02-09T16:40:34.628Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "Training a Neural Network"
@@ -95,15 +95,6 @@ content: '''
     - $w1​←w1​−η\\frac{∂L}{∂w_1}$
       - η is learning constant
     - If $\\frac{∂L}{∂w_1}>0 → w_1$ decreases $→ L$ decreases
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 '''
 linesHighlighted: []
