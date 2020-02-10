@@ -1,5 +1,5 @@
 createdAt: "2020-02-09T16:44:32.776Z"
-updatedAt: "2020-02-10T02:04:53.277Z"
+updatedAt: "2020-02-10T02:07:45.292Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "Activation Functions"
@@ -7,7 +7,7 @@ tags: []
 content: '''
   # Activation Functions
   
-  ![sigmoid](sigmoid.png)
+  ![sigmoid](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png)
   
   **Review:**
   - Activation functions used after the weights and bias are multipled and added together, produces the output of that neuron
