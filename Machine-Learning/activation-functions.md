@@ -1,7 +1,5 @@
 # Activation Functions
 
-![sigmoid](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png)
-
 **Review:**
 - Activation functions used after the weights and bias are multipled and added together, produces the output of that neuron
 
@@ -33,6 +31,8 @@
 ### Sigmoid / Logistic
 #### $f(x)=\frac{1}{1+e^-x}$
 
+![sigmoid](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png)
+
 **Pros**:
 - Smooth gradient (prevents "jumps" in output values)
 - Bounded output values for each neuron ([0, 1]) by normalization
@@ -46,10 +46,12 @@
   - Predicting can be slow
 - Computationally expensive
 - Output is not zero-centered (sigmoid only outputs values between 0 and 1, 0 is clearly not the center)
-  - Refer to [this link]([https://medium.com/datadriveninvestor/deep-learning-best-practices-activation-functions-weight-initialization-methods-part-1-c235ff976ed](https://medium.com/datadriveninvestor/deep-learning-best-practices-activation-functions-weight-initialization-methods-part-1-c235ff976ed)) for explanation on why that's bad
+  - Refer to [this link](https://medium.com/datadriveninvestor/deep-learning-best-practices-activation-functions-weight-initialization-methods-part-1-c235ff976ed) for explanation on why that's bad
 
 ### TanH / Hyperbolic Tangent:
-#### $f(x)=\frac{1-e^-2x}{1+e^-2x}$
+#### $f(x)=\frac{1-e^-2x}{1+e^-2x}$ 
+
+![tanH](https://lh3.googleusercontent.com/proxy/7LNx57K9GPV1nJjhdwrfrpyuMuEpmtc48rRaAQouyR4-5xFate0vjR0JF2JB9YhlNu0Flf30NiyIrOVKURwXwx\_Ro2y\_0yaTSFILZql9TYjCjIwl)
 
 **Pros**:
 - Zero-centered
@@ -61,6 +63,8 @@
 ### ReLU (Rectified Linear Unit)
 #### $f(x) = 0$ if $x<0$
 #### $f(x) = x$ if $x>=0$
+
+![relu](https://cdn.tinymind.com/static/img/learn/relu.png)
 
 **About**:
 - Only used for hidden layers (not output layer)
