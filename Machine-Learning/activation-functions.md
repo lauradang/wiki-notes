@@ -6,7 +6,7 @@
 ## Types of Activation Functions
 
 ### Binary Step Function
-- Has threshold
+- Has threshold 
 - If input > or < threshold => sends exactly the same signal to next layer
   - Produces 1 or 0 (passed threshold or not)
   - So does not allow multi-value output (classification)
@@ -31,7 +31,7 @@
 ### Sigmoid / Logistic
 #### $f(x)=\frac{1}{1+e^-x}$
 
-![sigmoid](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png)
+![Sigmoid](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png)
 
 **Pros**:
 - Smooth gradient (prevents "jumps" in output values)
@@ -51,7 +51,7 @@
 ### TanH / Hyperbolic Tangent:
 #### $f(x)=\frac{1-e^-2x}{1+e^-2x}$ 
 
-![tanH](https://lh3.googleusercontent.com/proxy/7LNx57K9GPV1nJjhdwrfrpyuMuEpmtc48rRaAQouyR4-5xFate0vjR0JF2JB9YhlNu0Flf30NiyIrOVKURwXwx\_Ro2y\_0yaTSFILZql9TYjCjIwl)
+![TanH](https://lh3.googleusercontent.com/proxy/7LNx57K9GPV1nJjhdwrfrpyuMuEpmtc48rRaAQouyR4-5xFate0vjR0JF2JB9YhlNu0Flf30NiyIrOVKURwXwx\_Ro2y\_0yaTSFILZql9TYjCjIwl)
 
 **Pros**:
 - Zero-centered
@@ -64,7 +64,7 @@
 #### $f(x) = 0$ if $x<0$
 #### $f(x) = x$ if $x>=0$
 
-![relu](https://cdn.tinymind.com/static/img/learn/relu.png)
+![ReLU](https://cdn.tinymind.com/static/img/learn/relu.png)
 
 **About**:
 - Only used for hidden layers (not output layer)
@@ -76,15 +76,44 @@
 - No vanishing gradient problem
 
 **Cons**:
+- Not zero-centered
 - **The Dying ReLU problem**
   - If neuron outputs negative value, the output is 0. This is hard to recover from since the derivative of 0 is just 0 (unlikely for neuron to recover).
+    - i.e. Non-differetiable at 0 (cannot perform backpropagation)
 - Not usually used in *RNNs*
   - RNNs output very large values, and ReLU does not bound output values, so you could have exploding gradient problem
 
+### Leaky / Parametric ReLU / Maxout Function
+#### $f(x)=x$ if $x>0$
+#### $f(x)=ax$ if $x<0$
+
+![Leaky ReLU](https://miro.medium.com/max/2050/1*siH_yCvYJ9rqWSUYeDBiRA.png)
+
+**About:**
+- `a` is a **parameter**
+- `a` = 0.01 for leaky Relu
+
+**Pros**:
+- Fixes "dying relu problem" (no 0 slope, so can have backpropagation now)
+- Speeds up training
+
+**Cons**:
+- Results not consistent for negative values
+- You have to tune the slope parameter
+
+### Softmax
+![Softmax](https://qph.fs.quoracdn.net/main-qimg-15dba2e5270a77afdfd2c86dc4757a17)
+
+**About**:
+- No graph because Softmax is a multivariable function
+- Multi-class classification version of Sigmoid
+  - Sigmoid and Softmax are the same in binary classification
 
 
-
-
+**Pros**:
+- Can handle multiple classes (Useful for output neurons)
+  - Normalizes outputs for each class between 0 and 1, then divides by sum
+    - Gives probability of input being in specific class
 
 
 
