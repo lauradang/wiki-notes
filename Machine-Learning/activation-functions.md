@@ -64,7 +64,7 @@
 #### $f(x) = 0$ if $x<0$
 #### $f(x) = x$ if $x>=0$
 
-![ReLU](https://cdn.tinymind.com/static/img/learn/relu.png)
+![ReLU](https://cdn.tinymind.com/static/img/learn/relu.png) 
 
 **About**:
 - Only used for hidden layers (not output layer)
