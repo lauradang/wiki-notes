@@ -1,5 +1,5 @@
 createdAt: "2020-02-09T16:44:32.776Z"
-updatedAt: "2020-02-10T02:48:31.622Z"
+updatedAt: "2020-02-11T02:30:39.273Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "Activation Functions"
@@ -71,7 +71,7 @@ content: '''
   #### $f(x) = 0$ if $x<0$
   #### $f(x) = x$ if $x>=0$
   
-  ![ReLU](https://cdn.tinymind.com/static/img/learn/relu.png)
+  ![ReLU](https://cdn.tinymind.com/static/img/learn/relu.png) 
   
   **About**:
   - Only used for hidden layers (not output layer)
