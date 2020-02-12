@@ -1,5 +1,5 @@
 createdAt: "2019-07-06T02:18:19.583Z"
-updatedAt: "2020-02-06T18:52:56.463Z"
+updatedAt: "2020-02-11T14:15:24.807Z"
 type: "MARKDOWN_NOTE"
 folder: "6d3bd10e36acaa4abd95"
 title: "Committing/Pushing"
@@ -15,6 +15,13 @@ content: '''
   ### Fix a commit
   ```bash
   $ git commit -amend
+  ```
+  
+  ### Reset to last git commit 
+  ```bash
+  $ git reset --hard HEAD
+  # OR
+  $ git reset --hard
   ```
   
   ### Undo a commit without losing local files

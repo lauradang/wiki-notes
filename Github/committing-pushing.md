@@ -10,6 +10,13 @@ $ git push
 $ git commit -amend
 ```
 
+### Reset to last git commit 
+```bash
+$ git reset --hard HEAD
+# OR
+$ git reset --hard
+```
+
 ### Undo a commit without losing local files
 ```bash
 git reset HEAD~1
