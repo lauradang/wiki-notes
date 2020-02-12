@@ -21,10 +21,11 @@
 Sequence of input: x(n)
 1. Takes X(0) from sequence of input
 2. Outputs h(0)
-3. h(0) and X(1) is the input for the next step
-4. Outputs h(1)
-5. h(1) and X(2) is the input for the next step
-6. Continues..
+3. h(0) and X(1) is the input for the next step (i.e. [h(0), X(1)] is 1 vector)
+4. Goes through activation function
+5. Outputs h(1)
+6. h(1) and X(2) is the input for the next step
+7. Continues..
 
 ### Compare NN to RNN
 | network | input              | output                              |
