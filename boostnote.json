@@ -149,6 +149,11 @@
       "key": "f36db4c654086d295f73",
       "color": "#FF8E00",
       "name": "Scikit-learn"
+    },
+    {
+      "key": "cc29c3443746b67c0dd2",
+      "color": "#30D5C8",
+      "name": "Soapbox"
     }
   ],
   "version": "1.0"

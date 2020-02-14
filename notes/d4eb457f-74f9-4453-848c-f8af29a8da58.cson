@@ -1,21 +1,24 @@
 createdAt: "2020-02-12T04:54:05.876Z"
-updatedAt: "2020-02-12T05:01:16.559Z"
+updatedAt: "2020-02-13T22:08:48.983Z"
 type: "MARKDOWN_NOTE"
 folder: "6d3bd10e36acaa4abd95"
 title: "PR Checklist"
 tags: []
 content: '''
   # PR Checklist
-  - [ ] Do a **function search** on all methods that were edited in the repository 
+  - [x] Git pull master
+  - [x] Do a **function search** on all methods that were edited in the repository 
     - Check if method is being used in any unexpected files
-  - [ ] Request **endpoint** multiple times and ensure that the requests are processed in reasonable time
+  - [x] Request **endpoint** multiple times and ensure that the requests are processed in reasonable time
     - Avoid **timeout** errors
-  - [ ] Check for any **repeating** code blocks
+  - [x] Check for any **repeating** code blocks
     - Refactor into classes or functions
-  - [ ] Check if statements for **ternary** use
-  - [ ] Check for loops for **list/dict comprehension**
-  - [ ] Made appropriate Wiki for all **endpoints**
-  - [ ] Made appropriate **README**
+  - [x] Check if statements for **ternary** use
+  - [x] Check for loops for **list/dict comprehension**
+  - [x] Made appropriate Wiki for all **endpoints**
+  - [x] Made appropriate **README**
+  - [x] Ensure Wiki is up to date
+  - [ ] Check for places where program can cause API to raise error
 '''
 linesHighlighted: []
 isStarred: false

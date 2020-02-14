@@ -1,11 +1,14 @@
 # PR Checklist
-- [ ] Do a **function search** on all methods that were edited in the repository 
+- [x] Git pull master
+- [x] Do a **function search** on all methods that were edited in the repository 
   - Check if method is being used in any unexpected files
-- [ ] Request **endpoint** multiple times and ensure that the requests are processed in reasonable time
+- [x] Request **endpoint** multiple times and ensure that the requests are processed in reasonable time
   - Avoid **timeout** errors
-- [ ] Check for any **repeating** code blocks
+- [x] Check for any **repeating** code blocks
   - Refactor into classes or functions
-- [ ] Check if statements for **ternary** use
-- [ ] Check for loops for **list/dict comprehension**
-- [ ] Made appropriate Wiki for all **endpoints**
-- [ ] Made appropriate **README**
+- [x] Check if statements for **ternary** use
+- [x] Check for loops for **list/dict comprehension**
+- [x] Made appropriate Wiki for all **endpoints**
+- [x] Made appropriate **README**
+- [x] Ensure Wiki is up to date
+- [ ] Check for places where program can cause API to raise error
