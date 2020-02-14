@@ -1,5 +1,5 @@
 createdAt: "2019-07-06T02:31:10.509Z"
-updatedAt: "2020-02-14T15:19:36.198Z"
+updatedAt: "2020-02-14T17:30:52.778Z"
 type: "MARKDOWN_NOTE"
 folder: "6d3bd10e36acaa4abd95"
 title: "Git Branches"
@@ -40,7 +40,7 @@ content: '''
   2. Git checkout into child branch and pull
   ```bash
   $ git checkout child-branch
-  $ git pull origin/parent-branch
+  $ git merge origin/parent-branch
   ```
   3. Solve any merge conflicts and push commit.
 '''
