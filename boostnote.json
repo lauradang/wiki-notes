@@ -149,6 +149,16 @@
       "key": "f36db4c654086d295f73",
       "color": "#FF8E00",
       "name": "Scikit-learn"
+    },
+    {
+      "key": "98fb42c2c2a54ea3554f",
+      "color": "#E8D252",
+      "name": "PyTorch"
+    },
+    {
+      "key": "f732c9c1ca21c37fdd14",
+      "color": "#FF8E00",
+      "name": "Flask"
     }
   ],
   "version": "1.0"

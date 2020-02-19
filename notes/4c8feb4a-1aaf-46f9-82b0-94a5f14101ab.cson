@@ -1,0 +1,17 @@
+createdAt: "2020-02-13T02:24:03.713Z"
+updatedAt: "2020-02-13T02:24:45.880Z"
+type: "MARKDOWN_NOTE"
+folder: "2ed70fde1277a2b12b07"
+title: "Zip Files"
+tags: []
+content: '''
+  # Zip Files
+  
+  ### Unzipping Tar.gz
+  ```bash
+  $ tar xvzf file.tar.gz
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

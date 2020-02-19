@@ -1,5 +1,5 @@
 createdAt: "2019-07-09T03:38:38.462Z"
-updatedAt: "2019-07-09T03:40:32.959Z"
+updatedAt: "2020-02-19T02:20:14.052Z"
 type: "MARKDOWN_NOTE"
 folder: "2ed70fde1277a2b12b07"
 title: "Virtual Environment"
@@ -10,7 +10,6 @@ content: '''
   ```bash
   $ pip install virtualenv
   $ virtualenv mypython
-  
   ```
   
   ### Start virtual environment
@@ -21,6 +20,19 @@ content: '''
   ### Deactivate virtual environment
   ```bash
   $ deactivate
+  ```
+  
+  ### Start virtual environment in Python3
+  ```bash
+  $ virtualenv -p python3 <envname>
+  ```
+  
+  ### Environment variables inside virtual environment
+  ```bash
+  $ vi .env
+  >> Type your environment variables in this file (VAR=VALUE)
+  
+  $ pip install python-dotenv
   ```
 '''
 linesHighlighted: []

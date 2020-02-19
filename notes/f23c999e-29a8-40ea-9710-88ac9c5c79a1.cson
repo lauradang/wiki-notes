@@ -1,0 +1,19 @@
+createdAt: "2020-02-13T01:34:18.060Z"
+updatedAt: "2020-02-13T01:35:06.812Z"
+type: "MARKDOWN_NOTE"
+folder: "96d656616328a11edf97"
+title: "Processors"
+tags: []
+content: '''
+  # Processors
+  
+  ## CPU
+  - "brains of computer"
+  - Good at multitasking
+  
+  ## GPU (Graphical processing unit)
+  - Good at handling certain tasks very fast
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
