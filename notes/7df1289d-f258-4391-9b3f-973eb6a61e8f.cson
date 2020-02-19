@@ -1,5 +1,5 @@
 createdAt: "2019-07-06T02:31:10.509Z"
-updatedAt: "2020-02-11T14:15:07.530Z"
+updatedAt: "2020-02-14T17:30:52.778Z"
 type: "MARKDOWN_NOTE"
 folder: "6d3bd10e36acaa4abd95"
 title: "Git Branches"
@@ -30,6 +30,19 @@ content: '''
   8. Now, `feature2` only depends on `master`, so you can now go to the PR for `feature` and safely delete the `feature` branch
   9. Now do code review for `feature2` and merge into `master`.
   10. Delete `feature2`.
+  
+  ### Keeping child branches up to date with the parent
+  1. Git checkout into parent branch and pull
+  ```bash
+  $ git checkout parent-branch
+  $ git pull
+  ```
+  2. Git checkout into child branch and pull
+  ```bash
+  $ git checkout child-branch
+  $ git merge origin/parent-branch
+  ```
+  3. Solve any merge conflicts and push commit.
 '''
 linesHighlighted: [
   4

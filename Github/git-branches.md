@@ -23,3 +23,16 @@ $ git push origin (name of new branch)
 8. Now, `feature2` only depends on `master`, so you can now go to the PR for `feature` and safely delete the `feature` branch
 9. Now do code review for `feature2` and merge into `master`.
 10. Delete `feature2`.
+
+### Keeping child branches up to date with the parent
+1. Git checkout into parent branch and pull
+```bash
+$ git checkout parent-branch
+$ git pull
+```
+2. Git checkout into child branch and pull
+```bash
+$ git checkout child-branch
+$ git pull origin/parent-branch
+```
+3. Solve any merge conflicts and push commit.

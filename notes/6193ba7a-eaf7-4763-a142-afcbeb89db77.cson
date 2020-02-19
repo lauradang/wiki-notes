@@ -1,0 +1,45 @@
+createdAt: "2020-02-13T18:37:47.323Z"
+updatedAt: "2020-02-14T15:50:00.131Z"
+type: "MARKDOWN_NOTE"
+folder: "cc29c3443746b67c0dd2"
+title: "Classification Task Overview"
+tags: []
+content: '''
+  # Classification Task Overview
+  Refer to this [link](https://docs.google.com/document/d/1Z-KwOafoYyoiiu-YB67BnNxPfw3zCTwIi5OIipOx1H0/edit#)
+  
+  - User can swap tags (under next steps and attachments in an agenda)
+    - API call occurs -> We want to capture this event
+    - Save this on database
+  - Retrain model every night with the data from database
+  - Save the weights -> load these new weights after training
+  - Maybe store pickle files on Git Large File Storage
+  - Spawn another instance for training
+  ## Process
+  
+  1. Create table schema
+  - Have training data with respective Soapbox ID (which is connected to the backend because it refers to the company of the Soapbox)
+  - Have a column `is_trained`
+  
+  2. Create endpoint
+  - Get item title 
+  - Get topic that has been chosen on that item
+  - Get the company's Soapbox ID
+  - Save into database
+  - name PKL file based on SoapboxID
+  
+  3. Create ML script to do the training
+  - Open and load data from database
+  - Train model and save the weights
+  
+  4. Integrate ML script with backend API 
+  
+  5. Integrate Docker
+  
+  6. Add cron job (job scheduler)
+  - Invokes the script whenever you need (nightly maybe)
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
