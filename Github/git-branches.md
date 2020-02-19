@@ -33,6 +33,6 @@ $ git pull
 2. Git checkout into child branch and pull
 ```bash
 $ git checkout child-branch
-$ git pull origin/parent-branch
+$ git merge origin/parent-branch
 ```
 3. Solve any merge conflicts and push commit.
