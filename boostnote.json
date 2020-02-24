@@ -164,6 +164,11 @@
       "key": "cc29c3443746b67c0dd2",
       "color": "#30D5C8",
       "name": "Soapbox"
+    },
+    {
+      "key": "69aa2bfcfd9de201b322",
+      "color": "#FF8E00",
+      "name": "Machine Learning (Audio Classification)"
     }
   ],
   "version": "1.0"

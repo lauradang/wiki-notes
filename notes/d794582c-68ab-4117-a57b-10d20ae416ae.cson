@@ -1,0 +1,18 @@
+createdAt: "2020-02-22T17:45:24.475Z"
+updatedAt: "2020-02-22T17:47:32.808Z"
+type: "MARKDOWN_NOTE"
+folder: "19084091c3fe839cb9cb"
+title: "Jupyter Notebook with VS Code"
+tags: []
+content: '''
+  # Jupyter Notebook with VS Code
+  
+  Follow [Jupyter Notebook in Visual Studio Code - Towards Data Science](https://towardsdatascience.com/jupyter-notebook-in-visual-studio-code-3fc21a36fe43) to get started.
+  
+  ## Virtual environments
+  1. Open notebook you want to run in VS Code
+  2. Go to the top right corner and select the environment you want to run the notebook in
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

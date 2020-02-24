@@ -1,0 +1,22 @@
+createdAt: "2020-02-22T21:36:24.288Z"
+updatedAt: "2020-02-22T22:14:08.281Z"
+type: "MARKDOWN_NOTE"
+folder: "69aa2bfcfd9de201b322"
+title: "Model Preparation"
+tags: []
+content: '''
+  # Model Preparation
+  We need to create an arbitary amount of time to sample the data with (We will be using 1/10 second, you're model should be able to predict within this timeframe). Try not to go above 1 second.
+  
+  ## Calculate Number of Sample Chunks
+  - Decided to chunk audio files into secions that are 1/10 seconds long
+  - Want to calculate how many chunks in total 
+  Note: We multiply by 2 so we can get a larger sample size to ensure we have enough data.
+  ```python
+  sample_size = 2 * int(df.length.sum() / 0.10)
+  ```
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
