@@ -8,6 +8,7 @@
   - Since it returns a complex array, it has an imaginary part, but we only want the magnitude (so only the real). So we take the absolute value
   - Dividing by window_length to normalize the FFT output (not required but good to do)
     - Even though we should be ensuring that all signals are the same length, in case they aren't, this scales magnitude of the FFT
+
 ```python
 def calc_fft(samples, sampling_rate):
     window_length = len(samples)
@@ -28,6 +29,7 @@ calc_fft(samples, sampling_rate)
     - Get the sample frequency by getting the rate from `wavfile.read()`
     - Here, we just used the conventional window size of 0.025 seconds
     - So the `nfft=44100*0.025`
+
 ```python
 from python_speech_features import logfbank, mfcc
 
@@ -65,6 +67,7 @@ coeff = mfcc(
   - Do this easier with `Pandas Series` instead of `numpy array`
   - Returns List of booleans for Numpy array Masking (Lines up with numpy array length, if the index is matched up with False, it is removed from the array)
 - To find threshold value (in this case it's 0.0005), you have to test out which one works best
+
 ```python
 def calc_envelope_signal(samples, sampling_rate, threshold):
     # Convert numpy array to Series for easier data manipulation

@@ -1,5 +1,5 @@
 createdAt: "2020-02-19T04:38:42.228Z"
-updatedAt: "2020-02-24T05:28:43.053Z"
+updatedAt: "2020-02-24T05:42:01.079Z"
 type: "MARKDOWN_NOTE"
 folder: "69aa2bfcfd9de201b322"
 title: "Loading Data"
@@ -22,6 +22,7 @@ content: '''
     - `data.shape = (num_samples, num_channels)`
     - Therefore, `length = data.shape[0] / sample_rate` 
   - `np.array.shape` → `(width, height)`
+  
   ```python
   df = pd.read_csv('instruments.csv')
   df.set_index('fname', inplace=True)
@@ -43,9 +44,6 @@ content: '''
   ax.axis('equal')
   plt.show()
   ```
-  
-  
-  
 '''
 linesHighlighted: []
 isStarred: false

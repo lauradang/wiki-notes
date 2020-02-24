@@ -15,6 +15,7 @@
   - `data.shape = (num_samples, num_channels)`
   - Therefore, `length = data.shape[0] / sample_rate` 
 - `np.array.shape` → `(width, height)`
+
 ```python
 df = pd.read_csv('instruments.csv')
 df.set_index('fname', inplace=True)
@@ -36,5 +37,3 @@ ax.pie(class_dist, labels=class_dist.index, autopct='%1.1f%%',
 ax.axis('equal')
 plt.show()
 ```
-
-
