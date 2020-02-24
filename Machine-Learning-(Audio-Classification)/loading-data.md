@@ -11,7 +11,7 @@
   - Used this instead of `librose.load()` in this case because:
     - Faster in most cases
     - By default, wavefile does not normalize the data (get an accurate sample rate with no manipulation to the data)
-  - $SampleRate = \frac{samples}{sec}$
+  $$SampleRate = \frac{samples}{sec}$$
   - `data.shape = (num_samples, num_channels)`
   - Therefore, `length = data.shape[0] / sample_rate` 
 - `np.array.shape` → `(width, height)`

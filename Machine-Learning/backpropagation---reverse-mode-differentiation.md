@@ -64,14 +64,14 @@ This can be factored/reduced to: **∂Z/∂X = (α+β+γ)(δ+ϵ+ζ)**
 - Sums all paths feeding into next node
 - Each path represents how input affects node (derivative
 - **Summary**: Tracks how 1 input affects every node
-  - i.e. Applies ∂/∂X to every node
+  - i.e. Applies **$$\frac{∂}{∂X}$$** to every node
 
 ### Reverse-mode Differentiation
 - Starts at output
 - Moves towards beginning
 - At each node, merges paths which originated at that node
 - **Summary**: Tracks how every node affects 1 output
-  - i.e. Applies ∂Z/∂ to every node
+  - i.e. Applies **$$\frac{∂Z}{∂}$$** to every node
 
 ## Seeing the Advantages of Reverse-mode Differentiation
 - Refer to diagram in this section

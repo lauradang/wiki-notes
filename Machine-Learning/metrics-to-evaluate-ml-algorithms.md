@@ -30,7 +30,7 @@ Refer to [Metrics to Evaluate your Machine Learning Algorithm](https://towardsda
   - *p_ij*: Probability of sample *i* belonging to class *j*
 - **Range**: $$[0, \infty]$$
   - If logloss &rarr; 0, more accurate
-  - If logloss → $\infty$, less accurate
+  - If logloss → $$\infty$$, less accurate
 ![Logarithmic Loss](https://markhneedham.com/blog//uploads/2016/09/NEmt7.png) 
 
 ## Confusion Matrix
@@ -60,11 +60,11 @@ Refer to [Metrics to Evaluate your Machine Learning Algorithm](https://towardsda
 
 - **True Positive Rate (Sensitivity)**:
   - **Equation**: TP / (FN+TP)
-  - **Range**: $[0, 1]$
+  - **Range**: $$[0, 1]$$
   - **Meaning**: Positive data points with respect to ALL positive (actual) data points
 - **False Positive Rate (Specificity)**:
   - **Equation**: FP / (FP+TN)
-  - **Range**: $[0, 1]$
+  - **Range**: $$[0, 1]$$
   - **Meaning**: Negative data points considered positive out of all negative (actual) data points
 
 ## F1 Score
@@ -72,7 +72,7 @@ Refer to [Metrics to Evaluate your Machine Learning Algorithm](https://towardsda
 
 ![F1 Score](https://mk0caiblog1h3pefaf7c.kinstacdn.com/wp-content/uploads/2018/09/Capture-d%E2%80%99e%CC%81cran-2018-09-26-a%CC%80-16.42.24-e1538561198738.png)
 
-- **Range**: $[0, 1]$
+- **Range**: $$[0, 1]$$
 - **Meaning**:
   - Balance between Precision and Recall
   - Precision (how many instances it classifies correctly)

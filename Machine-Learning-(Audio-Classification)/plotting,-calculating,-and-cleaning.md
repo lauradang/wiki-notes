@@ -24,7 +24,7 @@ calc_fft(samples, sampling_rate)
 - **Filterbank**:`logfbank(audio signal that is n*1 array, sampling_rate, nfft)`
   - `nfft`: the FFT size (number of bins used for dividing the window into equal strips, or bins)
 - **Cepstrum**: Similar to above but uses `mfcc()` (Remember, this is just the filterbank energy coefficients with the discrete cosine transform)
-    - Calculated by $sampling frequency*window_size$
+    - Calculated by $$sampling frequency*window_size$$
     - Get the sample frequency by getting the rate from `wavfile.read()`
     - Here, we just used the conventional window size of 0.025 seconds
     - So the `nfft=44100*0.025`

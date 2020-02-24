@@ -1,5 +1,5 @@
 createdAt: "2020-02-07T04:35:26.534Z"
-updatedAt: "2020-02-09T03:56:29.266Z"
+updatedAt: "2020-02-24T05:28:03.254Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "Backpropagation / Reverse-mode Differentiation"
@@ -71,14 +71,14 @@ content: '''
   - Sums all paths feeding into next node
   - Each path represents how input affects node (derivative
   - **Summary**: Tracks how 1 input affects every node
-    - i.e. Applies ∂/∂X to every node
+    - i.e. Applies **$$\\frac{∂}{∂X}$$** to every node
   
   ### Reverse-mode Differentiation
   - Starts at output
   - Moves towards beginning
   - At each node, merges paths which originated at that node
   - **Summary**: Tracks how every node affects 1 output
-    - i.e. Applies ∂Z/∂ to every node
+    - i.e. Applies **$$\\frac{∂Z}{∂}$$** to every node
   
   ## Seeing the Advantages of Reverse-mode Differentiation
   - Refer to diagram in this section

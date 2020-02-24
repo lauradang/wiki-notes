@@ -24,19 +24,19 @@ We will try to find similarity between lyrics or actual sound.
 **Setting up variables**:
 Let P and Q represents two songs which are both sequence of vectors.
 
-$P = (P_1, ..., P_n)$ 
-$Q = (Q_1, ..., Q_m)$
+$$P = (P_1, ..., P_n)$$ 
+$$Q = (Q_1, ..., Q_m)$$
 
-$P_i$ represents:
-- Word vector $x_i$ of the ith word in the lyrics of song P
+**$$P_i$$** represents:
+- Word vector $$x_i$$ of the ith word in the lyrics of song P
 
-$Q_i$ represents:
-- Audio spectrogram for a fixed # of frames for the $t$th "chunk" of time in song Q
+**$$Q_i$$** represents:
+- Audio spectrogram for a fixed # of frames for the $$t$$th "chunk" of time in song Q
 
-Let Y be an indicator (0 is not similar, 1 is similar): $Y ∈ [0, 1]$
+Let Y be an indicator (0 is not similar, 1 is similar): $$Y ∈ [0, 1]$$
 
-**Classification Problem**: $y=f(P, Q)$
-- $f(P, Q)$ is non-linear classification function (Predicts similarity between songs)
+**Classification Problem**: $$y=f(P, Q)$$
+- **$$f(P, Q)$$** is non-linear classification function (Predicts similarity between songs)
 
 ## Models
 - Why **LTSM**?
@@ -44,14 +44,14 @@ Let Y be an indicator (0 is not similar, 1 is similar): $Y ∈ [0, 1]$
   - Able to remember longer sequences than normal RNNs
 
 #### Framework
-- **Input to models**: P and Q (remember these are the two songs)
-- **Output of model**: 1 Classification label, $y$
+- **Input to models**: $$P$$ and $$Q$$ (remember these are the two songs)
+- **Output of model**: 1 Classification label, $$y$$
 - On top of LTSM, added layers depending on input (either lyrics, so text, or audio)
 - For audio, before being passed to LTSM, process through convolutional layers
 
 Overall Process:
 1. Input for each song (so either the lyrics or audio) unrolled 1 timestep at a time spectrogram data through network
-2. Final hidden states from each song (P and Q) are combined
+2. Final hidden states from each song ($$P$$ and $$Q$$) are combined
 3. Result is passed through 1 or more fully connected layers and finally a softmax function
 4. Produces single binary output
 

@@ -30,7 +30,7 @@
   - Helpful because any # multiplied by 0 is just forgotten (Uses vanishing gradient problem to our advantage)
 
 ### Step-by-Step Flow
-**Review**: Hidden state is information from previous inputs ($h_1$ for example)
+**Review**: Hidden state is information from previous inputs ($$h_1$$ for example)
 
 #### Forget Gate
 - **Overall**: Decides what info should be forgotten or kept

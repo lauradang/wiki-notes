@@ -29,15 +29,15 @@
 ## Common Non-Linear Activation Functions
 
 ### Sigmoid / Logistic
-#### $f(x)=\frac{1}{1+e^-x}$
+#### $$f(x)=\frac{1}{1+e^-x}$$
 
 ![Sigmoid](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/1200px-Logistic-curve.svg.png)
 
 **Pros**:
 - Smooth gradient (prevents "jumps" in output values)
-- Bounded output values for each neuron ([0, 1]) by normalization
+- Bounded output values for each neuron (**$$[0, 1]$$**) by normalization
 - Clear predictions
-  - If -2 <= X <= 2, Y is very close to either 0 or 1 (Refer to graph)
+  - If **$$-2 <= X <= 2$$**, **$$Y$$** is very close to either 0 or 1 (Refer to graph)
 
 **Cons**:
 - Vanishing Gradient Problem
@@ -49,9 +49,9 @@
   - Refer to [this link](https://medium.com/datadriveninvestor/deep-learning-best-practices-activation-functions-weight-initialization-methods-part-1-c235ff976ed) for explanation on why that's bad
 
 ### TanH / Hyperbolic Tangent:
-#### $f(x)=\frac{1-e^-2x}{1+e^-2x}$ 
+#### $$f(x)=\frac{1-e^-2x}{1+e^-2x}$$ 
 
-![TanH](https://lh3.googleusercontent.com/proxy/7LNx57K9GPV1nJjhdwrfrpyuMuEpmtc48rRaAQouyR4-5xFate0vjR0JF2JB9YhlNu0Flf30NiyIrOVKURwXwx\_Ro2y\_0yaTSFILZql9TYjCjIwl)
+![TanH](https://www.i2tutorials.com/wp-content/uploads/2019/09/Deep-learning-30-i2tutorials.png)
 
 **Pros**:
 - Zero-centered
@@ -61,8 +61,8 @@
 - Like sigmoid
 
 ### ReLU (Rectified Linear Unit)
-#### $f(x) = 0$ if $x<0$
-#### $f(x) = x$ if $x>=0$
+#### $$f(x) = 0$$ if $$x<0$$
+#### $$f(x) = x$$ if $$x>=0$$
 
 ![ReLU](https://cdn.tinymind.com/static/img/learn/relu.png) 
 
@@ -84,14 +84,14 @@
   - RNNs output very large values, and ReLU does not bound output values, so you could have exploding gradient problem
 
 ### Leaky / Parametric ReLU / Maxout Function
-#### $f(x)=x$ if $x>0$
-#### $f(x)=ax$ if $x<0$
+#### $$f(x)=x$$ if $$x>0$$
+#### $$f(x)=ax$$ if $$x<0$$
 
 ![Leaky ReLU](https://miro.medium.com/max/2050/1*siH_yCvYJ9rqWSUYeDBiRA.png)
 
 **About:**
-- `a` is a **parameter**
-- `a` = 0.01 for leaky Relu
+- **$$a$$** is a **parameter**
+- **$$a = 0.01$$** for leaky Relu
 
 **Pros**:
 - Fixes "dying relu problem" (no 0 slope, so can have backpropagation now)

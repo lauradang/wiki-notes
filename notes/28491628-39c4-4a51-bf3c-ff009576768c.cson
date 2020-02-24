@@ -1,5 +1,5 @@
 createdAt: "2020-02-11T02:18:30.683Z"
-updatedAt: "2020-02-11T04:31:15.839Z"
+updatedAt: "2020-02-24T05:02:00.807Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "LSTM Networks (Long-Short Term Memory)"
@@ -37,7 +37,7 @@ content: '''
     - Helpful because any # multiplied by 0 is just forgotten (Uses vanishing gradient problem to our advantage)
   
   ### Step-by-Step Flow
-  **Review**: Hidden state is information from previous inputs ($h_1$ for example)
+  **Review**: Hidden state is information from previous inputs ($$h_1$$ for example)
   
   #### Forget Gate
   - **Overall**: Decides what info should be forgotten or kept

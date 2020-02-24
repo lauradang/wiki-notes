@@ -1,5 +1,5 @@
 createdAt: "2020-02-10T02:50:38.290Z"
-updatedAt: "2020-02-10T02:53:35.704Z"
+updatedAt: "2020-02-24T05:25:33.909Z"
 type: "MARKDOWN_NOTE"
 folder: "7f09f784791ea8ae2c2b"
 title: "Neural Networks"
@@ -26,18 +26,18 @@ content: '''
   - eg. **Sigmoid function**
   
   #### Sigmoid Function
-  - $\\frac{1}{1+e^-x}$
-  - $Range: [0, 1]$
+  $$\\frac{1}{1+e^-x}$$
+  $$Range: [0, 1]$$
   - eg. Binary classification: The output would either be 0 or 1
   
   ### What is happening in step 2 of process
   1. Each input multiplied by some weight
   
-  $x_1$ &rarr; $x_1 * w_1$
+  **$$x_1$$ &rarr; $$x_1 * w_1$$**
   
   2. All weighted inputs summed (basically dot product of input and weights) and bias is added
   
-  ($x_1 * w_1$) + ($x_2 * w_2$) + b
+  ($$x_1 * w_1$$) + ($$x_2 * w_2$$) + $$b$$
   
   3. Sum is passed into **activation function**
   

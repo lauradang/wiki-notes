@@ -1,5 +1,5 @@
 createdAt: "2020-02-19T04:38:42.228Z"
-updatedAt: "2020-02-22T19:44:04.684Z"
+updatedAt: "2020-02-24T05:28:43.053Z"
 type: "MARKDOWN_NOTE"
 folder: "69aa2bfcfd9de201b322"
 title: "Loading Data"
@@ -18,7 +18,7 @@ content: '''
     - Used this instead of `librose.load()` in this case because:
       - Faster in most cases
       - By default, wavefile does not normalize the data (get an accurate sample rate with no manipulation to the data)
-    - $SampleRate = \\frac{samples}{sec}$
+    $$SampleRate = \\frac{samples}{sec}$$
     - `data.shape = (num_samples, num_channels)`
     - Therefore, `length = data.shape[0] / sample_rate` 
   - `np.array.shape` → `(width, height)`
