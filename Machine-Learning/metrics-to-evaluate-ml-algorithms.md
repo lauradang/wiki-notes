@@ -28,7 +28,7 @@ Refer to [Metrics to Evaluate your Machine Learning Algorithm](https://towardsda
   - *M*: Total # of classes
   - *y_ij*: If sample *i* belongs to class *j* or not
   - *p_ij*: Probability of sample *i* belonging to class *j*
-- **Range**: $[0, \infty]$ 
+- **Range**: $$[0, \infty]$$
   - If logloss &rarr; 0, more accurate
   - If logloss → $\infty$, less accurate
 ![Logarithmic Loss](https://markhneedham.com/blog//uploads/2016/09/NEmt7.png) 
