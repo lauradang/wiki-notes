@@ -1,5 +1,5 @@
 createdAt: "2020-02-19T02:48:04.737Z"
-updatedAt: "2020-02-22T19:49:44.180Z"
+updatedAt: "2020-02-24T05:47:48.587Z"
 type: "MARKDOWN_NOTE"
 folder: "69aa2bfcfd9de201b322"
 title: "Background"
@@ -33,6 +33,7 @@ content: '''
   plt.ylabel("Amplitude")
   plt.show()
   ```
+  
   ## Fourier Transform (FT)
   - Transformation from Time Domain → Frequency Domain 
   - Takes **continuous signal** as input
@@ -77,14 +78,6 @@ content: '''
     - So a machine could easily differentiate at this point
     
   ![visualize_dic_instrument.png](https://ccrma.stanford.edu/~juhan/thesis/visualize_dic_instrument.png)
-  
-  
-  
-  
-  
-  
-  
-  
 '''
 linesHighlighted: []
 isStarred: false

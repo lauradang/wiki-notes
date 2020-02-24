@@ -26,6 +26,7 @@ plt.xlabel("Time (seconds) -->")
 plt.ylabel("Amplitude")
 plt.show()
 ```
+
 ## Fourier Transform (FT)
 - Transformation from Time Domain → Frequency Domain 
 - Takes **continuous signal** as input
@@ -70,10 +71,3 @@ plt.show()
   - So a machine could easily differentiate at this point
   
 ![visualize_dic_instrument.png](https://ccrma.stanford.edu/~juhan/thesis/visualize_dic_instrument.png)
-
-
-
-
-
-
-
