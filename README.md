@@ -1,6 +1,6 @@
 # Introduction
 
-![Snail](https://media1.tenor.com/images/8aaf0058c4a0377fde8d02587a6be370/tenor.gif?itemid=4440541)
+![](https://media1.tenor.com/images/8aaf0058c4a0377fde8d02587a6be370/tenor.gif?itemid=4440541)
 
 ## About me
 

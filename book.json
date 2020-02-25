@@ -1,4 +1,4 @@
 {
     "gitbook": "3.2.3",
-    "plugins": ["mathjax"]
+    "plugins": ["mathjax", "advanced-emoji"]
 }
