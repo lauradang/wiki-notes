@@ -1,4 +1,7 @@
+# Commiting and Pushing
+
 ### Committing/Pushing
+
 ```bash
 $ git add .
 $ git commit

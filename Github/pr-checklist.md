@@ -9,6 +9,6 @@
 - [x] Check if statements for **ternary** use
 - [x] Check for loops for **list/dict comprehension**
 - [x] Made appropriate Wiki for all **endpoints**
-- [x] Made appropriate **README**
-- [x] Ensure Wiki is up to date
+- [ ] Made appropriate **README**
+- [ ] Ensure Wiki is up to date
 - [ ] Check for places where program can cause API to raise error
