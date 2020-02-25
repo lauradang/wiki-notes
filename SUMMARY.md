@@ -64,9 +64,6 @@
     * [Git Merge Conflicts](DevOps/Github/git-merge-conflicts.md)
     * [Pr Checklist](DevOps/Github/pr-checklist.md)
     * [Troubleshooting](DevOps/Github/troubleshooting.md)
-- Fairtax
-  * [Fairtax Region Dictionary](Fairtax/fairtax-region-dictionary.md)
-  * [Fippa](Fairtax/fippa.md)
 - Interview
   - Data Science Interview
     * [Knowledge Interview Questions](Interview/Data Science Interview/knowledge-interview-questions.md)
@@ -152,10 +149,6 @@
     * [Loading Data](Side Projects/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Side Projects/Machine Learning Audio Classification/model-preparation.md)
     * [Plotting Calculating And Cleaning](Side Projects/Machine Learning Audio Classification/plotting,-calculating,-and-cleaning.md)
-- Soapbox
-  * [Classification Task Overview](Soapbox/classification-task-overview.md)
-  * [Classification Task Work](Soapbox/classification-task-work.md)
-  * [Soapbox Ml Staging](Soapbox/soapbox-ml-staging.md)
 - Web
   - [Django](Web/Django/README.md)
     * [Activating Grantmatch](Web/Django/activating-grantmatch.md)
