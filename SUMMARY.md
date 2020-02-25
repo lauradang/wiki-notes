@@ -145,11 +145,11 @@
     * [Zip Files](Shell/Linux/zip-files.md)
 - Side Projects
   - Machine Learning Audio Classification
-    * [Background](Side Projects/Machine Learning (Audio Classification)/background.md)
-    * [Deepplaylist Rnns To Predict Song Similarity](Side Projects/Machine Learning (Audio Classification)/deepplaylist:-rnns-to-predict-song-similarity.md)
-    * [Loading Data](Side Projects/Machine Learning (Audio Classification)/loading-data.md)
-    * [Model Preparation](Side Projects/Machine Learning (Audio Classification)/model-preparation.md)
-    * [Plotting Calculating And Cleaning](Side Projects/Machine Learning (Audio Classification)/plotting,-calculating,-and-cleaning.md)
+    * [Background](Side Projects/Audio Classification/background.md)
+    * [Deepplaylist Rnns To Predict Song Similarity](Side Projects/Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
+    * [Loading Data](Side Projects/Audio Classification/loading-data.md)
+    * [Model Preparation](Side Projects/Audio Classification/model-preparation.md)
+    * [Plotting Calculating And Cleaning](Side Projects/Audio Classification/plotting,-calculating,-and-cleaning.md)
 - Soapbox
   * [Classification Task Overview](Soapbox/classification-task-overview.md)
   * [Classification Task Work](Soapbox/classification-task-work.md)
