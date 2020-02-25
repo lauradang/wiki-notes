@@ -1,7 +1,8 @@
 # Training a Neural Network
-Refer to [Intro to Neural Networks]([https://victorzhou.com/blog/intro-to-neural-networks/](https://victorzhou.com/blog/intro-to-neural-networks/))
+Refer to [Intro to Neural Networks]([https://victorzhou.com/blog/intro-to-neural-networks/) 
 
 **Big idea:** TRAINING NETWORK MEANS TO **MINIMIZE LOSS**
+
 ## Overall Process
 1. Give outputs numbers (0 represents Male, 1 represents Female)
 2. Shift data numbers by mean (normalization)
@@ -88,4 +89,3 @@ So to sum it up...
   - $$w1​←w1​−η\frac{∂L}{∂w_1}$$
     - η is learning constant
   - If $$\frac{∂L}{∂w_1}>0 → w_1$$ decreases $$→ L$$ decreases
-

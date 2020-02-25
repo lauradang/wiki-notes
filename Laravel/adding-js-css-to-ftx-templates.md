@@ -1,4 +1,5 @@
-### Adding JS/CSS to FTX templates
+# Adding JS/CSS to Templates
+
 #### 1. Move files to assets
 - Put JS and CSS files into ```resources/assert/(js or css)/vendors```
 
