@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Overview](README.md)
+* [Introduction](README.md)
 * [Github](github/README.md)
   * [Git Merge Conflicts](Github/git-merge-conflicts.md)
   * [Git Branches](Github/git-branches.md)
@@ -36,10 +36,9 @@
   * [Troubleshooting](Django/troubleshooting.md)
 * [Laravel](laravel/README.md)
   * [Troubleshooting](Laravel/troubleshooting.md)
-  * [Adding JS/CSS to FTX templates](Laravel/adding-js-css-to-ftx-templates.md)
+  * [Adding JS/CSS to Templates](Laravel/adding-js-css-to-ftx-templates.md)
   * [Migrations](Laravel/migrations.md)
   * [Database Queries](Laravel/database-queries.md)
-  * [Lecture 14](Laravel/lecture-14.md)
 * [Pandas](pandas/README.md)
   * [Troubleshooting](Pandas/troubleshooting.md)
   * [Manipulating built dataframes](Pandas/manipulating-built-dataframes.md)
