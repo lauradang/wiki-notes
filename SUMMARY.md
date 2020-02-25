@@ -1,6 +1,6 @@
 # Your Book Title
 
-- C
+- C++
   - [CS 246](C++/CS 246/README.md)
     * [Assignment 1](C++/CS 246/assignment-1.md)
     * [Assignment 2](C++/CS 246/assignment-2.md)
@@ -69,9 +69,6 @@
     * [Git Merge Conflicts](DevOps/Github/git-merge-conflicts.md)
     * [Pr Checklist](DevOps/Github/pr-checklist.md)
     * [Troubleshooting](DevOps/Github/troubleshooting.md)
-- Fairtax
-  * [Fairtax Region Dictionary](Fairtax/fairtax-region-dictionary.md)
-  * [Fippa](Fairtax/fippa.md)
 - Interview
   - Data Science Interview
     * [Knowledge Interview Questions](Interview/Data Science Interview/knowledge-interview-questions.md)
@@ -112,8 +109,8 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [Lstm Networks Long Short Term Memory](Machine Learning/Recurrent Neural Networks/lstm-networks-(long-short-term-memory).md)
-    * [Recurrent Neural Networks Rnn](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks-(rnn).md)
+    * [Lstm Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
+    * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
   - Scikit Learn
     * [Example Of Training And Predicting Model](Machine Learning/Scikit-learn/example-of-training-and-predicting-model.md)
@@ -122,11 +119,12 @@
     * [Random Forests](Machine Learning/Scikit-learn/random-forests.md)
     * [Selecting Data For Modeling](Machine Learning/Scikit-learn/selecting-data-for-modeling.md)
   - [Spacy](Machine Learning/Spacy/README.md)
-    * [Language Processing Pipelines Spacy](Machine Learning/Spacy/language-processing-pipelines-(spacy).md)
+    * [Language Processing Pipelines](Machine Learning/Spacy/language-processing-pipelines.md)
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
   * [Api](Miscellaneous/api.md)
+  * [Gitbook](Miscellaneous/Gitbook.md)
   * [Processors](Miscellaneous/processors.md)
 - Python
   - Object Oriented Programming
@@ -151,10 +149,6 @@
     * [Loading Data](Side Projects/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Side Projects/Machine Learning Audio Classification/model-preparation.md)
     * [Plotting Calculating And Cleaning](Side Projects/Machine Learning Audio Classification/plotting,-calculating,-and-cleaning.md)
-- Soapbox
-  * [Classification Task Overview](Soapbox/classification-task-overview.md)
-  * [Classification Task Work](Soapbox/classification-task-work.md)
-  * [Soapbox Ml Staging](Soapbox/soapbox-ml-staging.md)
 - Web
   - [Django](Web/Django/README.md)
     * [Activating Grantmatch](Web/Django/activating-grantmatch.md)
