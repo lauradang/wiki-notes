@@ -129,9 +129,9 @@
 - Python
   - Object Oriented Programming
     * [Args And Kwargs](Python/Object Oriented Programming/args-and-kwargs.md)
-  - Python Conventions
-    * [Args And Kwargs](Python/Python Conventions/args-and-kwargs.md)
+  * [Imports](Python/imports.md)
   * [Linked Lists](Python/linked-lists.md)
+  * [Troubleshooting](Python/troubleshooting.md)
 - Shell
   - [Bash](Shell/Bash/README.md)
     * [Environment Variables](Shell/Bash/environment-variables.md)
@@ -145,6 +145,7 @@
 - Side Projects
   - Machine Learning Audio Classification
     * [Background](Side Projects/Machine Learning Audio Classification/background.md)
+    * [Building Cnn](Side Projects/Machine Learning Audio Classification/building-cnn.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Side Projects/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Side Projects/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Side Projects/Machine Learning Audio Classification/model-preparation.md)
