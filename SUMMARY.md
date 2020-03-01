@@ -1,6 +1,6 @@
 # Your Book Title
 
-- C+
+- C++
   - [CS 246](C++/CS 246/README.md)
     * [Assignment 1](C++/CS 246/assignment-1.md)
     * [Assignment 2](C++/CS 246/assignment-2.md)
@@ -92,6 +92,7 @@
   - Neural Networks
     * [Activation Functions](Machine Learning/Neural Networks/activation-functions.md)
     * [Backpropagation Reverse Mode Differentiation](Machine Learning/Neural Networks/backpropagation---reverse-mode-differentiation.md)
+    * [Cnn Input Output Shape](Machine Learning/Neural Networks/cnn-input-output-shape.md)
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
   - [Py Torch](Machine Learning/PyTorch/README.md)
