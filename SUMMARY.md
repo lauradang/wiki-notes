@@ -1,6 +1,6 @@
 # Your Book Title
 
-- C++
+- C+
   - [CS 246](C++/CS 246/README.md)
     * [Assignment 1](C++/CS 246/assignment-1.md)
     * [Assignment 2](C++/CS 246/assignment-2.md)
@@ -131,6 +131,7 @@
     * [Args And Kwargs](Python/Object Oriented Programming/args-and-kwargs.md)
   * [Imports](Python/imports.md)
   * [Linked Lists](Python/linked-lists.md)
+  * [Pickle](Python/pickle.md)
   * [Troubleshooting](Python/troubleshooting.md)
 - Shell
   - [Bash](Shell/Bash/README.md)
