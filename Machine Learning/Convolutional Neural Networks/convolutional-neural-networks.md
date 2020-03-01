@@ -1,4 +1,4 @@
-## Convolutional Neural Networks
+## Introduction to Convolutional Neural Networks
 [YouTube](https://www.youtube.com/watch?v=YRhxdVk_sIs)
 
 ### Convolutional layers

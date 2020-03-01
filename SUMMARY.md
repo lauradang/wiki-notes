@@ -74,11 +74,11 @@
   - Algorithms
     * [Algorithms Pros And Cons](Machine Learning/Algorithms/algorithms-pros-and-cons.md)
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
-  - Deep Learning
-    * [Convolutional Neural Networks](Machine Learning/Deep Learning/convolutional-neural-networks.md)
-    * [Introduction To Deep Learning](Machine Learning/Deep Learning/introduction-to-deep-learning.md)
-    * [Introduction To Neural Networks](Machine Learning/Deep Learning/introduction-to-neural-networks.md)
-    * [Training Own Datasets](Machine Learning/Deep Learning/training-own-datasets.md)
+  - Convolutional Neural Networks
+    * [Cnn Duplicate](Machine Learning/Convolutional Neural Networks/cnn-duplicate.md)
+    * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
+    * [Convolutional Neural Networks](Machine Learning/Convolutional Neural Networks/convolutional-neural-networks.md)
+    * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
@@ -92,9 +92,11 @@
   - Neural Networks
     * [Activation Functions](Machine Learning/Neural Networks/activation-functions.md)
     * [Backpropagation Reverse Mode Differentiation](Machine Learning/Neural Networks/backpropagation---reverse-mode-differentiation.md)
-    * [Cnn Input Output Shape](Machine Learning/Neural Networks/cnn-input-output-shape.md)
+    * [Introduction To Deep Learning](Machine Learning/Neural Networks/introduction-to-deep-learning.md)
+    * [Introduction To Neural Networks](Machine Learning/Neural Networks/introduction-to-neural-networks.md)
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
+    * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
   - [Py Torch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
