@@ -1,4 +1,4 @@
-# CNN Input Output Shape
+# Input/Output Shape for Convolutional Neural Networks
 
 Refer to this [link](https://towardsdatascience.com/understanding-input-and-output-shapes-in-convolution-network-keras-f143923d56ca).
 

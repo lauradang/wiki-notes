@@ -69,6 +69,7 @@
   - **Filter/Kernel/Neuron** (all the same thing) starts in the top left corner of the input image and slides/convolving right across all areas of input image (Covers FxF area at a time) - Refer to `convolution.gif` for an animation
 
     - Region FxF is the **receptive field**
+    - Also an array of numbers (aka the **weights**/**parameters**)
     - What is happening as it shifts from one area to the next?
       - Multiplying values in filter with original pixel value of image and sum it all up
         - i.e. $$\Sigma(FilterValue*OriginalPixelValue)$$ - You get a single number from this entire area (hence why the dimensions shrink in the feature map)

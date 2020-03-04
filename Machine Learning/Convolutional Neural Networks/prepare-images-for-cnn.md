@@ -1,4 +1,4 @@
-# Prepare Images for CNN
+# Prepare Data for Convolutional Neural Networks
 
 ## Reshaping Numpy Arrays
 

@@ -33,6 +33,7 @@
 - Data Science
   - Jupyter Notebooks
     * [Jupyter Notebook With Vs Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
+    * [Jupyter Notebooks Virtual Env](Data Science/Jupyter Notebooks/jupyter-notebooks-virtual-env.md)
     * [Jupyter Notify](Data Science/Jupyter Notebooks/jupyter-notify.md)
     * [Troubleshooting](Data Science/Jupyter Notebooks/troubleshooting.md)
   - [Pandas](Data Science/Pandas/README.md)
@@ -58,12 +59,16 @@
   - [Docker](DevOps/Docker/README.md)
     * [docker-compose.yml](DevOps/Docker/docker-compose.yml.md)
     * [Dockerfile](DevOps/Docker/dockerfile.md)
+    * [Poetry](DevOps/Docker/poetry.md)
   - [Github](DevOps/Github/README.md)
     * [Committing Pushing](DevOps/Github/committing-pushing.md)
     * [Git Branches](DevOps/Github/git-branches.md)
     * [Git Merge Conflicts](DevOps/Github/git-merge-conflicts.md)
     * [Pr Checklist](DevOps/Github/pr-checklist.md)
     * [Troubleshooting](DevOps/Github/troubleshooting.md)
+- GUI
+  - PyQT
+    * [Overview](GUI/PyQT/overview.md)
 - Interview
   - Data Science Interview
     * [Knowledge Interview Questions](Interview/Data Science Interview/knowledge-interview-questions.md)
@@ -75,8 +80,9 @@
     * [Algorithms Pros And Cons](Machine Learning/Algorithms/algorithms-pros-and-cons.md)
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
-    * [Cnn Duplicate](Machine Learning/Convolutional Neural Networks/cnn-duplicate.md)
     * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
+    * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
+    * [Cnn Parameters](Machine Learning/Convolutional Neural Networks/cnn-parameters.md)
     * [Convolutional Neural Networks](Machine Learning/Convolutional Neural Networks/convolutional-neural-networks.md)
     * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
@@ -84,6 +90,10 @@
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
     * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
+    * [Training](Machine Learning/fast.ai/training.md)
+  - Kaggle Deep Learning Course
+    * [Building Models From Convolution](Machine Learning/Kaggle Deep Learning Course/building-models-from-convolution.md)
+    * [Intro To Deep Learning](Machine Learning/Kaggle Deep Learning Course/intro-to-deep-learning.md)
   - Natural Language Processing
     * [Filtering Stop Words](Machine Learning/Natural Language Processing/filtering-stop-words.md)
     * [Gibberish N Gram Language Model](Machine Learning/Natural Language Processing/gibberish-n-gram-language-model.md)
@@ -127,6 +137,7 @@
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
   * [Api](Miscellaneous/api.md)
+  * [Cron Job](Miscellaneous/cron-job.md)
   * [Gitbook](Miscellaneous/Gitbook.md)
   * [Processors](Miscellaneous/processors.md)
 - Python
@@ -188,3 +199,4 @@
     * [Read Pdfs](Web/Web Scraping/read-pdfs.md)
     * [Requests And Json](Web/Web Scraping/requests-and-json.md)
     * [Tor](Web/Web Scraping/tor.md)
+* [Poetry](poetry.md)
