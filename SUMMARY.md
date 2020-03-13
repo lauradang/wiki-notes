@@ -2,9 +2,6 @@
 
 - C++
   - [CS 246](C++/CS 246/README.md)
-    * [Assignment 1](C++/CS 246/assignment-1.md)
-    * [Assignment 2](C++/CS 246/assignment-2.md)
-    * [Assignment 3](C++/CS 246/assignment-3.md)
     * [Lecture 1](C++/CS 246/lecture-1.md)
     * [Lecture 10](C++/CS 246/lecture-10.md)
     * [Lecture 11](C++/CS 246/lecture-11.md)
@@ -29,7 +26,6 @@
     * [Lecture 8](C++/CS 246/lecture-8.md)
     * [Lecture 9](C++/CS 246/lecture-9.md)
     * [Notes To Rememeber](C++/CS 246/notes-to-rememeber.md)
-    * [Questions For Cs 246 A 2](C++/CS 246/questions-for-cs246-a2:.md)
 - Data Science
   - Jupyter Notebooks
     * [Jupyter Notebook With Vs Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
@@ -94,6 +90,7 @@
   - Kaggle Deep Learning Course
     * [Building Models From Convolution](Machine Learning/Kaggle Deep Learning Course/building-models-from-convolution.md)
     * [Intro To Deep Learning](Machine Learning/Kaggle Deep Learning Course/intro-to-deep-learning.md)
+    * [Tensorflow Programming](Machine Learning/Kaggle Deep Learning Course/tensorflow-programming.md)
   - Natural Language Processing
     * [Filtering Stop Words](Machine Learning/Natural Language Processing/filtering-stop-words.md)
     * [Gibberish N Gram Language Model](Machine Learning/Natural Language Processing/gibberish-n-gram-language-model.md)
@@ -133,6 +130,10 @@
     * [Selecting Data For Modeling](Machine Learning/Scikit-learn/selecting-data-for-modeling.md)
   - [Spacy](Machine Learning/Spacy/README.md)
     * [Language Processing Pipelines](Machine Learning/Spacy/language-processing-pipelines.md)
+  - Stanford ML Course
+    * [Model Cost Function](Machine Learning/Stanford ML Course/model-cost-function.md)
+    * [Parameter Learning](Machine Learning/Stanford ML Course/parameter-learning.md)
+    * [Supervised Unsupervised Learning](Machine Learning/Stanford ML Course/supervised-unsupervised-learning.md)
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
@@ -199,4 +200,3 @@
     * [Read Pdfs](Web/Web Scraping/read-pdfs.md)
     * [Requests And Json](Web/Web Scraping/requests-and-json.md)
     * [Tor](Web/Web Scraping/tor.md)
-* [Poetry](poetry.md)

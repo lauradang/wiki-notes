@@ -1,4 +1,4 @@
-# Intro to Deep Learning and Computer Vision
+# Lesson 1: Intro to Deep Learning and Computer Vision
 
 ## How are images looked at by computers?
 

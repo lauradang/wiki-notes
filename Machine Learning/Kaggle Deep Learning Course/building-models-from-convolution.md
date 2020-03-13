@@ -1,4 +1,4 @@
-# Building Models from Convolutions
+# Lesson 2: Building Models from Convolutions
 
 **Review**: Convolution/Filter maps an output tensor that tells you where patterns show up in the image. Different convolutions map different patterns.
 
@@ -22,7 +22,13 @@
   - Moving from one convolution output to another
   - **Channel** dimension
 
-## Applying Convolutions to 3D Tensor
+## Layers (i.e. layers of convolution)
+
+- Each set of convolutions applied at the same time is a layer
+
+1. **Layer 1**: Takes raw pixel intensities and translated into 3D tensor indicating where vertical/horizontal lines
+2. **Layer 2**: Takes map from layer 1 as input, multiples by more 3D tensors to find more patterns
+3. .... Continues on
 
 
 
