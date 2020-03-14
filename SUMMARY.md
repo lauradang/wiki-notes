@@ -131,7 +131,9 @@
   - [Spacy](Machine Learning/Spacy/README.md)
     * [Language Processing Pipelines](Machine Learning/Spacy/language-processing-pipelines.md)
   - Stanford ML Course
+    * [Linear Algebra Review](Machine Learning/Stanford ML Course/linear-algebra-review.md)
     * [Model Cost Function](Machine Learning/Stanford ML Course/model-cost-function.md)
+    * [Multivariate Linear Regression](Machine Learning/Stanford ML Course/multivariate-linear-regression.md)
     * [Parameter Learning](Machine Learning/Stanford ML Course/parameter-learning.md)
     * [Supervised Unsupervised Learning](Machine Learning/Stanford ML Course/supervised-unsupervised-learning.md)
 - Miscellaneous

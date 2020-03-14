@@ -21,20 +21,20 @@ A: Minimization problem! We want to minimize this: $$h(x_i)-y_i$$. If this diffe
 
 #### Mean Squared Error Function: $$J(\theta_0, \theta_1) = \frac{1}{2m}\Sigma(h_\theta(x_i)-y_i)^2$$ 
 
-- $$J(\theta_0, \theta_1)$$ is the cost function. We want to minimize $$\theta_0$$ and $$\theta_1$$. Remember these parameters are represented in the hypothesis equation above.
+- $$J(\theta_0, \theta_1)$$ is the cost function. We want to minimize this function's output. Remember these parameters are represented in the hypothesis equation above.
 - Common cost function for **linear regression** problems
 
-**Note**: $$\frac{1}{2}$$ just makes the math for gradient descent easier for the moment and $$m$$ represents # of training samples.****
+**Note**: $$\frac{1}{2}$$ just makes the math for gradient descent easier for the moment and $$m$$ represents # of training samples.
 
 **Example**:
 
 ![Minimizing Cost Function Example](cost_function.png)
 
-- On the left, we have the hypothesis graphed. We can see that when $$\theta_1=1$$, the line fits the results perfectly.
-- On the right, we have that the cost function, $$J(\theta_1)=0$$ () when $$\theta_1=1$$
+- On the left, we have the hypothesis graphed. We can see that when $$\theta_1=1$$, the line fits the training data perfectly.
+- On the right, we have that the cost function, $$J(\theta_1)=0$$ when $$\theta_1=1$$
   - **Note**: We have made $$\theta_0=0$$ for simplicity's sake, if we were to graph $$J(\theta_0, \theta_1)$$ we would have a multivariable graph and thus - a 3D graph (yay for Math 237)
   - The cost function is formed from graphing the mean squared error function from above which depends on the hypothesis (equation above).
-  - **Conclusion**: we can see that when we minimize our cost function, the line is the closest it can be to the results. Our goal has been achieved!
+  - **Conclusion**: we can see that the value of $$\theta_1$$ that minimizes the cost function is the same value of the slope of the line that is the closest the training data. Our goal of fitting closely to the training data has been achieved!
 
 ## Multivariable Cost Function for Linear Regression
 
