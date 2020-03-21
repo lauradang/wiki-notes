@@ -2,33 +2,37 @@
 
 A nice summary: [YouTube](https://www.youtube.com/watch?v=YRhxdVk_sIs)
 
+## CNN Layers
+
+- Detects patterns in images
+- With each layer, number of filters must be specified
+- Layer receives input, transforms input into outer layer
+
 ## Why should we use CNN for image classification over a NN?
 
-1. NNs have **no spatial awareness** - we **lose the 2D space**
+### NNs have no Spatial Awareness (Loses 2D Space)
 
-- i.e. Remember in PyTorch, we just convert the image to a 1D vector. The model then treats this vector as a simple vector of numbers when in reality, a picture is a 2D grid with different things in different places of the grid. So an NN is not aware of this which is very important when analyzing images since pixels that are closer to one another in a grid can be more related than pixels that are far apart. 
+- Remember in PyTorch, we just convert the image to a 1D vector. The model then treats this vector as a simple vector of numbers when in reality, a picture is a 2D grid with different things in different places of the grid. So an NN is not aware of this which is very important when analyzing images since pixels that are closer to one another in a grid can be more related than pixels that are far apart. 
 
 - e.g. The only reason an NN was okay for the MNIST handwriting dataset was because each number in the image of MNIST is in the exact same position, so spatial awareness isn't a factor for classification in this dataset.
 
-2. **Redundancy** in the connections between hidden nodes and input nodes:
+### Redundancy in the connections between hidden nodes and input nodes:
 
-   ![Fully Connected NN](nn.png)
+![Fully Connected NN](nn.png)
 
-   Does a hidden node need to be connected to every input node? 
+Does a hidden node need to be connected to every input node like above? 
 
-   Not really. We could split it into sections (indicated by the colours) and have it connected like so instead:
+Not really. We could split it into sections (indicated by the colours) and have it connected like so instead:
 
-   ![Sparsely connected network](nn-colour.png)
+![Sparsely connected network](nn-colour.png)
 
 This way, there are way less connections and thus less calculations to make during training.This way, each node is responsible for finding patterns in their own spatial region as opposed to each node is responsible for finding all patterns in all spatial regions (That's what makes the NN way redundant).
 
-**Note**: This is the meaning of **sparsely** vs. **fully** connected layers. CNNs use sparesely connected layers while NNs use fully connected layers.
+Note**: This is the meaning of **sparsely** vs. **fully** connected layers. CNNs use sparesely connected layers while NNs use fully connected layers. We can also easily expand the number of patterns we want to find by introducing more hidden nodes like below.
 
 ![](cnn-colour.png)
 
-We can also easily expand the number of patterns we want to find by introducing more hidden nodes like above.
-
-3. **Images can be large** (e.g. 1000 x 1000)
+### Images can be large
 
 - If we were to pass in $$10^6$$ neurons per layer, that's a lot of operation
 - CNN's extract features of images, then convert the image into lower dimension without losing its characteristics which will decrease the number of parameters the model needs to compute
@@ -63,19 +67,6 @@ Each set of convolutions applied at the same time is a layer.
 2. **Layer 2**: Takes map from layer 1 as input, multiples by more 3D tensors to find more patterns
 3. Continues on
 
-## Layers in CNN
-
-- Detects patterns in images
-- With each layer, number of filters must be specified
-- Layer receives input, transforms input into outer layer
-
-1. Input layer (A convolutional layer)
-2. Convolutional layer (Convo + ReLU)
-3. Pooling Layer
-4. Fully Connected (FC) Layer
-5. Softmax/Logistic Layer
-6. Output Layer
-
 ## Input Layer
 
 - See Input Layer Notes
@@ -96,24 +87,21 @@ Each set of convolutions applied at the same time is a layer.
 ![4x4 Image, 3x3 Filter, 2x2 Convolution](convolution.gif)
 
 - Region FxF is the **receptive field**
-
 - Also an array of numbers (aka the **weights**/**parameters**)
-
 - What is happening as it shifts from one area to the next?
-
   - Multiplying values in filter with original pixel value of image and sum it all up
     - i.e. $$\Sigma(FilterValue*OriginalPixelValue)$$ - You get a single number from this entire area (hence why the dimensions shrink in the feature map)
+- $$Convolution\space Dimension \space Result = N^2*F^2=(N-F+1)^2$$
+  - $$N^2$$:  Image dimensions
+  - $$F^2$$: Filter dimensions
 
-- **Edge Detection** using filter
+### Edge Detection using Filters
 
-  - Convolutions + filters used to detect edges
-    - Since darker part &rarr; larger # in that square, horizontal line results in larger numbers, other areas, result in smaller numbers
-      - So we know there is an edge if the convolution outputs a large number!
-  - **Formula**
-    - $$N*N$$ : Image dimensions
-    - $$F*F$$ Filter Dimension
-
-  $$Convolution\space Dimension \space Result = N^2*F^2=(N-F+1)^2$$
+- Convolutions + filters are used to detect edges
+  - Since darker part &rarr; larger # in that square, horizontal line results in larger numbers, other areas, result in smaller numbers
+    - So we know there is an edge if the convolution outputs a large number!
+- High vs. low frequency images
+  - 
 
 **Question**:
 

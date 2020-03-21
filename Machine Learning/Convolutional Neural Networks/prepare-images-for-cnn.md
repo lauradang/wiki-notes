@@ -1,5 +1,15 @@
 # Prepare Data for Convolutional Neural Networks
 
+## How are images looked at by computers?
+
+- Matrices
+- Number in matrix represents darkness of image in that position (darker part &rarr; larger #)
+
+## How are coloured images looked at by computers?
+
+- Matrices, but with extra dimension (RGB)
+  - Stack of 3 matrices
+
 ## Reshaping Numpy Arrays
 
 ```python

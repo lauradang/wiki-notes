@@ -85,7 +85,7 @@
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
-    * [NLP And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
+    * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
     * [Training](Machine Learning/fast.ai/training.md)
   - Natural Language Processing
     * [Filtering Stop Words](Machine Learning/Natural Language Processing/filtering-stop-words.md)
