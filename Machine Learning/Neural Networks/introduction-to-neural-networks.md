@@ -1,6 +1,5 @@
 # Introduction to Neural Networks
 
-
 [MNIST Jupyter Notebook](http://localhost:8888/notebooks/ML/MNIST.ipynb)
 
 ### Goal of Network

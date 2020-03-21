@@ -63,7 +63,7 @@
     * [Pr Checklist](DevOps/Github/pr-checklist.md)
     * [Troubleshooting](DevOps/Github/troubleshooting.md)
 - GUI
-  - PyQT
+  - Py QT
     * [Overview](GUI/PyQT/overview.md)
 - Interview
   - Data Science Interview
@@ -78,19 +78,15 @@
   - Convolutional Neural Networks
     * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
     * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
-    * [Cnn Parameters](Machine Learning/Convolutional Neural Networks/cnn-parameters.md)
-    * [Convolutional Neural Networks](Machine Learning/Convolutional Neural Networks/convolutional-neural-networks.md)
+    * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
+    * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
     * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
-    * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
+    * [NLP And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
     * [Training](Machine Learning/fast.ai/training.md)
-  - Kaggle Deep Learning Course
-    * [Building Models From Convolution](Machine Learning/Kaggle Deep Learning Course/building-models-from-convolution.md)
-    * [Intro To Deep Learning](Machine Learning/Kaggle Deep Learning Course/intro-to-deep-learning.md)
-    * [Tensorflow Programming](Machine Learning/Kaggle Deep Learning Course/tensorflow-programming.md)
   - Natural Language Processing
     * [Filtering Stop Words](Machine Learning/Natural Language Processing/filtering-stop-words.md)
     * [Gibberish N Gram Language Model](Machine Learning/Natural Language Processing/gibberish-n-gram-language-model.md)
@@ -99,7 +95,6 @@
   - Neural Networks
     * [Activation Functions](Machine Learning/Neural Networks/activation-functions.md)
     * [Backpropagation Reverse Mode Differentiation](Machine Learning/Neural Networks/backpropagation---reverse-mode-differentiation.md)
-    * [Introduction To Deep Learning](Machine Learning/Neural Networks/introduction-to-deep-learning.md)
     * [Introduction To Neural Networks](Machine Learning/Neural Networks/introduction-to-neural-networks.md)
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
@@ -131,11 +126,15 @@
   - [Spacy](Machine Learning/Spacy/README.md)
     * [Language Processing Pipelines](Machine Learning/Spacy/language-processing-pipelines.md)
   - Stanford ML Course
+    * [Classification And Representation](Machine Learning/Stanford ML Course/classification-and-representation.md)
+    * [Computing Parameters Analytically](Machine Learning/Stanford ML Course/computing-parameters-analytically.md)
     * [Linear Algebra Review](Machine Learning/Stanford ML Course/linear-algebra-review.md)
     * [Model Cost Function](Machine Learning/Stanford ML Course/model-cost-function.md)
     * [Multivariate Linear Regression](Machine Learning/Stanford ML Course/multivariate-linear-regression.md)
     * [Parameter Learning](Machine Learning/Stanford ML Course/parameter-learning.md)
     * [Supervised Unsupervised Learning](Machine Learning/Stanford ML Course/supervised-unsupervised-learning.md)
+  - Tensorflow
+    * [Tensorflow Pretrained](Machine Learning/Tensorflow/tensorflow-pretrained.md)
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)

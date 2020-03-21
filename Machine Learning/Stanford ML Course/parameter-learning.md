@@ -12,6 +12,8 @@ Visually here, $$J(\theta_0, \theta_1)$$ is graphed with its parameters. If we s
 
 ## Gradient Descent Algorithm: 
 
+An algorithm that finds the $$\theta$$ value that results in the lowest cost function.
+
 Repeat until convergence {
 
 ​	$$\theta_j:=\theta_j-\alpha\frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$$

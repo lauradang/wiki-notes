@@ -2,6 +2,16 @@
 
 Refer to this [link](https://towardsdatascience.com/understanding-input-and-output-shapes-in-convolution-network-keras-f143923d56ca).
 
+## How are images looked at by computers?
+
+- Matrices
+- Number in matrix represents darkness of image in that position (darker part &rarr; larger #)
+
+## How are coloured images looked at by computers?
+
+- Matrices, but with extra dimension (RGB)
+  - Stack of 3 matrices
+
 ## Input Shape
 
 - 4D Array of Image

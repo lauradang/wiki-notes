@@ -6,8 +6,9 @@ Refer to [Intro to Neural Networks]([https://victorzhou.com/blog/intro-to-neural
 ## Overall Process
 1. Give outputs numbers (0 represents Male, 1 represents Female)
 2. Shift data numbers by mean (normalization)
-3. Calculate the loss function in terms of $$ypred$$ since we know what $$ytrue$$ is
-4. Use optimization algorithm that tells us how to change weights and biasses to minimize loss
+3. Calculate the **loss** function: Measure any mistakes between $$y_{true}$$ and $$y_{pred}$$.
+4. Use **backpropagation** to quantify how bad a particular weight is at making mistake.
+5. Use **optimization** algorithm that tells us how to change weights and biasses to minimize loss (e.g. **gradient descent**)
 
 ## Loss
 - Quantifies how "good" network is at predicting
