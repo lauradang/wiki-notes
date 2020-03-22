@@ -76,11 +76,15 @@
     * [Algorithms Pros And Cons](Machine Learning/Algorithms/algorithms-pros-and-cons.md)
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
+    * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
     * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
     * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
     * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
+    * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
+    * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
     * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
+    * [Style Transfer](Machine Learning/Convolutional Neural Networks/style-transfer.md)
   - Evaluation
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
@@ -101,6 +105,7 @@
     * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
   - [Py Torch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
+    * [Convolutional Neural Networks](Machine Learning/PyTorch/convolutional-neural-networks.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
   - [Rasa](Machine Learning/Rasa/README.md)
     * [Bot Get Info Pipelines](Machine Learning/Rasa/bot_get_info-pipelines.md)
@@ -141,6 +146,7 @@
   * [Api](Miscellaneous/api.md)
   * [Cron Job](Miscellaneous/cron-job.md)
   * [Gitbook](Miscellaneous/Gitbook.md)
+  * [Google Colab](Miscellaneous/google-colab.md)
   * [Processors](Miscellaneous/processors.md)
 - Python
   - Object Oriented Programming

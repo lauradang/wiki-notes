@@ -28,7 +28,7 @@ Not really. We could split it into sections (indicated by the colours) and have 
 
 This way, there are way less connections and thus less calculations to make during training.This way, each node is responsible for finding patterns in their own spatial region as opposed to each node is responsible for finding all patterns in all spatial regions (That's what makes the NN way redundant).
 
-Note**: This is the meaning of **sparsely** vs. **fully** connected layers. CNNs use sparesely connected layers while NNs use fully connected layers. We can also easily expand the number of patterns we want to find by introducing more hidden nodes like below.
+**Note**: This is the meaning of **sparsely/locally** vs. **fully** connected layers. CNNs use sparesely connected layers while NNs use fully connected layers. We can also easily expand the number of patterns we want to find by introducing more hidden nodes like below.
 
 ![](cnn-colour.png)
 
@@ -73,15 +73,26 @@ Each set of convolutions applied at the same time is a layer.
 
 ## Convolutional Layer
 
-- Feature extractor
-- Detects patterns
-  - Eg of pattern is (edge, corner, circle, square)
-- Geometrical filters are usually the layers at the service of network
-- As you go deeper in the network, the filters become more complex and detailed
-- Usually has ReLU activation function applied (which means this function is applied on all square of the feature map) to force all negative values to be 0
+- **High-Level Idea**
+  - Feature extractor
+  - Detects patterns (edge, corner, circle, square)
+- Produced by applying series of filters to an image => which produces an image per filter
+- These images are stacked and forms a convolutional layer with depth = # of filters applied
+  - Makes the image "deeper" - Look at image above and see that rectangular prisms are getting deeper and skinnier (skinnier due to pooling)
+- In the OpenCV notebook, we defined our own weights in the kernel. However, neural networks learn what the best weights are as they train.
 
 ### Filters/Kernels/Neurons in Convolutional Layers
 
+- Uses:
+  - Filter out irrelevant image information
+  - Amplify distinguishing traits or object boundaries
+- **Hyperparameter Tuning**
+  - Increasing the **# of filters** increases the number of patterns your network will learn
+  - Increasing the **size of filters** increases the size of detected patterns
+  - Stride
+  - Padding
+- As you go deeper in the network, the filters become more complex and detailed
+- Usually has ReLU activation function applied (which means this function is applied on all square of the feature map) to force all negative values to be 0
 - Filter (all the same thing) starts in the top left corner of the input image and slides/convolving right across all areas of input image (Covers FxF area at a time)
 
 ![4x4 Image, 3x3 Filter, 2x2 Convolution](convolution.gif)
@@ -95,25 +106,44 @@ Each set of convolutions applied at the same time is a layer.
   - $$N^2$$:  Image dimensions
   - $$F^2$$: Filter dimensions
 
+### High-Pass Filters
+
+- Sharpens image
+- Enhances **high-frequency** parts of an image
+
 ### Edge Detection using Filters
 
 - Convolutions + filters are used to detect edges
-  - Since darker part &rarr; larger # in that square, horizontal line results in larger numbers, other areas, result in smaller numbers
-    - So we know there is an edge if the convolution outputs a large number!
+  - Darker part &rarr; smaller pixel value
+  - Lighter part &rarr; larger pixel value
+
+#### Frequency in Images
+
 - High vs. low frequency images
-  - 
+  - High frequency images: Rapid changes in brightness (e.g. a striped shirt has black and white areas)
+    - High frequency components in image help detect edges in image
+  - Low Frequency images: Minimal changes in brightness (e.g. a blank white page)
 
-**Question**:
+#### High-Pass Filters
 
-Which one is true?
+- Sharpens image and emphasizes edges
+- Enhances **high-frequency** part of image (so the parts where rapid changes in brightness occur.. aka edges!)
+
+![Result of High-Pass Filter](high-pass.png)
+
+**Question**: Of the four kernels, which would be best for finding and enhancing horizontal edges and lines in an image?
+
+![](4_kernels.png)
+
+**Solution**: d) This kernel finds the difference between the top and bottom edges surrounding a given pixel.
+
+**Question**: Which one is true?
 
 - There are more visual patterns that can be captured by large convolutions
 - There are fewer visual patterns that can be captured by large convolutions
 - The number of visual patterns that can be captured by large convolutions is the same as the number of visual patterns that can be captured by small convolutions?
 
-**Solution**:
-
-There are more visual patterns that can be captured by large convolutions.
+**Solution**: There are more visual patterns that can be captured by large convolutions.
 
 - Anything a 2x2 convolution can capture, a 3x3 convolution can also capture, but the things a 3x3 convolution can capture, a 2x2 convolution cannot (it's smaller)
 
@@ -124,7 +154,8 @@ There are more visual patterns that can be captured by large convolutions.
 ![Strides](strides.gif)
 
 - Notice that size of output (feature map) is smaller than the input
-- We use **padding** when we want to maintain the input shape's dimensions
+- We use **padding** when we want to maintain the input shape's dimensions. 
+  - The number in the padded squares are just 0s.
 
 ![Padding](padding.gif)
 
@@ -132,18 +163,22 @@ There are more visual patterns that can be captured by large convolutions.
 
 $$Padding= \frac{F-1}{2}$$  &rarr; Padding is dependent on the dimension of filter.
 
+If we set the above stride to 2, there would be times where the filter would be outside of the image. In these cases, we have two options:
+
+1. Drop the unknown values that were outside the image. However, this risks not learning any information in certain parts of the image.
+2. Use padding
+
 ## Max Pooling
 
 A nice summary: [Youtube](https://www.youtube.com/watch?v=ZjM_XQa5s6s)
 
-- **Reduces spatial volume of input imag**e AFTER convolution 
+- **Reduces spatial volume of input image** AFTER convolution 
 - Used between 2 convolution layers
   - Applying FC after Convo layer is computationally expensive
 - In the input matrix, find the maximum value and that is your output feature value
 - Why do we do max pooling?
-  - Since max pooling reduces resolution of input, so it reduces number of parameters and computational load
-  - Helps to reduce overfitting
-  - Since convolutional layers look for specific things, the higher number in the layer can be seen as more activated, so with max pooling (it extracts the highest numbers in the layer). We are able to pick out the most activated pixels while discarding not as activated pixel)
+  - Since max pooling reduces resolution of input, so it **reduces number of parameters a**nd computational load
+    - Reducing the # of parameters also **prevents overfitting**
 
 - If we have W x H x D, F is filter, S is stride (both hyperparameters)
   - **Dimensions of output after processed by Max Pooling Layer**:
@@ -154,6 +189,16 @@ A nice summary: [Youtube](https://www.youtube.com/watch?v=ZjM_XQa5s6s)
   - Set filter size (eg. 2x2)
   - Set stride (eg. 2)
   - Find the maximum number in 2x2 matrix and store it in another grid (which is building to be the output), Keep going in intervals that was set by the stride
+
+## Average Pooling
+
+- Same as max pooling, but instead takes the **average** of the pixels that the filter covers
+- Typically not used for image classification since max pooling is better for edge detection
+  - Used for *smoothing* images
+
+## Feature Vector
+
+A series of numbers (a 1D matrix). It contains information describing an object's important characteristics. After the convolutional layers output specific features (e.g. for a car, it may output, there are wheels here), the feature vector will output this fact to make a classification.
 
 ## Dense Layers (Fully Connected Layers)
 
