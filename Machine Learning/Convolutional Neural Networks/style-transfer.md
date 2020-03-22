@@ -91,7 +91,7 @@ Here are some successful results from the notebook!
 
 ![](skyline-style.png)
 
-## Foxes and Abstract Painting
+### Foxes and Abstract Painting
 
 ![](foxes.jpg)![](abstract.jpg)
 
