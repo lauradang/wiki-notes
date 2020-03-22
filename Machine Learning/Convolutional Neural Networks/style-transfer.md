@@ -81,9 +81,10 @@ These constants can be written as a ratio: $$\frac{\alpha}{\beta}$$. If you want
 
 **Note**: These weights must be multiplied to each loss because both loss functions are calculated pretty differently, but in the end, we want both loss functions to be equally weighted. So we need these weights to balance things out.
 
+## Results
 
+Here are some successful results from the notebook!
 
+![Toronto Skyline](skyline.jpg)![Anastasia Trusova Painting](anatastasia-trusova-paintings-3.jpg)
 
-
-
-
+![](skyline-style.png)
