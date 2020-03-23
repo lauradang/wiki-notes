@@ -97,3 +97,8 @@ Here are some successful results from the notebook!
 
 ![](foxes-style.png)
 
+### Lion and Guylas Painting
+
+![](lion.jpg)![](GuylasPainting.jpeg)
+
+![](lion-style.png)
