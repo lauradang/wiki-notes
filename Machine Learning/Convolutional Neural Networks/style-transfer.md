@@ -85,19 +85,13 @@ These constants can be written as a ratio: $$\frac{\alpha}{\beta}$$. If you want
 
 Here are some successful results from the notebook!
 
-### Toronto Skyline and Anastasia Painting
-
 ![Toronto Skyline](skyline.jpg)![Anastasia Trusova Painting](anatastasia-trusova-paintings-3.jpg)
 
 ![](skyline-style.png)
 
-### Foxes and Abstract Painting
-
 ![](foxes.jpg)![](abstract.jpg)
 
 ![](foxes-style.png)
-
-### Lion and Guylas Painting
 
 ![](lion.jpg)![](GuylasPainting.jpeg)
 
