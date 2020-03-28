@@ -39,6 +39,7 @@ ax2.imshow(im_convert(style))
 image = tensor.to("cpu").clone().detach()
 image = image.numpy().squeeze()
 image = image.transpose(1,2,0)
+
 # These normalization values must match your respective model
 image = image * np.array((0.229, 0.224, 0.225)) + np.array((0.485, 0.456, 0.406))
 image = image.clip(0, 1) # now the image can be treated like an Image.open()

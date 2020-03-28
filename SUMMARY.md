@@ -77,20 +77,27 @@
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
-    * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
-    * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
+    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
+    * [CNN Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
     * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
     * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
-    * [Style Transfer](Machine Learning/Convolutional Neural Networks/style-transfer.md)
   - Evaluation
+    * [Kullback Leibler Divergence](Machine Learning/Evaluation/Kullback-Leibler-Divergence.md)
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
     * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
     * [Training](Machine Learning/fast.ai/training.md)
+  - Machine Learning Audio Classification
+    * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
+    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
+    * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
+    * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
+    * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
+    * [Plotting Calculating And Cleaning](Machine Learning/Machine Learning Audio Classification/plotting,-calculating,-and-cleaning.md)
   - Natural Language Processing
     * [Filtering Stop Words](Machine Learning/Natural Language Processing/filtering-stop-words.md)
     * [Gibberish N Gram Language Model](Machine Learning/Natural Language Processing/gibberish-n-gram-language-model.md)
@@ -119,9 +126,13 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [Lstm Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
+    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
     * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
+  - Research Papers
+    * [Convolutional Neural Networks For Automatic Image Colorization](Machine Learning/Research Papers/Convolutional-Neural-Networks-for-automatic-image colorization.md)
+    * [Learning Representation For Automatic Colorization](Machine Learning/Research Papers/learning-representation-for-automatic-colorization.md)
+    * [Style Transfer](Machine Learning/Research Papers/style-transfer.md)
   - Scikit Learn
     * [Example Of Training And Predicting Model](Machine Learning/Scikit-learn/example-of-training-and-predicting-model.md)
     * [Measuring Model Accuracy](Machine Learning/Scikit-learn/measuring-model-accuracy.md)
@@ -165,14 +176,6 @@
     * [Storage Space Commands](Shell/Linux/storage-space-commands.md)
     * [Virtual Environment](Shell/Linux/virtual-environment.md)
     * [Zip Files](Shell/Linux/zip-files.md)
-- Side Projects
-  - Machine Learning Audio Classification
-    * [Background](Side Projects/Machine Learning Audio Classification/background.md)
-    * [Building Cnn](Side Projects/Machine Learning Audio Classification/building-cnn.md)
-    * [Deepplaylist Rnns To Predict Song Similarity](Side Projects/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
-    * [Loading Data](Side Projects/Machine Learning Audio Classification/loading-data.md)
-    * [Model Preparation](Side Projects/Machine Learning Audio Classification/model-preparation.md)
-    * [Plotting Calculating And Cleaning](Side Projects/Machine Learning Audio Classification/plotting,-calculating,-and-cleaning.md)
 - Web
   - [Django](Web/Django/README.md)
     * [Activating Grantmatch](Web/Django/activating-grantmatch.md)
