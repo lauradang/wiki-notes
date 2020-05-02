@@ -37,18 +37,19 @@
     * [Lists And Dictionaries](Data Science/Pandas/lists-and-dictionaries.md)
     * [Manipulating Built Dataframes](Data Science/Pandas/manipulating-built-dataframes.md)
     * [Troubleshooting](Data Science/Pandas/troubleshooting.md)
-  - SQL
-    * [Basic Commands](Data Science/SQL/basic-commands.md)
-    * [Foreign Key Commands](Data Science/SQL/foreign-key-commands.md)
-    * [Foreign Key](Data Science/SQL/foreign-key.md)
-    * [Mysql](Data Science/SQL/mysql.md)
-    * [Postgres](Data Science/SQL/postgres.md)
-    * [Sql Injections](Data Science/SQL/sql-injections.md)
   - Time Series
     * [Autocorrelation Serial Correlation](Data Science/Time Series/autocorrelation-serial-correlation.md)
     * [Correlation Pct Change](Data Science/Time Series/correlation-pct_change.md)
     * [Linear Regression](Data Science/Time Series/linear-regression.md)
     * [Time Series](Data Science/Time Series/time-series.md)
+- Databases
+  - SQL Commands
+    * [Basic Commands](Databases/SQL Commands/basic-commands.md)
+    * [Foreign Key Commands](Databases/SQL Commands/foreign-key-commands.md)
+    * [Foreign Key](Databases/SQL Commands/foreign-key.md)
+  * [Mysql](Databases/mysql.md)
+  * [Postgres](Databases/postgres.md)
+  * [Sqlalchemy](Databases/sqlalchemy.md)
 - Dev Ops
   - AWS
     * [Tmux](DevOps/AWS/tmux.md)
@@ -63,7 +64,7 @@
     * [Pr Checklist](DevOps/Github/pr-checklist.md)
     * [Troubleshooting](DevOps/Github/troubleshooting.md)
 - GUI
-  - Py QT
+  - PyQT
     * [Overview](GUI/PyQT/overview.md)
 - Interview
   - Data Science Interview
@@ -71,14 +72,15 @@
   - SE Interview
     * [Linked Lists](Interview/SE Interview/linked-lists.md)
     * [Trees](Interview/SE Interview/trees.md)
+  * [Interview Questions](Interview/Interview-questions.md)
 - Machine Learning
   - Algorithms
     * [Algorithms Pros And Cons](Machine Learning/Algorithms/algorithms-pros-and-cons.md)
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
-    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
-    * [CNN Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
+    * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
+    * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
     * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
@@ -89,11 +91,14 @@
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
+    * [Class Learner](Machine Learning/fast.ai/class_learner.md)
     * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
     * [Training](Machine Learning/fast.ai/training.md)
+  - GAN
+    * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
-    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
+    * [Building Cnn](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
@@ -110,7 +115,7 @@
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
     * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
-  - [Py Torch](Machine Learning/PyTorch/README.md)
+  - [PyTorch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
     * [Convolutional Neural Networks](Machine Learning/PyTorch/convolutional-neural-networks.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
@@ -126,12 +131,13 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
+    * [Lstm Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
     * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
   - Research Papers
     * [Convolutional Neural Networks For Automatic Image Colorization](Machine Learning/Research Papers/Convolutional-Neural-Networks-for-automatic-image colorization.md)
     * [Learning Representation For Automatic Colorization](Machine Learning/Research Papers/learning-representation-for-automatic-colorization.md)
+    * [Stack GAN](Machine Learning/Research Papers/StackGAN.md)
     * [Style Transfer](Machine Learning/Research Papers/style-transfer.md)
   - Scikit Learn
     * [Example Of Training And Predicting Model](Machine Learning/Scikit-learn/example-of-training-and-predicting-model.md)
@@ -150,7 +156,9 @@
     * [Parameter Learning](Machine Learning/Stanford ML Course/parameter-learning.md)
     * [Supervised Unsupervised Learning](Machine Learning/Stanford ML Course/supervised-unsupervised-learning.md)
   - Tensorflow
+    * [Multiinput Keras](Machine Learning/Tensorflow/multiinput-keras.md)
     * [Tensorflow Pretrained](Machine Learning/Tensorflow/tensorflow-pretrained.md)
+    * [Tensorflow Tpu](Machine Learning/Tensorflow/tensorflow-tpu.md)
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
@@ -162,6 +170,7 @@
 - Python
   - Object Oriented Programming
     * [Args And Kwargs](Python/Object Oriented Programming/args-and-kwargs.md)
+  * [Argparse](Python/argparse.md)
   * [Imports](Python/imports.md)
   * [Linked Lists](Python/linked-lists.md)
   * [Pickle](Python/pickle.md)
@@ -189,6 +198,7 @@
   - [Flask](Web/Flask/README.md)
     * [Files](Web/Flask/files.md)
     * [Passing Data Between Backend And Frontend](Web/Flask/passing-data-between-backend-and-frontend.md)
+    * [Unit Testing](Web/Flask/unit-testing.md)
     * [Web Cache](Web/Flask/web-cache.md)
   - [Laravel](Web/Laravel/README.md)
     * [Adding Js Css To Ftx Templates](Web/Laravel/adding-js-css-to-ftx-templates.md)
