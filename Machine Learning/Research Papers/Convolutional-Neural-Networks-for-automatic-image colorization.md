@@ -2,6 +2,8 @@
 
 The paper can be found [here](https://pdfs.semanticscholar.org/5a71/e3ada938c6c45a87988670118291b3028df6.pdf).
 
+Other resources: [Automatic Colorization](https://tinyclouds.org/colorize/)
+
 ## Abstract
 
 - Fully automatic image colorization

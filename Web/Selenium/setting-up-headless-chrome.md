@@ -12,3 +12,4 @@ path = "/Users/laura/fippa-cleaning/chromedriver"
 driver = webdriver.Chrome(executable_path=path, options=option_chrome)
 driver.get(url)
 ```
+

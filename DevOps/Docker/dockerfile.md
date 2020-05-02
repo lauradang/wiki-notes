@@ -44,7 +44,7 @@ COPY . . # then you are already in the folder, so you can just use a .
 - 22 is the default port for ssh
 
 ### `gunicorn`
-- `-w #` Tells you number of CPU cores (1 CPU core handles 1 request at a time)
+- `-w #` Tells you number of CPU cores/threads (1 CPU core handles 1 request at a time)
 - `-b :#`: bind to port # of container
 - `-t #`: timeout in seconds
 
@@ -53,12 +53,45 @@ These are all equivalent:
 **Array**: `RUN/CMD/... [a, b, c, d]`
 **Shell**: `RUN/CMD/... a b c d`
 
+## Running commands inside a Docker container
 
+```bash
+# Running bash inside container
+$ docker exec -it container_name /bin/bash
 
+# Running command without being inside container
+$ docker exec container_name <command>
+```
 
+## Caching
 
+Caching when building Docker images can be very useful as it saves a lot of time when installing dependencies. 
 
+**In what cases do Docker commands not use their cache?**
 
+- If the contents that the command is applying itself on changes. 
 
+  - e.g. `COPY ./example /copy` . If `./example` is changed in any way, this line in the Dockerfile will not use the cache.
 
+- If anything before the command is installed/changed that wasn't installed/changed before.
 
+  ```dockerfile
+  # Dockerfile before
+  RUN apt-get update
+  COPY ./example /copy
+  
+  # Dockerfile after
+  RUN apt-get update && apt-get -y install cron # A new package is being installed here
+  COPY ./example /copy # This line will not use its cache
+  ```
+
+## Running another program before starting container
+
+```dockerfile
+# The bash script will call a program: e.g. python3 api/example.py
+COPY download.sh /usr/local/bin/download.sh
+RUN chmod +x /usr/local/bin/download.sh
+
+WORKDIR /
+CMD [ "/bin/sh", "-c", "/usr/local/bin/download.sh && gunicorn -w 3 -b :8000 -t 360 --reload api.wsgi:app" ]
+```
