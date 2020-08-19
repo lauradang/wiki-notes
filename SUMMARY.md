@@ -61,10 +61,10 @@
     * [Committing Pushing](DevOps/Github/committing-pushing.md)
     * [Git Branches](DevOps/Github/git-branches.md)
     * [Git Merge Conflicts](DevOps/Github/git-merge-conflicts.md)
-    * [PR Checklist](DevOps/Github/pr-checklist.md)
+    * [Pr Checklist](DevOps/Github/pr-checklist.md)
     * [Troubleshooting](DevOps/Github/troubleshooting.md)
 - GUI
-  - Py QT
+  - PyQT
     * [Overview](GUI/PyQT/overview.md)
 - Interview
   - Data Science Interview
@@ -85,7 +85,7 @@
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
-    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
+    * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
     * [Kullback Leibler Divergence](Machine Learning/Evaluation/Kullback-Leibler-Divergence.md)
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
@@ -98,7 +98,7 @@
     * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
-    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
+    * [Building Cnn](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
@@ -115,7 +115,7 @@
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
     * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
-  - [Py Torch](Machine Learning/PyTorch/README.md)
+  - [PyTorch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
     * [Convolutional Neural Networks](Machine Learning/PyTorch/convolutional-neural-networks.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
@@ -131,7 +131,7 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [Lstm Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
+    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
     * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
   - Research Papers
@@ -161,10 +161,13 @@
     * [Tensorflow Tpu](Machine Learning/Tensorflow/tensorflow-tpu.md)
 - Math
   * [Math 235](Math/Math 235.md)
+  * [Math 239 Formula Theorems](Math/Math 239 FormulaTheorems.md)
+  * [Math 239](Math/Math 239.md)
+  * [Stat 231](Math/Stat 231.md)
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
-  * [API](Miscellaneous/api.md)
+  * [Api](Miscellaneous/api.md)
   * [Cron Job](Miscellaneous/cron-job.md)
   * [Gitbook](Miscellaneous/Gitbook.md)
   * [Google Colab](Miscellaneous/google-colab.md)
@@ -182,6 +185,7 @@
   * [Pickle](Python/pickle.md)
   * [Troubleshooting](Python/troubleshooting.md)
 - R
+  * [STAT 231 Final](R/STAT 231 Final.md)
   * [Useful Commands](R/useful-commands.md)
 - Shell
   - [Bash](Shell/Bash/README.md)

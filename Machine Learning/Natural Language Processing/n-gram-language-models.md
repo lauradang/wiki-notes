@@ -9,6 +9,7 @@
 The turtle is fat
 *This is a turtle*
 They lay on the ground
+
 - 1 sentence has `house` given `This is a`
 - 2 fourgrams in total have `This is a`
 So `P(house|This is a) = 1/2`
@@ -57,9 +58,7 @@ That lay in the house that Jack build
   - P(this) + P(that) = 1.0
   - P(this this) + P(this is) + ... + P(built built) = 1.0
 
-
-
-
+**Note**: This approach has limitations with memory as reported [here](https://towardsdatascience.com/exploring-the-next-word-predictor-5e22aeb85d8f). - LSTMs are better for next-word predictions as it remembers longer sentences.
 
 
 
