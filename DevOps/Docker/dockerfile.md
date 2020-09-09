@@ -1,8 +1,8 @@
 # Dockerfile
-- **Relate to Object-oriented concepts**
+ALWAYS FOLLOWS THIS FORMAT: `INSTRUCTION` `ARGUMENT` 
 
 ### `FROM`
-  - Inherits and sets Base Image (like Base class)
+  - Inherits and sets Base Image (like Base class) or OS
   - eg. `python:3.6`
     - `3.6` is the tag/version
 
@@ -35,7 +35,25 @@ COPY . . # then you are already in the folder, so you can just use a .
 - Will do `export MYSQL_USER=ml`
 
 ### `CMD`
-- Kind of the same as run, but is used when it's at the end of the Dockerfile
+- Command at startup of container (if there is another command in `docker run...`, this command replaces the one in the Dockerfile)
+
+### `ENTRYPOINT`
+
+- Command at startup of container (if there is another command in `docker run...`, this command is APPENDED to the one in the Dockerfile)
+
+### Using both `CMD` and `ENTRYPOINT`
+
+You do this when you want a default command, but the argument can be changed
+
+```dockerfile
+FROM Ubuntu
+
+ENTRYPOINT ["sleep"]
+
+CMD ["5"]
+```
+
+So here, if no parameter is specified in `docker run...` , then `sleep 5` will run. Otherwise, `sleep <argument>` will run.
 
 ### `colon :`
 - This means port

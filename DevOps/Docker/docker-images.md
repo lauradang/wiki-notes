@@ -1,6 +1,32 @@
-# Poetry with Docker
+# Docker Images
 
-## Setting up the Dockerfile with Poetry
+## Steps to create your own image
+
+1. OS (ubuntu?)
+2. Update `apt` repo
+3. Install dependencies using `apt`
+4. Install python dependencies with`pip`
+5. Copy source code to `/opt` 
+6. Run web server with Flask command
+
+**Example**:
+
+```dockerfile
+FROM Ubuntu
+
+RUN apt-get update
+RUN apt-get install python
+
+RUN pip install flask
+
+COPY . /opt/source-code
+
+ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+```
+
+
+
+## Creating the Docker image with Poetry
 
 ```dockerfile
 # Base image
