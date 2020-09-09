@@ -28,7 +28,7 @@
     * [Notes To Rememeber](C++/CS 246/notes-to-rememeber.md)
 - Data Science
   - Jupyter Notebooks
-    * [Jupyter Notebook With Vs Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
+    * [Jupyter Notebook With VS Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
     * [Jupyter Notebooks Virtual Env](Data Science/Jupyter Notebooks/jupyter-notebooks-virtual-env.md)
     * [Jupyter Notify](Data Science/Jupyter Notebooks/jupyter-notify.md)
     * [Troubleshooting](Data Science/Jupyter Notebooks/troubleshooting.md)
@@ -54,17 +54,24 @@
   - AWS
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
+    * [Docker Commands](DevOps/Docker/docker-commands.md)
     * [docker-compose.yml](DevOps/Docker/docker-compose.yml.md)
+    * [Docker Images](DevOps/Docker/docker-images.md)
+    * [Docker Mapping](DevOps/Docker/docker-mapping.md)
+    * [Docker Networks](DevOps/Docker/docker-networks.md)
     * [Dockerfile](DevOps/Docker/dockerfile.md)
-    * [Poetry](DevOps/Docker/poetry.md)
+    * [Overview](DevOps/Docker/Overview.md)
   - [Github](DevOps/Github/README.md)
     * [Committing Pushing](DevOps/Github/committing-pushing.md)
     * [Git Branches](DevOps/Github/git-branches.md)
     * [Git Merge Conflicts](DevOps/Github/git-merge-conflicts.md)
     * [Pr Checklist](DevOps/Github/pr-checklist.md)
     * [Troubleshooting](DevOps/Github/troubleshooting.md)
+  - Jenkins
+    * [Jenkins Master Slave](DevOps/Jenkins/jenkins-master-slave.md)
+    * [Jenkinsfile](DevOps/Jenkins/jenkinsfile.md)
 - GUI
-  - PyQT
+  - Py QT
     * [Overview](GUI/PyQT/overview.md)
 - Interview
   - Data Science Interview
@@ -79,8 +86,8 @@
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
-    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
-    * [CNN Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
+    * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
+    * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
     * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
@@ -115,7 +122,7 @@
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
     * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
-  - [PyTorch](Machine Learning/PyTorch/README.md)
+  - [Py Torch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
     * [Convolutional Neural Networks](Machine Learning/PyTorch/convolutional-neural-networks.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
@@ -131,7 +138,7 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
+    * [Lstm Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
     * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
   - Research Papers
