@@ -28,7 +28,7 @@
     * [Notes To Rememeber](C++/CS 246/notes-to-rememeber.md)
 - Data Science
   - Jupyter Notebooks
-    * [Jupyter Notebook With VS Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
+    * [Jupyter Notebook With Vs Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
     * [Jupyter Notebooks Virtual Env](Data Science/Jupyter Notebooks/jupyter-notebooks-virtual-env.md)
     * [Jupyter Notify](Data Science/Jupyter Notebooks/jupyter-notify.md)
     * [Troubleshooting](Data Science/Jupyter Notebooks/troubleshooting.md)
@@ -70,6 +70,13 @@
   - Jenkins
     * [Jenkins Master Slave](DevOps/Jenkins/jenkins-master-slave.md)
     * [Jenkinsfile](DevOps/Jenkins/jenkinsfile.md)
+  - Kubernetes
+    * [Introduction](DevOps/Kubernetes/Introduction.md)
+    * [Kubernetes Architecture](DevOps/Kubernetes/kubernetes-architecture.md)
+    * [Kubernetes Commands](DevOps/Kubernetes/kubernetes-commands.md)
+- Fairtax
+  * [Fairtax Region Dictionary](Fairtax/fairtax-region-dictionary.md)
+  * [Fippa](Fairtax/fippa.md)
 - GUI
   - Py QT
     * [Overview](GUI/PyQT/overview.md)
@@ -86,13 +93,13 @@
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
-    * [Cnn Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
-    * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
+    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
+    * [CNN Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
     * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
-    * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
+    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
     * [Kullback Leibler Divergence](Machine Learning/Evaluation/Kullback-Leibler-Divergence.md)
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
@@ -105,7 +112,7 @@
     * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
-    * [Building Cnn](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
+    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
@@ -122,7 +129,7 @@
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
     * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
-  - [Py Torch](Machine Learning/PyTorch/README.md)
+  - [PyTorch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
     * [Convolutional Neural Networks](Machine Learning/PyTorch/convolutional-neural-networks.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
