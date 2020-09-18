@@ -74,9 +74,6 @@
     * [Introduction](DevOps/Kubernetes/Introduction.md)
     * [Kubernetes Architecture](DevOps/Kubernetes/kubernetes-architecture.md)
     * [Kubernetes Commands](DevOps/Kubernetes/kubernetes-commands.md)
-- Fairtax
-  * [Fairtax Region Dictionary](Fairtax/fairtax-region-dictionary.md)
-  * [Fippa](Fairtax/fippa.md)
 - GUI
   - Py QT
     * [Overview](GUI/PyQT/overview.md)
@@ -186,6 +183,8 @@
   * [Gitbook](Miscellaneous/Gitbook.md)
   * [Google Colab](Miscellaneous/google-colab.md)
   * [Processors](Miscellaneous/processors.md)
+- Networking
+  * [Https](Networking/https.md)
 - Python
   - CS 234
     - Module 1
