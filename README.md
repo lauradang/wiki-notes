@@ -3,7 +3,7 @@
 ## Highlights
 Here are some of my recently updated notes.
 
-- [DevOps Notes](https://lauradang.gitbook.io/notes/dev-ops)
+- [DevOps Notes](https://lauradang.gitbook.io/notes/devops)
 - [Style Transfer](https://lauradang.gitbook.io/notes/machine-learning/research-papers/style-transfer)
 - [Convolutional Neural Network Notes](https://lauradang.gitbook.io/notes/machine-learning/convolutional-neural-networks)
 
