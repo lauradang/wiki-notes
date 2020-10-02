@@ -1,5 +1,7 @@
 # Math 239 Formula/Theorem Sheet
 
+It seems Gitbook and Typora don't render markdowns exactly the same, so this looks really messed up. [Nice PDF here]()
+
 ## Enumeration 
 
 | Sets                                                         | **Cartesian Product**                                        |
