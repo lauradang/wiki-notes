@@ -80,13 +80,3 @@ When you are given information about **rank**, try to turn it into information a
 
 
 
-I'm a bit confused on how to prove that $$Q_{k,n}$$ 
-
-
-
-
-
-
-
-
-

@@ -2,6 +2,6 @@
 
 ### Unzipping Tar.gz
 ```bash
-$ tar xvzf file.tar.gz
+$ tar -xvzf file.tar.gz
 ```
 

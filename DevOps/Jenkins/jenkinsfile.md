@@ -72,7 +72,7 @@ node {
 
 ### Variables available in Jenkins
 
-You can see them at `localhost:8080/env-vars.html`
+You can see them at `<jenkins_url>/env-vars.html`
 
 **How to define them**:
 
@@ -112,45 +112,6 @@ pipeline {
 }
 ```
 
-What if you only need to use credentials in one stage? We can use **wrapper syntax**.
-
-```groovy
-// You need the Credential and Credential Binding plugins
-pipeline { 
-    agent any
-    stages { 
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-              	// Define wrapper function withCredentials()
-              	// Takes in an object (in Groovy, [] is an object)
-                withCredentials([
-                  usernamePassword( // function that gives the username and password individually 
-                    credentials: <id_of_global_cred>, 
-                    usernameVariable: USER, // stores username into USER
-                    passwordVariable: PWD // stores password into PWD
-                  ) 
-                ]) {
-										// So here, we can use USER and PWD
-                  sh "some script ${USER} ${PWD}"
-                }
-            }
-        }
-    }
-  }
-}
-```
-
 ## Accessing Build Tools
 
 In projects, you have multiple builds such as Maven Build or Gradle build. So you would need a line like `sh "maven build"` in the stages. How do we access this?
@@ -180,11 +141,6 @@ pipeline {
   }
 
   stages { 
-    stage('Build') {
-        steps {
-            echo 'Building..'
-        }
-    }
     stage('Test') {
         when {
           expression {
@@ -210,17 +166,8 @@ To choose the paraeters, they will show up in Build (Build in Jenkins becomes Bu
 
 ```groovy
 // Here's a random .groovy file (let's call is script.groovy)
-def buildApp() {
-		echo 'building the application...'
-}
-
-def testApp() {
-  	echo 'testing the application...'
-}
-
-def deployApp() {
-  	echo 'deploying the application...'
-    echo "deploying version ${params.VERSION}" // ALL ENV VARIABLES IN JENKINS ARE ACCESSIBLE IN GROOVY SCRIPTS
+def initApp() {
+		echo 'Initializing the application...'
 }
 
 return this // need this to import these functions into jenkinsfile
@@ -238,27 +185,7 @@ pipeline {
         steps {
             script { // In this block, you can write normal groovy syntax
 								gv = load "script.groovy"
-            }
-        }
-    }
-    stage('Build') {
-        steps {
-            script { 
-								gv.buildApp()
-            }
-        }
-    }
-    stage('Test') {
-        steps {
-            script { 
-								gv.testApp()
-            }
-        }
-    }
-    stage('Deploy') {
-        steps {
-            script { 
-								gv.deployApp()
+                gv.initApp()
             }
         }
     }
