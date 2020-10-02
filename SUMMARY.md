@@ -50,7 +50,7 @@
   * [Mysql](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
   * [Sqlalchemy](Databases/sqlalchemy.md)
-- Dev Ops
+- DevOps
   - AWS
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
@@ -61,16 +61,18 @@
     * [Docker Networks](DevOps/Docker/docker-networks.md)
     * [Dockerfile](DevOps/Docker/dockerfile.md)
     * [Overview](DevOps/Docker/Overview.md)
-  - [Github](DevOps/Github/README.md)
-    * [Committing Pushing](DevOps/Github/committing-pushing.md)
-    * [Git Branches](DevOps/Github/git-branches.md)
-    * [Git Merge Conflicts](DevOps/Github/git-merge-conflicts.md)
-    * [Pr Checklist](DevOps/Github/pr-checklist.md)
-    * [Troubleshooting](DevOps/Github/troubleshooting.md)
+  - [Git](DevOps/Git/README.md)
+    * [Committing Pushing](DevOps/Git/committing-pushing.md)
+    * [Git Branches](DevOps/Git/git-branches.md)
+    * [Git Merge Conflicts](DevOps/Git/git-merge-conflicts.md)
+    * [Pr Checklist](DevOps/Git/pr-checklist.md)
+    * [Troubleshooting](DevOps/Git/troubleshooting.md)
   - Jenkins
+    * [Jenkins Configurations](DevOps/Jenkins/jenkins-configurations.md)
     * [Jenkins Master Slave](DevOps/Jenkins/jenkins-master-slave.md)
     * [Jenkinsfile](DevOps/Jenkins/jenkinsfile.md)
   - Kubernetes
+    * [Helm Charts](DevOps/Kubernetes/helm-charts.md)
     * [Introduction](DevOps/Kubernetes/Introduction.md)
     * [Kubernetes Architecture](DevOps/Kubernetes/kubernetes-architecture.md)
     * [Kubernetes Commands](DevOps/Kubernetes/kubernetes-commands.md)
@@ -87,6 +89,7 @@
 - Machine Learning
   - Algorithms
     * [Algorithms Pros And Cons](Machine Learning/Algorithms/algorithms-pros-and-cons.md)
+    * [Deep Sort Overview](Machine Learning/Algorithms/deep-sort-overview.md)
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
@@ -96,7 +99,7 @@
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
-    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
+    * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
     * [Kullback Leibler Divergence](Machine Learning/Evaluation/Kullback-Leibler-Divergence.md)
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
@@ -109,7 +112,7 @@
     * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
-    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
+    * [Building Cnn](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
@@ -126,7 +129,7 @@
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
     * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
-  - [PyTorch](Machine Learning/PyTorch/README.md)
+  - [Py Torch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
     * [Convolutional Neural Networks](Machine Learning/PyTorch/convolutional-neural-networks.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
@@ -174,7 +177,6 @@
   * [Math 235](Math/Math 235.md)
   * [Math 239 Formula Theorems](Math/Math 239 FormulaTheorems.md)
   * [Math 239](Math/Math 239.md)
-  * [Stat 231](Math/Stat 231.md)
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
@@ -198,7 +200,6 @@
   * [Pickle](Python/pickle.md)
   * [Troubleshooting](Python/troubleshooting.md)
 - R
-  * [STAT 231 Final](R/STAT 231 Final.md)
   * [Useful Commands](R/useful-commands.md)
 - Shell
   - [Bash](Shell/Bash/README.md)
