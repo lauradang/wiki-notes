@@ -1,6 +1,8 @@
 # Math 239 Formula/Theorem Sheet
 
-It seems Gitbook and Typora don't render markdowns exactly the same, so this looks really messed up. [Nice PDF here]()
+It seems Gitbook and Typora don't render markdowns exactly the same, so this looks really messed up.
+
+[Nice PDF here]([https://github.com/lauradang/wiki-notes/blob/master/Math/Math%20239%20FormulaTheorems.pdf](https://github.com/lauradang/wiki-notes/blob/master/Math/Math 239 FormulaTheorems.pdf)). 
 
 ## Enumeration 
 
