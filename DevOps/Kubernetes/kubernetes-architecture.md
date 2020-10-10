@@ -1,5 +1,7 @@
 # Kubernetes Architecture
 
+![](https://www.researchgate.net/profile/Unai_Arronategui/publication/320248964/figure/fig1/AS:806205253484545@1569225719186/Kubernetes-architecture.png)
+
 ## Nodes/Minions
 
 A virtual or physical machine where the Kubernetes tools are installed. A node is a working machine where the containers will be launched by Kubernetes.

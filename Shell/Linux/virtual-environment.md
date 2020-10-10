@@ -27,3 +27,15 @@ $ vi .env
 
 $ pip install python-dotenv
 ```
+
+### Switch python version in virtualenv
+
+**Use case:** Some dependencies are not supported by Python3.8 yet.
+
+```bash
+$ virtualenv --python=/usr/bin/python<version> <path/to/new/virtualenv/>
+
+# To find path for python (it's not always /usr/bin/...):
+$ which python<version_number>
+```
+

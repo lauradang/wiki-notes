@@ -11,5 +11,3 @@ helm upgrade <RELEASE_NAME> <repo_name>/<chart_name> # Release name can be anyth
 
 **Important Note:** Does not add actual files to your machine/container. Just gives you virtual access to the repo.
 
-
-
