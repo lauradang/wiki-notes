@@ -52,6 +52,7 @@
   * [Sqlalchemy](Databases/sqlalchemy.md)
 - DevOps
   - AWS
+    * [Aws Eks](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
     * [Docker Commands](DevOps/Docker/docker-commands.md)
@@ -72,12 +73,14 @@
     * [Jenkins Master Slave](DevOps/Jenkins/jenkins-master-slave.md)
     * [Jenkinsfile](DevOps/Jenkins/jenkinsfile.md)
   - Kubernetes
-    * [Helm Charts](DevOps/Kubernetes/helm-charts.md)
+    * [Helm Commands](DevOps/Kubernetes/helm-commands.md)
     * [Introduction](DevOps/Kubernetes/Introduction.md)
     * [Kubernetes Architecture](DevOps/Kubernetes/kubernetes-architecture.md)
     * [Kubernetes Commands](DevOps/Kubernetes/kubernetes-commands.md)
+    * [Kubernetes Volumes](DevOps/Kubernetes/kubernetes-volumes.md)
+    * [Volumes](DevOps/Kubernetes/volumes.md)
 - GUI
-  - Py QT
+  - PyQT
     * [Overview](GUI/PyQT/overview.md)
 - Interview
   - Data Science Interview
@@ -89,7 +92,6 @@
 - Machine Learning
   - Algorithms
     * [Algorithms Pros And Cons](Machine Learning/Algorithms/algorithms-pros-and-cons.md)
-    * [Deep Sort Overview](Machine Learning/Algorithms/deep-sort-overview.md)
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
@@ -99,7 +101,7 @@
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
-    * [Prepare Images For Cnn](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
+    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
     * [Kullback Leibler Divergence](Machine Learning/Evaluation/Kullback-Leibler-Divergence.md)
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
@@ -112,7 +114,7 @@
     * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
-    * [Building Cnn](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
+    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
@@ -129,7 +131,11 @@
     * [Neural Networks](Machine Learning/Neural Networks/neural-networks.md)
     * [Training A Neural Network](Machine Learning/Neural Networks/training-a-neural-network.md)
     * [Training Own Datasets](Machine Learning/Neural Networks/training-own-datasets.md)
-  - [Py Torch](Machine Learning/PyTorch/README.md)
+  - Object Detection Tracking
+    * [Deep Sort Implementations](Machine Learning/Object DetectionTracking/deep-sort-implementations.md)
+    * [Deep Sort Overview](Machine Learning/Object DetectionTracking/deep-sort-overview.md)
+    * [Detection Vs Tracking](Machine Learning/Object DetectionTracking/detection-vs-tracking.md)
+  - [PyTorch](Machine Learning/PyTorch/README.md)
     * [Audio Classifier Tutorial](Machine Learning/PyTorch/audio-classifier-tutorial.md)
     * [Convolutional Neural Networks](Machine Learning/PyTorch/convolutional-neural-networks.md)
     * [Tensors](Machine Learning/PyTorch/tensors.md)
@@ -207,10 +213,10 @@
     * [Virtual Environment](Shell/Bash/virtual-environment.md)
   - [Linux](Shell/Linux/README.md)
     * [Environment Variables](Shell/Linux/environment-variables.md)
-    * [Local And Remote](Shell/Linux/local-and-remote.md)
+    * [File Management](Shell/Linux/file-management.md)
+    * [Permissions](Shell/Linux/permissions.md)
     * [Storage Space Commands](Shell/Linux/storage-space-commands.md)
     * [Virtual Environment](Shell/Linux/virtual-environment.md)
-    * [Zip Files](Shell/Linux/zip-files.md)
 - Web
   - [Django](Web/Django/README.md)
     * [Activating Grantmatch](Web/Django/activating-grantmatch.md)
