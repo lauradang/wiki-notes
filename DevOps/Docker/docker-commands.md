@@ -123,3 +123,7 @@ docker push <image_name>
 docker history <image_name>
 ```
 
+## Clear Device Memory
+```bash
+docker system prune
+```
