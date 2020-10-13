@@ -1,5 +1,9 @@
 # Kubernetes Commands
 
+## Debugging
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging
+- `--v=9` is good for seeing values, put into JSON formatter
+
 ## Spinning up the instances
 
 ```bash
@@ -52,4 +56,9 @@ $ kubectl describe pod <pod_name>
 ## Exec into bash
 ```bash
 $ kubectl exec -it <pod_name> -c <container_name> -- /bin/bash
+```
+
+## Get logs for pod
+```bash
+$ kubectl logs <pod_name>
 ```
