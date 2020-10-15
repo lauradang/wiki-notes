@@ -7,11 +7,11 @@ Here are some of my recently updated notes.
 - [Style Transfer](https://lauradang.gitbook.io/notes/machine-learning/research-papers/style-transfer)
 - [Convolutional Neural Network Notes](https://lauradang.gitbook.io/notes/machine-learning/convolutional-neural-networks)
 
-## About Me
+## What is this page?
 
-My name is Laura Dang, and I'm a Statistics and Computational Mathematics student at the University of Waterloo. 
+This is an open space where I can dump all my programming knowledge, whether it be for work, side projects, or just learning in general. 
 
-This is an open space where I can dump all my programming knowledge, whether it be for work, side projects, or just learning in general. Feel free to look around!
+Feel free to look around!
 
 ![](giphy.gif)
 
