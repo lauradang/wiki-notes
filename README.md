@@ -17,6 +17,8 @@ This is an open space where I can dump all my programming knowledge, whether it 
 
 ## More of me
 
+- [Personal Website](lauradang.me)
+
 - [Github](https://github.com/lauradang)
 - [Linkedin](https://www.linkedin.com/in/laura-dang/)
 
