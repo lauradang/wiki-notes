@@ -36,3 +36,5 @@ When installing Kubernetes, here's what you are installing:
    - responsible for distributing containers across multiple nodes
    - searches for newly created containers and assigns them to nodes 
 
+## Ingress
+Great video: https://www.youtube.com/watch?v=zkDmJRlDqbw

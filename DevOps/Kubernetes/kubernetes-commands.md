@@ -4,6 +4,16 @@
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging
 - `--v=9` is good for seeing values, put into JSON formatter
 
+## Get logs for pod
+```bash
+$ kubectl logs <pod_name>
+```
+
+## Get logs for ingress controller
+```bash
+$ kubectl logs -n kube-system $(kubectl get po -n kube-system | egrep -o 'alb-ingress[a-zA-Z0-9-]+') 
+```
+
 ## Spinning up the instances
 
 ```bash
@@ -56,9 +66,4 @@ $ kubectl describe pod <pod_name>
 ## Exec into bash
 ```bash
 $ kubectl exec -it <pod_name> -c <container_name> -- /bin/bash
-```
-
-## Get logs for pod
-```bash
-$ kubectl logs <pod_name>
 ```
