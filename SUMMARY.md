@@ -28,7 +28,7 @@
     * [Notes To Rememeber](C++/CS 246/notes-to-rememeber.md)
 - Data Science
   - Jupyter Notebooks
-    * [Jupyter Notebook With Vs Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
+    * [Jupyter Notebook With VS Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
     * [Jupyter Notebooks Virtual Env](Data Science/Jupyter Notebooks/jupyter-notebooks-virtual-env.md)
     * [Jupyter Notify](Data Science/Jupyter Notebooks/jupyter-notify.md)
     * [Troubleshooting](Data Science/Jupyter Notebooks/troubleshooting.md)
@@ -47,12 +47,12 @@
     * [Basic Commands](Databases/SQL Commands/basic-commands.md)
     * [Foreign Key Commands](Databases/SQL Commands/foreign-key-commands.md)
     * [Foreign Key](Databases/SQL Commands/foreign-key.md)
-  * [Mysql](Databases/mysql.md)
+  * [MySQL](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
   * [Sqlalchemy](Databases/sqlalchemy.md)
 - DevOps
   - AWS
-    * [Aws Eks](DevOps/AWS/aws-eks.md)
+    * [AWS EKS](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
     * [Docker Commands](DevOps/Docker/docker-commands.md)
@@ -188,7 +188,7 @@
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
-  * [Api](Miscellaneous/api.md)
+  * [API](Miscellaneous/api.md)
   * [Cron Job](Miscellaneous/cron-job.md)
   * [Gitbook](Miscellaneous/Gitbook.md)
   * [Google Colab](Miscellaneous/google-colab.md)
@@ -211,15 +211,15 @@
 - R
   * [Useful Commands](R/useful-commands.md)
 - Shell
-  - [Bash](Shell/Bash/README.md)
-    * [Environment Variables](Shell/Bash/environment-variables.md)
-    * [Virtual Environment](Shell/Bash/virtual-environment.md)
   - [Linux](Shell/Linux/README.md)
     * [Environment Variables](Shell/Linux/environment-variables.md)
     * [File Management](Shell/Linux/file-management.md)
+    * [Networking](Shell/Linux/networking.md)
     * [Permissions](Shell/Linux/permissions.md)
     * [Storage Space Commands](Shell/Linux/storage-space-commands.md)
     * [Virtual Environment](Shell/Linux/virtual-environment.md)
+  - Mac OS X
+    * [Python](Shell/Mac OS X/python.md)
   - Windows
     * [Environment](Shell/Windows/environment.md)
 - Web
