@@ -9,9 +9,13 @@ Here are some of my recently updated notes.
 
 ## What is this page?
 
-This is an open space where I can dump all my programming knowledge, whether it be for work, side projects, or just learning in general. 
+This is an open space where I can dump all my programming knowledge, whether it be for work, side projects, or just learning anything in general. 
 
-Feel free to look around!
+Remembering and re-googling certain commands or programming blocks over time gets tiring, so I made this page as a quick reference for myself. 
+
+You might be asking why I even bothered making this public if some of these notes are just filled with my nonsensical brain dumps. I initially made this as an easy way to view my notes from different computers without cloning files or sifting through them on Github. Now, I figured everyone must have different note-taking strategies, and I thought sharing mine would be beneficial for the odd programmer who happens to come by this page.
+
+‌Feel free to look around!
 
 ![](giphy.gif)
 
