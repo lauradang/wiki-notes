@@ -21,7 +21,7 @@ You might be asking why I even bothered making this public if some of these note
 
 ## More of me
 
-- [Personal Website](lauradang.me)
+- [Personal Website](https://lauradang.me)
 
 - [Github](https://github.com/lauradang)
 - [Linkedin](https://www.linkedin.com/in/laura-dang/)
