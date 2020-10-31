@@ -1,6 +1,6 @@
 # DeepSORT Overview
 
-My documentation can be found [here](https://github.com/lauradang/wiki-notes/blob/master/Math/Math%20239%20FormulaTheorems.pdf](https://github.com/lauradang/wiki-notes/blob/master/Machine Learning/Object Tracking/DeepSORT-Overview.pdf)).
+My documentation can be found [here](https://github.com/lauradang/wiki-notes/blob/master/Machine Learning/Object Tracking/DeepSORT-Overview.pdf).
 
 https://github.com/nwojke/deep_sort
 

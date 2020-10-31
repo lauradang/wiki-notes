@@ -5,7 +5,7 @@ Here are some of my recently updated notes.
 
 - [DevOps Notes](https://lauradang.gitbook.io/notes/devops)
 - [Style Transfer](https://lauradang.gitbook.io/notes/machine-learning/research-papers/style-transfer)
-- [Convolutional Neural Network Notes](https://lauradang.gitbook.io/notes/machine-learning/convolutional-neural-networks)
+- [DeepSORT](https://github.com/lauradang/wiki-notes/blob/master/Machine Learning/Object Tracking/DeepSORT-Overview.pdf)
 
 ## What is this page?
 
