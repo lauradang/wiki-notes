@@ -23,7 +23,7 @@ You might be asking why I even bothered making this public if some of these note
 
 - [Personal Website](https://lauradang.me)
 
-- [Github](https://github.com/lauradang)
+- [GitHub](https://github.com/lauradang)
 - [Linkedin](https://www.linkedin.com/in/laura-dang/)
 
 ## Built With
