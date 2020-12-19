@@ -1,4 +1,4 @@
-# Programming Notes
+# Your Book Title
 
 - C++
   - [CS 246](C++/CS 246/README.md)
@@ -39,7 +39,7 @@
     * [Troubleshooting](Data Science/Pandas/troubleshooting.md)
   - Time Series
     * [Autocorrelation Serial Correlation](Data Science/Time Series/autocorrelation-serial-correlation.md)
-    * [Correlation PCT Change](Data Science/Time Series/correlation-pct_change.md)
+    * [Correlation Pct Change](Data Science/Time Series/correlation-pct_change.md)
     * [Linear Regression](Data Science/Time Series/linear-regression.md)
     * [Time Series](Data Science/Time Series/time-series.md)
 - Databases
@@ -47,12 +47,12 @@
     * [Basic Commands](Databases/SQL Commands/basic-commands.md)
     * [Foreign Key Commands](Databases/SQL Commands/foreign-key-commands.md)
     * [Foreign Key](Databases/SQL Commands/foreign-key.md)
-  * [MySQL](Databases/mysql.md)
+  * [MYSQL](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
-  * [SQLAlchemy](Databases/sqlalchemy.md)
+  * [SQLALCHEMY](Databases/sqlalchemy.md)
 - DevOps
   - AWS
-    * [AWS EKS](DevOps/AWS/aws-eks.md)
+    * [Aws EKS](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
     * [Docker Commands](DevOps/Docker/docker-commands.md)
@@ -68,6 +68,7 @@
     * [Jenkinsfile](DevOps/Jenkins/jenkinsfile.md)
     * [Troubleshooting Pipelines](DevOps/Jenkins/troubleshooting-pipelines.md)
   - Kubernetes
+    * [Example](DevOps/Kubernetes/example.md)
     * [Helm Commands](DevOps/Kubernetes/helm-commands.md)
     * [Introduction](DevOps/Kubernetes/Introduction.md)
     * [Kubernetes Architecture](DevOps/Kubernetes/kubernetes-architecture.md)
@@ -146,7 +147,7 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
+    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/LSTM-networks.md)
     * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
   - Research Papers
@@ -245,7 +246,7 @@
     * [Passing Data Between Backend And Frontend](Web/Flask/passing-data-between-backend-and-frontend.md)
     * [Web Cache](Web/Flask/web-cache.md)
   - [Laravel](Web/Laravel/README.md)
-    * [Adding JS CSS To Templates](Web/Laravel/adding-js-css-to-ftx-templates.md)
+    * [Adding JS CSS To Ftx Templates](Web/Laravel/adding-js-css-to-ftx-templates.md)
     * [Database Queries](Web/Laravel/database-queries.md)
     * [Migrations](Web/Laravel/migrations.md)
     * [Troubleshooting](Web/Laravel/troubleshooting.md)
@@ -260,10 +261,10 @@
     * [Finding Elements](Web/Selenium/finding-elements.md)
     * [Setting Up Headless Chrome](Web/Selenium/setting-up-headless-chrome.md)
   - Web Scraping
-    * [Beautifulsoup](Web/Web Scraping/beautifulsoup.md)
+    * [Beautiful Soup](Web/Web Scraping/beautifulsoup.md)
     * [Data Cleaning](Web/Web Scraping/data-cleaning.md)
     * [PDF To CSV](Web/Web Scraping/pdf-to-csv.md)
     * [Read PDFs](Web/Web Scraping/read-pdfs.md)
-    * [Requests And JSON](Web/Web Scraping/requests-and-json.md)
+    * [Requests And Json](Web/Web Scraping/requests-and-json.md)
     * [Tor](Web/Web Scraping/tor.md)
   * [HTMLCSS](Web/HTMLCSS.md)
