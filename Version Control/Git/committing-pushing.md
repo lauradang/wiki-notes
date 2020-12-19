@@ -1,4 +1,4 @@
-# Commiting and Pushing
+# Commits
 
 ### Committing/Pushing
 
@@ -63,3 +63,16 @@ $ git reset -p
 - Ignoring all types of a file extension, folder, or file
   - `*.<file-extension>` (eg. txt, swp)
   - `*<folder/file-name>`
+
+### Get latest commit hash
+
+```bash
+git rev-parse origin/<branch_name>
+```
+
+### Get commits different between two branches (parent and child)
+
+```bash
+git log <parent_branch>..<child_branch>
+```
+

@@ -1,6 +1,170 @@
-# Python Flask Unit Testing
+# Python Unit Testing
 
-## Mock Endpoints
+## Mocking function
+
+```python
+# file: module/module1.py
+def get_name():
+  return 1
+
+# file: test.py
+import mock # EXTERNAL DEPENDENCY DO PIP INSTALL
+from module.module1 import get_name
+
+def test_get_name(self):
+    with mock.patch("module.module1.get_name") as mock_get_name:
+        mock_get_name.return_value = 2
+        assert get_name() == 2 # Should pass!
+```
+
+## Mocking method
+
+```python
+# file: module/module1.py
+class ExampleClass:
+  def get_name(self):
+    return 1
+
+# file: test.py
+import mock # EXTERNAL DEPENDENCY DO PIP INSTALL
+from module.module1.ExampleClass import get_name
+
+def test_get_name(self):
+    with mock.patch("module.module1.ExampleClass.get_name") as mock_get_name:
+        mock_get_name.return_value = 2
+        assert get_name() == 2 # Should pass!
+```
+
+## Testing functions that do not return anything
+
+```python
+# file: module/module1.py
+import logging
+
+def get_name(self):
+  logging.info("Name was successfully requested")
+
+# file: test.py
+import mock
+from module.module1 import get_name
+
+def test_get_name(self):
+    with mock.patch("logging") as mock_logging:
+      	# Can do this:
+        mock_logging.info.assert_called_once()
+        # OR this:
+				mock_logging.info.assert_called_with("Name was successfully requested")
+        
+        # Both should pass!
+```
+
+## Mocking requests
+
+This is specifically for the external dependency `requests`.
+
+```python
+import mock
+
+with mock.patch("requests.get") as mock_get_request:
+    mock_get_request.return_value.json.return_value = some_dict
+```
+
+**Using `response` library**:
+
+```python
+import requests
+import responses
+
+@responses.activate
+def test_get_response_json_success(self) -> None:
+    test_url = "https://somewebsite.com"
+    test_json = {"test": "data"}
+
+    responses.add(responses.GET, test_url, json=test_json, status=200)
+    response = requests.get(test_url)
+    result = get_response_json(response, "some_msg") # some function that gets the json from a request
+
+    assert result == test_json
+```
+
+## Mocking class objects
+
+When we want a class object with mock fields, we can use `MagicMock`
+
+```python
+# file: module/module1.py
+import subprocess
+process = subprocess.run(...) # This returns an object with these fields: stdout, stderr, returncode
+
+# file: test.py
+import mock
+from unittest.mock import MagicMock
+from module.module1 import process
+
+def test_subprocess(self) -> None:
+    with mock.patch("subprocess.run") as mock_subprocess:
+        mock_subprocess.return_value = MagicMock(
+            returncode=127, 
+          	stderr=b"Some error", 
+          	stdout=b"something"
+        )
+        assert process.returncode == 127
+        assert process.stderr == b"Some error"
+        assert process.stdout = b"something"
+```
+
+## Mocking exception raised
+
+```python
+# file: module/module1.py
+client = ...
+logger = ...
+
+def send_email():
+  try:
+    client.send_email()
+  except SomeError as e:
+    logger.error(e)
+ 
+# file: test.py
+import mock
+from contextmanager import ExitStack
+from module.module1 import send_email
+
+def test_send_email_fail_error(self):
+    self.mock_client = mock.patch("module.module1.client")
+    self.mock_logger = mock.patch("module.module1.logger")
+    
+    with ExitStack() as context_stack:
+        mock_client = context_stack.enter_context(self.mock_client)
+        mock_logger = context_stack.enter_context(self.mock_logger)
+
+        mock_client.send_email.side_effect = SomeError() #notice it's calling a function here
+        send_email()
+        mock_logger.error.assert_called_once()
+```
+
+## Mocking global variables
+
+```python
+import mock # EXTERNAL DEPENDENCY DO PIP INSTALL
+
+# file: module/module1.py
+name = 1
+
+def get_name():
+  return name
+
+# file: test.py
+from module.module1 import get_name
+
+def test_get_name(self):
+    with mock.patch("module.module1.name") as mock_name:
+        mock_name.return_value = 2
+        assert get_name() == 2 # Should pass!
+```
+
+## Mock Endpoints (Flask-specific)
 
 ```python
 import unittest
@@ -78,7 +242,7 @@ from api.database_models.models import (
 
 # setUp is a function from unittest.TestCase. It is part of a class that inherits from the unittest.TestCase class
 def setUp(self):
-    temp_database_uri = "sqlite:///:unit_test:"
+    temp_database_uri = "sqlite:///:memory:"
     engine = create_engine(temp_database_uri, echo=False)
     self.session = scoped_session(
         sessionmaker(
@@ -98,7 +262,8 @@ def setUp(self):
         df.to_sql(
             ExampleTable().__tablename__,
             con=engine,
-            if_exists="append"
+            if_exists="append",
+          	index=False # if you do not want the index column
         )
 
 # Similarly to setUp, we also have tearDown

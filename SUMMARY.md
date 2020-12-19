@@ -1,4 +1,4 @@
-# Your Book Title
+# Programming Notes
 
 - C++
   - [CS 246](C++/CS 246/README.md)
@@ -28,7 +28,7 @@
     * [Notes To Rememeber](C++/CS 246/notes-to-rememeber.md)
 - Data Science
   - Jupyter Notebooks
-    * [Jupyter Notebook With Vs Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
+    * [Jupyter Notebook With VS Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
     * [Jupyter Notebooks Virtual Env](Data Science/Jupyter Notebooks/jupyter-notebooks-virtual-env.md)
     * [Jupyter Notify](Data Science/Jupyter Notebooks/jupyter-notify.md)
     * [Troubleshooting](Data Science/Jupyter Notebooks/troubleshooting.md)
@@ -39,7 +39,7 @@
     * [Troubleshooting](Data Science/Pandas/troubleshooting.md)
   - Time Series
     * [Autocorrelation Serial Correlation](Data Science/Time Series/autocorrelation-serial-correlation.md)
-    * [Correlation Pct Change](Data Science/Time Series/correlation-pct_change.md)
+    * [Correlation PCT Change](Data Science/Time Series/correlation-pct_change.md)
     * [Linear Regression](Data Science/Time Series/linear-regression.md)
     * [Time Series](Data Science/Time Series/time-series.md)
 - Databases
@@ -47,12 +47,12 @@
     * [Basic Commands](Databases/SQL Commands/basic-commands.md)
     * [Foreign Key Commands](Databases/SQL Commands/foreign-key-commands.md)
     * [Foreign Key](Databases/SQL Commands/foreign-key.md)
-  * [Mysql](Databases/mysql.md)
+  * [MySQL](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
-  * [Sqlalchemy](Databases/sqlalchemy.md)
+  * [SQLAlchemy](Databases/sqlalchemy.md)
 - DevOps
   - AWS
-    * [Aws Eks](DevOps/AWS/aws-eks.md)
+    * [AWS EKS](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
     * [Docker Commands](DevOps/Docker/docker-commands.md)
@@ -62,17 +62,11 @@
     * [Docker Networks](DevOps/Docker/docker-networks.md)
     * [Dockerfile](DevOps/Docker/dockerfile.md)
     * [Overview](DevOps/Docker/Overview.md)
-  - [Git](DevOps/Git/README.md)
-    * [Committing Pushing](DevOps/Git/committing-pushing.md)
-    * [Git Branches](DevOps/Git/git-branches.md)
-    * [Git Merge Conflicts](DevOps/Git/git-merge-conflicts.md)
-    * [Pr Checklist](DevOps/Git/pr-checklist.md)
-    * [Ssh](DevOps/Git/ssh.md)
-    * [Troubleshooting](DevOps/Git/troubleshooting.md)
   - Jenkins
     * [Jenkins Configurations](DevOps/Jenkins/jenkins-configurations.md)
     * [Jenkins Master Slave](DevOps/Jenkins/jenkins-master-slave.md)
     * [Jenkinsfile](DevOps/Jenkins/jenkinsfile.md)
+    * [Troubleshooting Pipelines](DevOps/Jenkins/troubleshooting-pipelines.md)
   - Kubernetes
     * [Helm Commands](DevOps/Kubernetes/helm-commands.md)
     * [Introduction](DevOps/Kubernetes/Introduction.md)
@@ -97,26 +91,26 @@
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
-    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
-    * [Cnn Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
+    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/CNN-input-output-shape.md)
+    * [CNN Layers](Machine Learning/Convolutional Neural Networks/CNN-layers.md)
     * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
-    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
+    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-CNN.md)
   - Evaluation
     * [Kullback Leibler Divergence](Machine Learning/Evaluation/Kullback-Leibler-Divergence.md)
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
     * [Class Learner](Machine Learning/fast.ai/class_learner.md)
-    * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
+    * [NLP And Databunch](Machine Learning/fast.ai/NLP-and-databunch.md)
     * [Training](Machine Learning/fast.ai/training.md)
   - GAN
     * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
-    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
+    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-CNN.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
@@ -187,28 +181,32 @@
 - Miscellaneous
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
-  * [Api](Miscellaneous/api.md)
+  * [API](Miscellaneous/api.md)
   * [Cron Job](Miscellaneous/cron-job.md)
   * [Gitbook](Miscellaneous/Gitbook.md)
   * [Google Colab](Miscellaneous/google-colab.md)
   * [Processors](Miscellaneous/processors.md)
 - Networking
-  * [Https](Networking/https.md)
-  * [Tcp](Networking/tcp.md)
+  * [HTTPS](Networking/https.md)
+  * [TCP](Networking/tcp.md)
 - Python
-  - CS 234
-    - Module 1
-      * [Roles In Problems](Python/CS 234/Module 1/Roles in Problems.md)
-      * [Stages In Problem Solving](Python/CS 234/Module 1/Stages in Problem Solving.md)
   - Object Oriented Programming
     * [Args And Kwargs](Python/Object Oriented Programming/args-and-kwargs.md)
+    * [Dataclasses](Python/Object Oriented Programming/dataclasses.md)
   * [Argparse](Python/argparse.md)
+  * [Configparser](Python/configparser.md)
+  * [Contextmanager](Python/contextmanager.md)
   * [Imports](Python/imports.md)
   * [Linked Lists](Python/linked-lists.md)
+  * [Logging](Python/logging.md)
+  * [Nested Dictionaries](Python/nested_dictionaries.md)
+  * [Operators](Python/operators.md)
   * [Pickle](Python/pickle.md)
+  * [Regex](Python/regex.md)
+  * [String Tricks](Python/string-tricks.md)
   * [Troubleshooting](Python/troubleshooting.md)
+  * [Unit Testing](Python/unit-testing.md)
 - R
-  
   * [Useful Commands](R/useful-commands.md)
 - Shell
   - [Linux](Shell/Linux/README.md)
@@ -222,6 +220,16 @@
     * [Python](Shell/Mac OS X/python.md)
   - Windows
     * [Environment](Shell/Windows/environment.md)
+- Version Control
+  - [Git](Version Control/Git/README.md)
+    * [Committing Pushing](Version Control/Git/committing-pushing.md)
+    * [Git Branches](Version Control/Git/git-branches.md)
+    * [Git Command Options](Version Control/Git/git-command-options.md)
+    * [Git Merge Conflicts](Version Control/Git/git-merge-conflicts.md)
+    * [Pr Checklist](Version Control/Git/pr-checklist.md)
+    * [Pre Commit](Version Control/Git/pre-commit.md)
+    * [Ssh](Version Control/Git/ssh.md)
+    * [Troubleshooting](Version Control/Git/troubleshooting.md)
 - Web
   - [Django](Web/Django/README.md)
     * [Activating Grantmatch](Web/Django/activating-grantmatch.md)
@@ -231,17 +239,18 @@
     * [Running Tests](Web/Django/running-tests.md)
     * [Signals](Web/Django/signals.md)
     * [Troubleshooting](Web/Django/troubleshooting.md)
-    * [Tv Dashboard Stuff](Web/Django/tv-dashboard-stuff.md)
+    * [TV Dashboard Stuff](Web/Django/tv-dashboard-stuff.md)
   - [Flask](Web/Flask/README.md)
     * [Files](Web/Flask/files.md)
     * [Passing Data Between Backend And Frontend](Web/Flask/passing-data-between-backend-and-frontend.md)
-    * [Unit Testing](Web/Flask/unit-testing.md)
     * [Web Cache](Web/Flask/web-cache.md)
   - [Laravel](Web/Laravel/README.md)
-    * [Adding Js Css To Ftx Templates](Web/Laravel/adding-js-css-to-ftx-templates.md)
+    * [Adding JS CSS To Templates](Web/Laravel/adding-js-css-to-ftx-templates.md)
     * [Database Queries](Web/Laravel/database-queries.md)
     * [Migrations](Web/Laravel/migrations.md)
     * [Troubleshooting](Web/Laravel/troubleshooting.md)
+  - Npm
+    * [Untitled](Web/npm/Untitled.md)
   - [React](Web/React/README.md)
     * [Formatting](Web/React/formatting.md)
     * [Lifecycle Method](Web/React/lifecycle-method.md)
@@ -253,8 +262,8 @@
   - Web Scraping
     * [Beautifulsoup](Web/Web Scraping/beautifulsoup.md)
     * [Data Cleaning](Web/Web Scraping/data-cleaning.md)
-    * [Pdf To Csv](Web/Web Scraping/pdf-to-csv.md)
-    * [Read Pdfs](Web/Web Scraping/read-pdfs.md)
-    * [Requests And Json](Web/Web Scraping/requests-and-json.md)
+    * [PDF To CSV](Web/Web Scraping/pdf-to-csv.md)
+    * [Read PDFs](Web/Web Scraping/read-pdfs.md)
+    * [Requests And JSON](Web/Web Scraping/requests-and-json.md)
     * [Tor](Web/Web Scraping/tor.md)
   * [HTMLCSS](Web/HTMLCSS.md)
