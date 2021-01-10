@@ -28,7 +28,7 @@
     * [Notes To Rememeber](C++/CS 246/notes-to-rememeber.md)
 - Data Science
   - Jupyter Notebooks
-    * [Jupyter Notebook With VS Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
+    * [Jupyter Notebook With Vs Code](Data Science/Jupyter Notebooks/jupyter-notebook-with-vs-code.md)
     * [Jupyter Notebooks Virtual Env](Data Science/Jupyter Notebooks/jupyter-notebooks-virtual-env.md)
     * [Jupyter Notify](Data Science/Jupyter Notebooks/jupyter-notify.md)
     * [Troubleshooting](Data Science/Jupyter Notebooks/troubleshooting.md)
@@ -47,12 +47,12 @@
     * [Basic Commands](Databases/SQL Commands/basic-commands.md)
     * [Foreign Key Commands](Databases/SQL Commands/foreign-key-commands.md)
     * [Foreign Key](Databases/SQL Commands/foreign-key.md)
-  * [MYSQL](Databases/mysql.md)
+  * [MySQL](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
-  * [SQLALCHEMY](Databases/sqlalchemy.md)
+  * [SQLAlchemy](Databases/sqlalchemy.md)
 - DevOps
   - AWS
-    * [Aws EKS](DevOps/AWS/aws-eks.md)
+    * [AWS EKS](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
     * [Docker Commands](DevOps/Docker/docker-commands.md)
@@ -92,26 +92,26 @@
     * [Machine Learning Models Algorithms](Machine Learning/Algorithms/machine-learning-models-algorithms.md)
   - Convolutional Neural Networks
     * [Capsule Networks](Machine Learning/Convolutional Neural Networks/capsule-networks.md)
-    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/CNN-input-output-shape.md)
-    * [CNN Layers](Machine Learning/Convolutional Neural Networks/CNN-layers.md)
+    * [CNN Input Output Shape](Machine Learning/Convolutional Neural Networks/cnn-input-output-shape.md)
+    * [CNN Layers](Machine Learning/Convolutional Neural Networks/cnn-layers.md)
     * [Convolutional Hypercolumns](Machine Learning/Convolutional Neural Networks/convolutional-hypercolumns.md)
     * [Groundbreaking Architectures](Machine Learning/Convolutional Neural Networks/groundbreaking-architectures.md)
     * [Image Augmentation](Machine Learning/Convolutional Neural Networks/image-augmentation.md)
     * [Localization Object Detection](Machine Learning/Convolutional Neural Networks/localization-object-detection.md)
-    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-CNN.md)
+    * [Prepare Images For CNN](Machine Learning/Convolutional Neural Networks/prepare-images-for-cnn.md)
   - Evaluation
     * [Kullback Leibler Divergence](Machine Learning/Evaluation/Kullback-Leibler-Divergence.md)
     * [Loss Functions](Machine Learning/Evaluation/loss-functions.md)
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
     * [Class Learner](Machine Learning/fast.ai/class_learner.md)
-    * [NLP And Databunch](Machine Learning/fast.ai/NLP-and-databunch.md)
+    * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
     * [Training](Machine Learning/fast.ai/training.md)
   - GAN
     * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
-    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-CNN.md)
+    * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
     * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
@@ -147,7 +147,7 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/LSTM-networks.md)
+    * [Lstm Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
     * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
   - Research Papers
@@ -188,8 +188,8 @@
   * [Google Colab](Miscellaneous/google-colab.md)
   * [Processors](Miscellaneous/processors.md)
 - Networking
-  * [HTTPS](Networking/https.md)
-  * [TCP](Networking/tcp.md)
+  * [Https](Networking/https.md)
+  * [Tcp](Networking/tcp.md)
 - Python
   - Object Oriented Programming
     * [Args And Kwargs](Python/Object Oriented Programming/args-and-kwargs.md)
@@ -240,13 +240,13 @@
     * [Running Tests](Web/Django/running-tests.md)
     * [Signals](Web/Django/signals.md)
     * [Troubleshooting](Web/Django/troubleshooting.md)
-    * [TV Dashboard Stuff](Web/Django/tv-dashboard-stuff.md)
+    * [Tv Dashboard Stuff](Web/Django/tv-dashboard-stuff.md)
   - [Flask](Web/Flask/README.md)
     * [Files](Web/Flask/files.md)
     * [Passing Data Between Backend And Frontend](Web/Flask/passing-data-between-backend-and-frontend.md)
     * [Web Cache](Web/Flask/web-cache.md)
   - [Laravel](Web/Laravel/README.md)
-    * [Adding JS CSS To Ftx Templates](Web/Laravel/adding-js-css-to-ftx-templates.md)
+    * [Adding Js Css To Ftx Templates](Web/Laravel/adding-js-css-to-ftx-templates.md)
     * [Database Queries](Web/Laravel/database-queries.md)
     * [Migrations](Web/Laravel/migrations.md)
     * [Troubleshooting](Web/Laravel/troubleshooting.md)
@@ -261,10 +261,10 @@
     * [Finding Elements](Web/Selenium/finding-elements.md)
     * [Setting Up Headless Chrome](Web/Selenium/setting-up-headless-chrome.md)
   - Web Scraping
-    * [Beautiful Soup](Web/Web Scraping/beautifulsoup.md)
+    * [Beautifulsoup](Web/Web Scraping/beautifulsoup.md)
     * [Data Cleaning](Web/Web Scraping/data-cleaning.md)
-    * [PDF To CSV](Web/Web Scraping/pdf-to-csv.md)
-    * [Read PDFs](Web/Web Scraping/read-pdfs.md)
+    * [Pdf To Csv](Web/Web Scraping/pdf-to-csv.md)
+    * [Read Pdfs](Web/Web Scraping/read-pdfs.md)
     * [Requests And Json](Web/Web Scraping/requests-and-json.md)
     * [Tor](Web/Web Scraping/tor.md)
   * [HTMLCSS](Web/HTMLCSS.md)
