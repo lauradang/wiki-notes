@@ -33,3 +33,6 @@
 - Most common
 - Loss increases as predicted probability diverges from actual label
 - Penalizes heavily predictions that are confident but WRONG
+
+### Cross Entropy Loss vs. KL Divergence
+https://www.youtube.com/watch?v=pH9xkCK4ATc (great video!)

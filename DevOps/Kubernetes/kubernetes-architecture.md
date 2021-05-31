@@ -2,6 +2,10 @@
 
 ![](https://www.researchgate.net/profile/Unai_Arronategui/publication/320248964/figure/fig1/AS:806205253484545@1569225719186/Kubernetes-architecture.png)
 
+## Example
+
+![](get_pods.png)
+
 ## Nodes/Minions
 
 A virtual or physical machine where the Kubernetes tools are installed. A node is a working machine where the containers will be launched by Kubernetes.
@@ -36,5 +40,26 @@ When installing Kubernetes, here's what you are installing:
    - responsible for distributing containers across multiple nodes
    - searches for newly created containers and assigns them to nodes 
 
-## Ingress
-Great video: https://www.youtube.com/watch?v=zkDmJRlDqbw
+## DaemonSet
+
+Ensures all worker nodes run a copy of a pod
+
+## Deployment vs. Services
+
+**Deployments** - consists of one or more pods and replicas of pods
+
+**Services** - Manages the list of the pods' IP addresses (in order for pods to be able to access other pods)
+
+https://stackoverflow.com/questions/56896490/what-exactly-kubernetes-services-are-and-how-they-are-different-from-deployments
+
+## ConfigMaps
+
+A ConfigMap is an API object used to store non-confidential data in key-value pairs. [Pods](https://kubernetes.io/docs/concepts/workloads/pods/) can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a [volume](https://kubernetes.io/docs/concepts/storage/volumes/).
+
+## Stateful Sets
+
+Resources used to maintain stateful applications
+
+- An application that holds the state of the application (if the application goes down, this resource "saves" the data) 
+  - e.g. Database
+
