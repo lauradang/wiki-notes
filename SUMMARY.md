@@ -1,10 +1,10 @@
 # Your Book Title
 
 - C++
-  - [CS 246](C++/CS\ 246/README.md)
-    * [Lecture 1](C++/CS\ 246/lecture-1.md)
-    * [Lecture 10](C++/CS 246/lecture-10.md)
-    * [Lecture 11](C++/CS 246/lecture-11.md)
+  - [CS246](C++/CS 246/README.md)
+    * [Lecture1](C++/CS 246/lecture-1.md)
+    * [Lecture10](C++/CS 246/lecture-10.md)
+    * [Lecture11](C++/CS 246/lecture-11.md)
     * [Lecture 12](C++/CS 246/lecture-12.md)
     * [Lecture 13](C++/CS 246/lecture-13.md)
     * [Lecture 14](C++/CS 246/lecture-14.md)
