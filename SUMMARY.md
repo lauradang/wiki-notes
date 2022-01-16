@@ -47,12 +47,12 @@
     * [Basic Commands](Databases/SQL_Commands/basic-commands.md)
     * [Foreign Key Commands](Databases/SQL_Commands/foreign-key-commands.md)
     * [Foreign Key](Databases/SQL_Commands/foreign-key.md)
-  * [Mysql](Databases/mysql.md)
+  * [MySQL](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
-  * [Sqlalchemy](Databases/sqlalchemy.md)
+  * [SQLAlchemy](Databases/sqlalchemy.md)
 - DevOps
   - AWS
-    * [Aws Eks](DevOps/AWS/aws-eks.md)
+    * [AWS EKS](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
     * [Docker Commands](DevOps/Docker/docker-commands.md)
@@ -268,8 +268,8 @@
   - Web Scraping
     * [Beautifulsoup](Web/Web_Scraping/beautifulsoup.md)
     * [Data Cleaning](Web/Web_Scraping/data-cleaning.md)
-    * [Pdf To Csv](Web/Web_Scraping/pdf-to-csv.md)
-    * [Read Pdfs](Web/Web_Scraping/read-pdfs.md)
+    * [PDF To CSV](Web/Web_Scraping/pdf-to-csv.md)
+    * [Read PDFs](Web/Web_Scraping/read-pdfs.md)
     * [Requests And Json](Web/Web_Scraping/requests-and-json.md)
     * [Tor](Web/Web_Scraping/tor.md)
   * [HTMLCSS](Web/HTMLCSS.md)
