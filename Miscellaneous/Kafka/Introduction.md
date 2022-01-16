@@ -2,6 +2,8 @@
 
 [Kafka Training Blog](https://data-flair.training/blogs/kafka-architecture/)
 
+[Kafka Demo](https://www.youtube.com/watch?v=SQuh7CI1DV8&ab_channel=StephaneMaarek)
+
 ![](https://data-flair.training/blogs/wp-content/uploads/sites/2/2018/04/Kafka-Architecture.png)
 
 **Producer**: Push data to brokers. 

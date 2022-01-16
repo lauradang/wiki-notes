@@ -47,12 +47,12 @@
     * [Basic Commands](Databases/SQL Commands/basic-commands.md)
     * [Foreign Key Commands](Databases/SQL Commands/foreign-key-commands.md)
     * [Foreign Key](Databases/SQL Commands/foreign-key.md)
-  * [MySQL](Databases/mysql.md)
+  * [Mysql](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
-  * [SQLAlchemy](Databases/sqlalchemy.md)
-- DevOps
+  * [Sqlalchemy](Databases/sqlalchemy.md)
+- Dev Ops
   - AWS
-    * [AWS EKS](DevOps/AWS/aws-eks.md)
+    * [Aws Eks](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
   - [Docker](DevOps/Docker/README.md)
     * [Docker Commands](DevOps/Docker/docker-commands.md)
@@ -68,16 +68,18 @@
     * [Jenkinsfile](DevOps/Jenkins/jenkinsfile.md)
     * [Troubleshooting Pipelines](DevOps/Jenkins/troubleshooting-pipelines.md)
   - Kubernetes
+    * [Certificates](DevOps/Kubernetes/certificates.md)
     * [Example](DevOps/Kubernetes/example.md)
     * [Helm Commands](DevOps/Kubernetes/helm-commands.md)
     * [Introduction](DevOps/Kubernetes/Introduction.md)
     * [Kubernetes Architecture](DevOps/Kubernetes/kubernetes-architecture.md)
     * [Kubernetes Commands](DevOps/Kubernetes/kubernetes-commands.md)
+    * [Kubernetes External Access](DevOps/Kubernetes/kubernetes-external-access.md)
     * [Kubernetes Networking](DevOps/Kubernetes/kubernetes-networking.md)
     * [Kubernetes Volumes](DevOps/Kubernetes/kubernetes-volumes.md)
     * [Volumes](DevOps/Kubernetes/volumes.md)
 - GUI
-  - PyQT
+  - Py QT
     * [Overview](GUI/PyQT/overview.md)
 - Interview
   - Data Science Interview
@@ -105,14 +107,14 @@
     * [Metrics To Evaluate Ml Algorithms](Machine Learning/Evaluation/metrics-to-evaluate-ml-algorithms.md)
   - fast.ai
     * [Class Learner](Machine Learning/fast.ai/class_learner.md)
-    * [Nlp And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
+    * [NLP And Databunch](Machine Learning/fast.ai/nlp-and-databunch.md)
     * [Training](Machine Learning/fast.ai/training.md)
   - GAN
     * [Introduction To Gan](Machine Learning/GAN/introduction-to-gan.md)
   - Machine Learning Audio Classification
     * [Background](Machine Learning/Machine Learning Audio Classification/background.md)
     * [Building CNN](Machine Learning/Machine Learning Audio Classification/building-cnn.md)
-    * [Deepplaylist Rnns To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
+    * [Deepplaylist RNNs To Predict Song Similarity](Machine Learning/Machine Learning Audio Classification/deepplaylist:-rnns-to-predict-song-similarity.md)
     * [Loading Data](Machine Learning/Machine Learning Audio Classification/loading-data.md)
     * [Model Preparation](Machine Learning/Machine Learning Audio Classification/model-preparation.md)
     * [Plotting Calculating And Cleaning](Machine Learning/Machine Learning Audio Classification/plotting,-calculating,-and-cleaning.md)
@@ -147,9 +149,9 @@
     * [Text Featurizers](Machine Learning/Rasa/text-featurizers.md)
     * [Tokenizers](Machine Learning/Rasa/tokenizers.md)
   - Recurrent Neural Networks
-    * [Lstm Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
+    * [LSTM Networks](Machine Learning/Recurrent Neural Networks/lstm-networks.md)
     * [Recurrent Neural Networks](Machine Learning/Recurrent Neural Networks/recurrent-neural-networks.md)
-    * [Vanishing Gradients In Rnns](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
+    * [Vanishing Gradients In RNNs](Machine Learning/Recurrent Neural Networks/vanishing-gradients-in-rnns.md)
   - Research Papers
     * [Convolutional Neural Networks For Automatic Image Colorization](Machine Learning/Research Papers/Convolutional-Neural-Networks-for-automatic-image colorization.md)
     * [Learning Representation For Automatic Colorization](Machine Learning/Research Papers/learning-representation-for-automatic-colorization.md)
@@ -180,15 +182,18 @@
   * [Math 239 Formula Theorems](Math/Math 239 FormulaTheorems.md)
   * [Math 239](Math/Math 239.md)
 - Miscellaneous
+  - Kafka
+    * [Introduction](Miscellaneous/Kafka/Introduction.md)
   - [Regex](Miscellaneous/Regex/README.md)
     * [Useful Regex Patterns](Miscellaneous/Regex/useful-regex-patterns.md)
-  * [API](Miscellaneous/api.md)
+  * [Api](Miscellaneous/api.md)
   * [Cron Job](Miscellaneous/cron-job.md)
   * [Gitbook](Miscellaneous/Gitbook.md)
   * [Google Colab](Miscellaneous/google-colab.md)
   * [Processors](Miscellaneous/processors.md)
 - Networking
   * [Https](Networking/https.md)
+  * [Port Forwarding](Networking/port-forwarding.md)
   * [Tcp](Networking/tcp.md)
 - Python
   - Object Oriented Programming
