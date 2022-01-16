@@ -50,7 +50,7 @@
   * [Mysql](Databases/mysql.md)
   * [Postgres](Databases/postgres.md)
   * [Sqlalchemy](Databases/sqlalchemy.md)
-- Dev Ops
+- DevOps
   - AWS
     * [Aws Eks](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
