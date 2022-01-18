@@ -199,9 +199,11 @@
   - Object Oriented Programming
     * [Args And Kwargs](Python/Object_Oriented_Programming/args-and-kwargs.md)
     * [Dataclasses](Python/Object_Oriented_Programming/dataclasses.md)
+    * [Built-in Methods](Python/Object_Oriented_Programming/built-in-methods.md)
   * [Argparse](Python/argparse.md)
   * [Configparser](Python/configparser.md)
   * [Contextmanager](Python/contextmanager.md)
+  * [Decorators](Python/decorators.md)
   * [Imports](Python/imports.md)
   * [Linked Lists](Python/linked-lists.md)
   * [Logging](Python/logging.md)
