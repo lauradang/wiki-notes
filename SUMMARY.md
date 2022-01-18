@@ -204,6 +204,7 @@
   * [Configparser](Python/configparser.md)
   * [Contextmanager](Python/contextmanager.md)
   * [Decorators](Python/decorators.md)
+  * [Functools](Python/functools.md)
   * [Imports](Python/imports.md)
   * [Linked Lists](Python/linked-lists.md)
   * [Logging](Python/logging.md)
