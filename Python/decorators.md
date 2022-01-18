@@ -147,3 +147,27 @@ sayHello arguments: a different set of arguments
 After f(*args)
 after second sayHello() call
 ```
+
+## Making a class a custom decorator
+
+See built in methods: `__call__` and functools: `wraps` for prerequisite knowledge.
+
+```python
+from functools import wraps
+
+class DecoratorClass:
+    def __init__(self, a):
+        self.a = a
+        self.b = b
+
+    def __call__(self, func):
+        @wraps(func)
+        def wrapper(c):
+            print(c)
+            result = func(self)
+
+# Usage
+@DecoratorClass(1,2) # Remember you are calling __call__, not __init__ here
+def f(c):
+    ...
+```

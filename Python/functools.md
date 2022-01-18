@@ -2,6 +2,8 @@
 
 ## `wraps`
 
+SUMMARY: We use `@wraps(func)` to preserve the information of a decorator.
+
 ```python
 def my_decorator(func):
     def wrapper(*args, **kwargs):
