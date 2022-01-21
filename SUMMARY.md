@@ -213,6 +213,7 @@
   * [Operators](Python/operators.md)
   * [Pickle](Python/pickle.md)
   * [Regex](Python/regex.md)
+  * [Singletons](Python/singletons.md)
   * [String Tricks](Python/string-tricks.md)
   * [Troubleshooting](Python/troubleshooting.md)
   * [Unit Testing](Python/unit-testing.md)
