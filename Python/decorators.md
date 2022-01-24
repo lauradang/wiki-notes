@@ -171,3 +171,10 @@ class DecoratorClass:
 def f(c):
     ...
 ```
+
+## Equivalence
+
+https://stackoverflow.com/questions/38516426/apply-different-decorators-based-on-a-condition
+
+A decorator can also be called as a function. @decorator is equivalent to decorator(func) and @decorator(args) to decorator(args)(func). So you could return the value of those function returns conditionally in your decorator. Here is an example below:
+
