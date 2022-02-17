@@ -9,6 +9,6 @@ When you are working on a remote server (VM, VNC, etc.), and you launch a localh
 
 2. Launch the web application on a separate terminal and make sure its running on localhost on your remote machine.
 
-3. Launch ngrok: `ngrok http localhost:<port>`.
+3. Launch ngrok: `ngrok http <port>`.
 
 4. Access the given ngrok URL to access the remote localhost on your browser :)
