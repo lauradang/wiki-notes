@@ -194,6 +194,7 @@
   * [Processors](Miscellaneous/processors.md)
 - Networking
   * [Https](Networking/https.md)
+  * [Ngrok](Networking/ngrok.md)
   * [Port Forwarding](Networking/port-forwarding.md)
   * [Tcp](Networking/tcp.md)
 - Python
@@ -209,6 +210,7 @@
   * [Imports](Python/imports.md)
   * [Linked Lists](Python/linked-lists.md)
   * [Logging](Python/logging.md)
+  - [Multiprocessing](Python/multiprocessing.md)
   * [Nested Dictionaries](Python/nested_dictionaries.md)
   * [Operators](Python/operators.md)
   * [Pickle](Python/pickle.md)
@@ -225,6 +227,7 @@
     * [File Management](Shell/Linux/file-management.md)
     * [Networking](Shell/Linux/networking.md)
     * [Permissions](Shell/Linux/permissions.md)
+    * [Processes](Shell/Linux/processes.md)
     * [Storage Space Commands](Shell/Linux/storage-space-commands.md)
     * [Virtual Environment](Shell/Linux/virtual-environment.md)
   - Mac OS X
