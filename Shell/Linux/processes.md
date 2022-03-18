@@ -1,4 +1,12 @@
-# Monitoring Processes
+# Processes
+
+## See threads in a process
+
+```bash
+pstree -halp <pid>
+```
+
+## Monitoring Processes
 
 This commands allows you to see the CPU usage of each core on your machine:
 
