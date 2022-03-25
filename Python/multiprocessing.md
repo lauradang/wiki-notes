@@ -74,6 +74,46 @@ If `chunksize=1`, we would never encounter such bad luck. This is the risks of b
 
 **Trade-off**: bigger chunk sizes = less parallelization overhead, but not always the best deal as seen in the case above.
 
-### Pool's Chunksize Algorithm
+## Mutexes
 
+This also applies to non-Python multiprocessing.
 
+**Situation**:
+
+```python
+if experiment_exists in db:
+   mlflow.set_experiment(experiment_in_db)
+else:
+   insert_in_db(experiment)
+   mlflow.create_experiment(experiment_in_db)
+   mlflow.set_experiment(experiment_in_db)
+```
+
+Imagine we have two processes running at the exact same speed and so one of them hits the first if statement and checks the DB only to find there is no experiment that exists, then goes to the else. But then before process 1 gets to execute `insert_in_db(experiment)` (so the DB is still empty). Process 2 comes in and runs the first if statement only to find there's nothing in the DB, so then it moves onto the else . At this point, process 1 has executed `insert_in_db` so now the DB has something in it. But since process 2 is in the else, it will insert the exact same entry into the DB which results in a SQL duplicate entry error.
+
+Is there a way to counter this?
+
+Slack thread with Tayef :)
+
+Tayef Shah  2:58 PM
+> yes
+> establish a critical section in your code.
+> a critical section is a part of your code which at most one thread can be in at any given time.
+> not sure what structure you can use in python, but you might wanna look into mutexes or semaphores
+
+Laura Dang  2:59 PM
+> does it make a diff that these are processes not threads
+
+Tayef Shah  3:00 PM
+> yeah, for processes I think only mutexes will work
+> general structure is kinda like this
+
+```python
+mutex.lock()
+  if condition:
+     do stuff
+   else:
+     do other stuff
+mutex.unlock()
+```
+Here's a Python solution for this: https://stackoverflow.com/questions/70551771/what-is-the-correct-way-to-handle-a-mutex-like-lock-for-a-mpi4py-function-call.
