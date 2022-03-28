@@ -215,6 +215,7 @@
   * [Nested Dictionaries](Python/nested_dictionaries.md)
   * [Operators](Python/operators.md)
   * [Pickle](Python/pickle.md)
+  * [Profiling](Python/profiling.md)
   * [Regex](Python/regex.md)
   * [Singletons](Python/singletons.md)
   * [String Tricks](Python/string-tricks.md)
@@ -229,6 +230,7 @@
     * [Networking](Shell/Linux/networking.md)
     * [Permissions](Shell/Linux/permissions.md)
     * [Processes](Shell/Linux/processes.md)
+    * [Profiling](Shell/Linux/profiling.md)
     * [Storage Space Commands](Shell/Linux/storage-space-commands.md)
     * [Virtual Environment](Shell/Linux/virtual-environment.md)
   - Mac OS X
