@@ -60,6 +60,7 @@
     * [Docker Images](DevOps/Docker/docker-images.md)
     * [Docker Mapping](DevOps/Docker/docker-mapping.md)
     * [Docker Networks](DevOps/Docker/docker-networks.md)
+    * [Docker Storage](DevOps/Docker/docker-storage.md)
     * [Dockerfile](DevOps/Docker/dockerfile.md)
     * [Overview](DevOps/Docker/Overview.md)
   - Jenkins
@@ -77,6 +78,7 @@
     * [Kubernetes External Access](DevOps/Kubernetes/kubernetes-external-access.md)
     * [Kubernetes Networking](DevOps/Kubernetes/kubernetes-networking.md)
     * [Kubernetes Volumes](DevOps/Kubernetes/kubernetes-volumes.md)
+    * [Routing](DevOps/Kubernetes/routing.md)
     * [Volumes](DevOps/Kubernetes/volumes.md)
 - GUI
   - PyQT
