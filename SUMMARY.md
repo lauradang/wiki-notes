@@ -184,6 +184,8 @@
   * [Math 239 Formula Theorems](Math/Math_239_FormulaTheorems.md)
   * [Math 239](Math/Math_239.md)
 - Miscellaneous
+  - Bazel
+    * [Commands](Miscellaneous/Bazel/commands.md)
   - Kafka
     * [Introduction](Miscellaneous/Kafka/Introduction.md)
   - [Regex](Miscellaneous/Regex/README.md)
