@@ -231,6 +231,7 @@
   - [Linux](Shell/Linux/README.md)
     * [Environment Variables](Shell/Linux/environment-variables.md)
     * [File Management](Shell/Linux/file-management.md)
+    * [IO](Shell/Linux/io.md)
     * [Networking](Shell/Linux/networking.md)
     * [Permissions](Shell/Linux/permissions.md)
     * [Processes](Shell/Linux/processes.md)
