@@ -11,7 +11,7 @@ $ kubectl logs <pod_name>
 
 ## Get logs for ingress controller
 ```bash
-$ kubectl logs -n kube-system $(kubectl get po -n kube-system | egrep -o 'alb-ingress[a-zA-Z0-9-]+') 
+$ kubectl logs -n kube-system $(kubectl get po -n kube-system | egrep -o 'alb-ingress[a-zA-Z0-9-]+')
 ```
 
 ## Spinning up the instances
@@ -66,4 +66,9 @@ $ kubectl describe pod <pod_name>
 ## Exec into bash
 ```bash
 $ kubectl exec -it <pod_name> -c <container_name> -- /bin/bash
+```
+
+## Delete pods by pattern
+```bash
+kubectl get pods -n default --no-headers=true | awk '/<word>/{print $1}'| xargs  kubectl delete -n default pod
 ```
