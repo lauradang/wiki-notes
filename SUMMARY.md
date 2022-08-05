@@ -77,6 +77,7 @@
     * [Kubernetes Commands](DevOps/Kubernetes/kubernetes-commands.md)
     * [Kubernetes External Access](DevOps/Kubernetes/kubernetes-external-access.md)
     * [Kubernetes Networking](DevOps/Kubernetes/kubernetes-networking.md)
+    * [Kubernetes Troubleshoot](DevOps/Kubernetes/kubernetes-troubleshoot.md)
     * [Kubernetes Volumes](DevOps/Kubernetes/kubernetes-volumes.md)
     * [Routing](DevOps/Kubernetes/routing.md)
     * [Volumes](DevOps/Kubernetes/volumes.md)
