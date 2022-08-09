@@ -2,6 +2,8 @@
 
 ## FailedScheduling
 
+### Check node
+
 ```bash
 $ kubectl describe pod ...
 
@@ -19,3 +21,7 @@ $ kubectl get node ...
 ```bash
 kubectl uncordon some.node
 ```
+
+### Check deployment
+
+Does the deployment exist for the pods? Do replicas exist for the deployment (e.g. is it something other than `0/0`)?
