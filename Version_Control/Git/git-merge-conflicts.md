@@ -16,3 +16,6 @@ $ git reset --hard origin/big-code-change
 (small-code-change) $ git merge temp/small-code-change
 ```
 
+## Squashing merges
+
+`git rebase -i master`
