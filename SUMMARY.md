@@ -115,7 +115,7 @@
   - GAN
     * [Introduction To Gan](Machine_Learning/GAN/introduction-to-gan.md)
   - LLMs
-    * [Guardrails](guardrails.md)
+    * [Guardrails](Machine_Learning/LLMs/guardrails.md)
   - Machine Learning Audio Classification
     * [Background](Machine_Learning/Machine_Learning_Audio_Classification/background.md)
     * [Building CNN](Machine_Learning/Machine_Learning_Audio_Classification/building-cnn.md)
