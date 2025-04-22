@@ -4,6 +4,12 @@ Keep your code clean!
 
 https://pre-commit.com/
 
+To trigger this before a commit, be sure to run this first:
+
+```bash
+pre-commit install
+```
+
 ```yaml
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
