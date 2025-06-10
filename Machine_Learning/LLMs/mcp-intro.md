@@ -79,6 +79,7 @@ INFO:     127.0.0.1:52935 - "POST /messages/?session_id=341579492cf144d28c8f57bf
 ```
 
 Here's a step-by-step breakdown of the MCP interaction shown in the logs:
+https://www.perplexity.ai/search/why-does-mcp-use-sse-over-http-8c9JHttgQEurb7jCJWtJ2g
 
 ### 1. **SSE Connection Establishment**
 - **Client** sends `GET /sse` to initiate SSE streaming  
