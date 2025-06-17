@@ -14,8 +14,6 @@ Remembering and re-googling certain commands or programming blocks over time get
 
 ‌Feel free to look around!
 
-![](giphy.gif)
-
 ## More of me
 
 - [Personal Website](https://lauradang.me)
