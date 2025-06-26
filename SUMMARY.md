@@ -51,6 +51,7 @@
   * [Postgres](Databases/postgres.md)
   * [SQLAlchemy](Databases/sqlalchemy.md)
 - DevOps
+  - [kafka](DevOps/kafka.md)
   - AWS
     * [AWS EKS](DevOps/AWS/aws-eks.md)
     * [Tmux](DevOps/AWS/tmux.md)
