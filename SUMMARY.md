@@ -1,5 +1,7 @@
 # Your Book Title
 
+- GPU Concepts
+  * [GPU Instructions And Hardware Modeling](GPU_Concepts/GPU_Instructions_and_Hardware_Modeling.md)
 - C++
   - [CS 246](C++/CS_246/README.md)
     * [Lecture 1](C++/CS_246/lecture-1.md)
