@@ -29,6 +29,7 @@
     * [Lecture 9](C++/CS_246/lecture-9.md)
     * [Notes To Rememeber](C++/CS_246/notes-to-rememeber.md)
   - [C++ Learning](C++/Learning/README.md)
+    * [Bit Shift And Bit Mask](C++/Learning/bit-shift-and-bit-mask.md)
     * [Lambda Capture List](C++/Learning/lambda-capture-list.md)
     * [Python Vs C++ Parameter Passing](C++/Learning/python-vs-cpp-parameter-passing.md)
     * [What Is auto](C++/Learning/what-is-auto.md)
