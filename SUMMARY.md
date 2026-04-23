@@ -26,6 +26,10 @@
     * [Lecture 8](C++/CS_246/lecture-8.md)
     * [Lecture 9](C++/CS_246/lecture-9.md)
     * [Notes To Rememeber](C++/CS_246/notes-to-rememeber.md)
+  - [C++ Learning](C++/Learning/README.md)
+    * [Lambda Capture List](C++/Learning/lambda-capture-list.md)
+    * [Python Vs C++ Parameter Passing](C++/Learning/python-vs-cpp-parameter-passing.md)
+    * [What Is auto](C++/Learning/what-is-auto.md)
 - Data Science
   - Jupyter Notebooks
     * [Jupyter Notebook With Vs Code](Data_Science/Jupyter_Notebooks/jupyter-notebook-with-vs-code.md)
@@ -298,4 +302,3 @@
 - Work
   - [LLM](Work/LLM/README.md)
     * [Nemo](Work/LLM/nemo.md)
-
