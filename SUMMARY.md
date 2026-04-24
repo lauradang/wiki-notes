@@ -2,6 +2,7 @@
 
 - GPU Concepts
   * [GPU Instructions And Hardware Modeling](GPU_Concepts/GPU_Instructions_and_Hardware_Modeling.md)
+  * [Subpartitions And DP Organization](GPU_Concepts/Datapaths_and_DP_Organization.md)
 - C++
   - [CS 246](C++/CS_246/README.md)
     * [Lecture 1](C++/CS_246/lecture-1.md)
