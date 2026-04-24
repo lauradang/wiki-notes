@@ -1,6 +1,8 @@
 # Your Book Title
 
 - GPU Concepts
+  * [CPU vs. GPU](GPU_Concepts/cpu-vs-gpu.md)
+  * [CUDA Basics](GPU_Concepts/cuda-basics.md)
   * [GPU Instructions And Hardware Modeling](GPU_Concepts/GPU_Instructions_and_Hardware_Modeling.md)
   * [Subpartitions And DP Organization](GPU_Concepts/Datapaths_and_DP_Organization.md)
 - C++
@@ -196,6 +198,7 @@
   * [Math 235](Math/Math_235.md)
   * [Math 239 Formula Theorems](Math/Math_239_FormulaTheorems.md)
   * [Math 239](Math/Math_239.md)
+  * [Matrix Multiplication Dimensions](Math/matrix-multiplication-dimensions.md)
 - Miscellaneous
   - Bazel
     * [Commands](Miscellaneous/Bazel/commands.md)
