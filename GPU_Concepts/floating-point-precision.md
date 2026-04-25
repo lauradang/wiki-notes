@@ -212,3 +212,49 @@ Compute:
 
 Floating point = **precision (mantissa)** × **range (exponent)**
 ML trades precision for speed using **scaling + high-precision accumulation**.
+
+---
+
+## ➕ How Floating-Point Addition Actually Works (Exponent Alignment)
+
+You can't add two floats by just adding their fraction parts — the exponents have to match first.
+
+### Quick refresher: how a float is stored
+
+```
+sign | exponent | fraction
+  1  | 01111100 | 01000000000000000000000
+```
+
+This represents: `(-1)^sign × 1.fraction × 2^(exponent - bias)`
+
+So `6.5` is stored as `1.625 × 2^2` — exponent is `2`, fraction encodes `1.625`.
+
+### The problem
+
+It's like adding in scientific notation:
+
+```
+  1.5 × 10^5    (150,000)
++ 3.2 × 10^2    (320)
+```
+
+You can't just add `1.5 + 3.2` — that gives the wrong answer. You first line up the decimal points by making the exponents match:
+
+```
+  1.5000 × 10^5
++ 0.0032 × 10^5    ← shifted 3.2 right by 3 places
+= 1.5032 × 10^5
+```
+
+### Equalize exponents
+
+That's the operation: **pick the largest exponent, shift everyone else's fraction right to align with it, then add the fractions.**
+
+In a matrix multiply, after multiplying A×B elements you get many products that need to be summed. Each product may have a different exponent. Before accumulating, they all have to be equalized.
+
+This is why FP addition is more expensive than integer addition — and why GPU hardware has dedicated circuits for it. On a CPU simulating that hardware, exponent alignment can dominate runtime.
+
+### Why this connects back to FP8/FP4
+
+This is also why low-precision **multiplication** can keep input precision low but accumulate in higher precision — the alignment + sum step is where errors compound, so you give that step more bits to work with.
