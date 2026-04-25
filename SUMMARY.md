@@ -33,6 +33,7 @@
     * [Lecture 9](C++/CS_246/lecture-9.md)
     * [Notes To Rememeber](C++/CS_246/notes-to-rememeber.md)
   - [C++ Learning](C++/Learning/README.md)
+    * [Auto Vectorization](C++/Learning/auto-vectorization.md)
     * [Bit Shift And Bit Mask](C++/Learning/bit-shift-and-bit-mask.md)
     * [CXXFLAGS Compiler Flags](C++/Learning/cxxflags-compiler-flags.md)
     * [Lambda Capture List](C++/Learning/lambda-capture-list.md)
