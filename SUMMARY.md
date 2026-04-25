@@ -3,6 +3,7 @@
 - GPU Concepts
   * [CPU vs. GPU](GPU_Concepts/cpu-vs-gpu.md)
   * [CUDA Basics](GPU_Concepts/cuda-basics.md)
+  * [Floating Point Precision](GPU_Concepts/floating-point-precision.md)
   * [GPU Instructions And Hardware Modeling](GPU_Concepts/GPU_Instructions_and_Hardware_Modeling.md)
   * [Subpartitions And DP Organization](GPU_Concepts/Datapaths_and_DP_Organization.md)
 - C++
@@ -33,7 +34,9 @@
     * [Notes To Rememeber](C++/CS_246/notes-to-rememeber.md)
   - [C++ Learning](C++/Learning/README.md)
     * [Bit Shift And Bit Mask](C++/Learning/bit-shift-and-bit-mask.md)
+    * [CXXFLAGS Compiler Flags](C++/Learning/cxxflags-compiler-flags.md)
     * [Lambda Capture List](C++/Learning/lambda-capture-list.md)
+    * [Profiling Scope](C++/Learning/profiling-scope.md)
     * [Python Vs C++ Parameter Passing](C++/Learning/python-vs-cpp-parameter-passing.md)
     * [What Is auto](C++/Learning/what-is-auto.md)
 - Data Science
