@@ -4,7 +4,9 @@
   * [CPU vs. GPU](GPU_Concepts/cpu-vs-gpu.md)
   * [CUDA Basics](GPU_Concepts/cuda-basics.md)
   * [Floating Point Precision](GPU_Concepts/floating-point-precision.md)
+  * [fpval — Struct-Based FP Representation](GPU_Concepts/fpval.md)
   * [GPU Instructions And Hardware Modeling](GPU_Concepts/GPU_Instructions_and_Hardware_Modeling.md)
+  * [SIMD](GPU_Concepts/simd.md)
   * [Subpartitions And DP Organization](GPU_Concepts/Datapaths_and_DP_Organization.md)
 - C++
   - [CS 246](C++/CS_246/README.md)
@@ -36,6 +38,7 @@
     * [Auto Vectorization](C++/Learning/auto-vectorization.md)
     * [Bit Shift And Bit Mask](C++/Learning/bit-shift-and-bit-mask.md)
     * [CXXFLAGS Compiler Flags](C++/Learning/cxxflags-compiler-flags.md)
+    * [Declaration Vs Definition](C++/Learning/declaration-vs-definition.md)
     * [Lambda Capture List](C++/Learning/lambda-capture-list.md)
     * [Profiling Scope](C++/Learning/profiling-scope.md)
     * [Python Vs C++ Parameter Passing](C++/Learning/python-vs-cpp-parameter-passing.md)
