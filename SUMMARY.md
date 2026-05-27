@@ -100,6 +100,8 @@
     * [Kubernetes Volumes](DevOps/Kubernetes/kubernetes-volumes.md)
     * [Routing](DevOps/Kubernetes/routing.md)
     * [Volumes](DevOps/Kubernetes/volumes.md)
+  - Ray
+    * [Ray Basics](DevOps/Ray/ray-basics.md)
 - GUI
   - PyQT
     * [Overview](GUI/PyQT/overview.md)
@@ -318,3 +320,4 @@
 - Work
   - [LLM](Work/LLM/README.md)
     * [Nemo](Work/LLM/nemo.md)
+    * [NeMo-RL Architecture](Work/LLM/nemo-rl-architecture.md)
