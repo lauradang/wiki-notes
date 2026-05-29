@@ -319,5 +319,6 @@
   * [HTMLCSS](Web/HTMLCSS.md)
 - Work
   - [LLM](Work/LLM/README.md)
+    * [Async GRPO Refit Drain](Work/LLM/async-grpo-refit-drain.md)
     * [Nemo](Work/LLM/nemo.md)
     * [NeMo-RL Architecture](Work/LLM/nemo-rl-architecture.md)
