@@ -139,6 +139,7 @@
     * [Grpo](Machine_Learning/LLMs/grpo.md)
     * [Guardrails](Machine_Learning/LLMs/guardrails.md)
     * [MCP Intro](Machine_Learning/LLMs/mcp-intro.md)
+    * [Reading LLM Papers](Machine_Learning/LLMs/reading-llm-papers.md)
   - Machine Learning Audio Classification
     * [Background](Machine_Learning/Machine_Learning_Audio_Classification/background.md)
     * [Building CNN](Machine_Learning/Machine_Learning_Audio_Classification/building-cnn.md)
