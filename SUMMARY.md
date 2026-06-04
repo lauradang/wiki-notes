@@ -182,6 +182,7 @@
     * [Recurrent Neural Networks](Machine_Learning/Recurrent_Neural_Networks/recurrent-neural-networks.md)
     * [Vanishing Gradients In RNNs](Machine_Learning/Recurrent_Neural_Networks/vanishing-gradients-in-RNNs.md)
   - Research Papers
+    * [Papers Read](Machine_Learning/Research_Papers/papers-read.md)
     * [Convolutional Neural Networks For Automatic Image Colorization](Machine_Learning/Research_Papers/Convolutional-Neural-Networks-for-automatic-image_colorization.md)
     * [Learning Representation For Automatic Colorization](Machine_Learning/Research_Papers/learning-representation-for-automatic-colorization.md)
     * [Stack GAN](Machine_Learning/Research_Papers/StackGAN.md)
