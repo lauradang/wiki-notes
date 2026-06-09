@@ -6,6 +6,7 @@ Tracking papers read with key takeaways. Each entry links to a deeper note.
 
 | Paper | Year | Key insight | Deep dive |
 |---|---|---|---|
+| [Attention Is All You Need](https://arxiv.org/abs/1706.03762) | 2017 | - Self-attention lets each token model relationships with all other tokens in the sequence, instead of relying on nearby context or a hidden state passed through RNN timesteps.<br>- This shortens the path for long-range dependencies, avoiding the RNN bottleneck where context can fade over many steps.<br>- Positional encoding adds word-order information, since attention alone does not know sequence order.<br>- Multi-head attention lets the model learn several relationship patterns in parallel.<br>- Transformer training can parallelize across sequence positions, though autoregressive generation still happens one token at a time. | [notes](attention-is-all-you-need.md) |
 | [BERT: Pre-training of Deep Bidirectional Transformers](https://arxiv.org/abs/1810.04805) | 2018 | Prior models were either bidirectional but shallow (ELMo) or deep but left-to-right only (GPT). BERT uses masked token prediction to get deep bidirectional context without cheating. One pre-trained model works across tasks — just swap the final output layer instead of building a new architecture per task | [notes](../LLMs/BERT.md) |
 
 ## CV
