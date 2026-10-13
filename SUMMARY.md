@@ -139,6 +139,7 @@
     * [Grpo](Machine_Learning/LLMs/grpo.md)
     * [Guardrails](Machine_Learning/LLMs/guardrails.md)
     * [MCP Intro](Machine_Learning/LLMs/mcp-intro.md)
+    * [Prefill Decode](Machine_Learning/LLMs/Inference/prefill-decode.md)
     * [Reading LLM Papers](Machine_Learning/LLMs/reading-llm-papers.md)
     * [Router Replay](Machine_Learning/LLMs/router-replay.md)
   - Machine Learning Audio Classification
