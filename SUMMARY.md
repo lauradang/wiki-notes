@@ -328,3 +328,5 @@
     * [Async GRPO Refit Drain](Work/LLM/async-grpo-refit-drain.md)
     * [Nemo](Work/LLM/nemo.md)
     * [NeMo-RL Architecture](Work/LLM/nemo-rl-architecture.md)
+  - Megatron
+    * [Disaggregated Inference](Work/Megatron/disaggregated-inference.md)
