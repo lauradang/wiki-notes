@@ -329,4 +329,7 @@
     * [Nemo](Work/LLM/nemo.md)
     * [NeMo-RL Architecture](Work/LLM/nemo-rl-architecture.md)
   - Megatron
+    * [Context Parallelism](Work/Megatron/context-parallelism.md)
+    * [CUDA Graphs](Work/Megatron/cuda-graphs.md)
     * [Disaggregated Inference](Work/Megatron/disaggregated-inference.md)
+    * [Packed THD Sequences](Work/Megatron/packed-thd-sequences.md)
