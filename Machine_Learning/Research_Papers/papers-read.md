@@ -18,3 +18,9 @@ Tracking papers read with key takeaways. Each entry links to a deeper note.
 | [Learning Representations for Automatic Colorization](https://arxiv.org/abs/1603.06668) | Predicts per-pixel color histograms via VGG-16 hypercolumns; KL-divergence loss handles multimodal color distributions that MSE can't | [notes](learning-representation-for-automatic-colorization.md) |
 | [StackGAN](https://arxiv.org/abs/1612.03242) | Two-stage GAN for text-to-image — Stage-I generates low-res from text embeddings via conditioning augmentation, Stage-II refines to photo-realistic | [notes](StackGAN.md) |
 | [Image Style Transfer (Gatys et al.)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf) | Separates content and style via VGG-19 feature maps and Gram matrices; optimizes a combined loss to merge content from one image with style from another | [notes](style-transfer.md) |
+
+## LLM Inference
+
+| Paper | Key insight | Deep dive |
+|---|---|---|
+| [FlowKV: Low-Latency KV Cache Transfer for Disaggregated Inference](https://arxiv.org/abs/2504.03775) | - NCCL send/recv takes one pointer + one length, so transfer cost is driven by how many separate contiguous stretches the KV cache occupies, not by bytes.<br>- Reshaping the cache from `(L,2,B,H)` to `(B,L,2,H)` makes each block one contiguous chunk → `2L×` fewer calls per block.<br>- An OS-style segment allocator (best-fit from a min-heap, merge on free) gives each request consecutive block slots.<br>- Bidirectional segment alignment cuts the sender/receiver block lists at every run boundary so each aligned piece is one send/recv. | [notes](flowkv.md) |

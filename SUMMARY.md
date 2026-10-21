@@ -187,6 +187,7 @@
     * [Papers Read](Machine_Learning/Research_Papers/papers-read.md)
     * [Attention Is All You Need](Machine_Learning/Research_Papers/attention-is-all-you-need.md)
     * [Convolutional Neural Networks For Automatic Image Colorization](Machine_Learning/Research_Papers/Convolutional-Neural-Networks-for-automatic-image_colorization.md)
+    * [FlowKV](Machine_Learning/Research_Papers/flowkv.md)
     * [Language Models Are Few-Shot Learners](Machine_Learning/Research_Papers/language-models-are-few-shot-learners.md)
     * [Learning Representation For Automatic Colorization](Machine_Learning/Research_Papers/learning-representation-for-automatic-colorization.md)
     * [Stack GAN](Machine_Learning/Research_Papers/StackGAN.md)
