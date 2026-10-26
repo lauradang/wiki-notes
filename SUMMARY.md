@@ -327,6 +327,7 @@
 - Work
   - [LLM](Work/LLM/README.md)
     * [Async GRPO Refit Drain](Work/LLM/async-grpo-refit-drain.md)
+    * [Megatron P/D Behind Dynamo](Work/LLM/megatron-pd-behind-dynamo.md)
     * [Nemo](Work/LLM/nemo.md)
     * [NeMo-RL Architecture](Work/LLM/nemo-rl-architecture.md)
   - Megatron
