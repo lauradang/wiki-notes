@@ -60,7 +60,7 @@ Dynamo worker                    ← Dynamo's word for "one complete copy of the
 
 - **Per-worker layouts:** every Dynamo worker may have its own width, even two decode workers in the same replica. On each handoff, Megatron-LM rebuilds the source layout from the request's metadata and `kv_reshard` re-cuts the KV cache (e.g. 4 TP slices → 2). Only head_dim, KV block size and dtype must match.
 - **vLLM:** vLLM 0.29 itself supports different TP on the prefill and decode sides (NIXL connector, dense and MoE; not Mamba hybrids; no PP > 1 on decode in push mode). NeMo-RL's managed vLLM fleet still runs one `vllm_cfg` layout everywhere, so the per-worker lists are Megatron-only for now.
-- **Layout precedence:** `policy.megatron_cfg` (the trainer's) → `mcore_generation_config` → the Dynamo worker's entry in `prefill_engines` / `decode_engines`. A `null` field falls back to the step before.
+- **Layout precedence:** `policy.megatron_cfg` (the trainer's) → `mcore_generation_config` → the Dynamo worker's entry in `prefill_engines` / `decode_engines`. Each entry must give both TP and PP; everything else (EP, precision) comes from the shared layout.
 - **List rules:** an empty list (the default) means every Dynamo worker of that role uses the shared layout. A non-empty list must have exactly `num_prefill_engines` (`num_decode_engines`) entries. Entry *k* is the *k*-th worker of that role in **every** replica.
 - **Replica width** = P·w_p + D·w_d. The inference GPU count must be a multiple of it.
 
@@ -84,10 +84,13 @@ policy:
     dynamo_cfg:
       engine: megatron        # Dynamo workers run Megatron (not vLLM)
       prefill_engines:        # one entry per PREFILL Dynamo worker of a replica
-        - {tensor_model_parallel_size: 4}   # -> width 4
+        - tensor_model_parallel_size: 4     # -> width 4
+          pipeline_model_parallel_size: 1
       decode_engines:         # one entry per DECODE Dynamo worker of a replica
-        - {tensor_model_parallel_size: 2}   # -> width 2
-        - {tensor_model_parallel_size: 2}   # -> width 2 (could differ, e.g. TP 1 x PP 2)
+        - tensor_model_parallel_size: 2     # -> width 2
+          pipeline_model_parallel_size: 1
+        - tensor_model_parallel_size: 2     # -> width 2 (could differ, e.g. TP 1 x PP 2)
+          pipeline_model_parallel_size: 1
     disaggregation:           # what ONE replica contains
       enabled: true
       num_prefill_engines: 1  #   1 prefill Dynamo worker  (4 GPUs)
