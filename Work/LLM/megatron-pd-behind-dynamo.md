@@ -39,7 +39,7 @@ Dynamo worker                    ← Dynamo's word for "one complete copy of the
 |---|---|
 | `num_prefill_engines` / `num_decode_engines` | prefill / decode **Dynamo workers per replica** |
 | `engine_world_size`, `engine_widths` | **GPUs (Megatron workers) in one Dynamo worker** |
-| `dynamo_cfg.prefill_engine` / `decode_engine` | TP/PP layout of prefill / decode **Dynamo workers** |
+| `dynamo_cfg.prefill_engines` / `decode_engines` | one TP/PP layout per prefill / decode **Dynamo worker** of a replica |
 | `dynamo_cfg.engine: vllm \| megatron` | **which software** the Dynamo workers run |
 | `workers_per_shard` (refit code) | Megatron workers per Dynamo worker ("shard" = Dynamo worker) |
 | `DynamicInferenceEngine` | the real Megatron engine |
@@ -58,8 +58,10 @@ Dynamo worker                    ← Dynamo's word for "one complete copy of the
 | EP / ETP (MoE experts) | Experts spread over **the same** GPUs | ×1, but ETP×EP×PP must divide the width |
 | DP (data parallel) | Number of complete model copies = number of Dynamo workers | not part of width |
 
-- **Per-role layouts:** prefill and decode Dynamo workers may have different widths. Megatron-LM's `kv_reshard` re-cuts the KV cache during the handoff (e.g. 4 TP slices → 2). vLLM can't do this, so per-role layouts are Megatron-only.
-- **Layout precedence:** `policy.megatron_cfg` (the trainer's) → `mcore_generation_config` → the role's `prefill_engine` / `decode_engine`. A `null` field falls back to the step before.
+- **Per-worker layouts:** every Dynamo worker may have its own width, even two decode workers in the same replica. On each handoff, Megatron-LM rebuilds the source layout from the request's metadata and `kv_reshard` re-cuts the KV cache (e.g. 4 TP slices → 2). Only head_dim, KV block size and dtype must match.
+- **vLLM:** vLLM 0.29 itself supports different TP on the prefill and decode sides (NIXL connector, dense and MoE; not Mamba hybrids; no PP > 1 on decode in push mode). NeMo-RL's managed vLLM fleet still runs one `vllm_cfg` layout everywhere, so the per-worker lists are Megatron-only for now.
+- **Layout precedence:** `policy.megatron_cfg` (the trainer's) → `mcore_generation_config` → the Dynamo worker's entry in `prefill_engines` / `decode_engines`. A `null` field falls back to the step before.
+- **List rules:** an empty list (the default) means every Dynamo worker of that role uses the shared layout. A non-empty list must have exactly `num_prefill_engines` (`num_decode_engines`) entries. Entry *k* is the *k*-th worker of that role in **every** replica.
 - **Replica width** = P·w_p + D·w_d. The inference GPU count must be a multiple of it.
 
 ## Example config (24 GPUs)
@@ -81,12 +83,11 @@ policy:
     backend: dynamo
     dynamo_cfg:
       engine: megatron        # Dynamo workers run Megatron (not vLLM)
-      prefill_engine:         # layout of every PREFILL Dynamo worker
-        tensor_model_parallel_size: 4     # -> width 4
-        pipeline_model_parallel_size: 1
-      decode_engine:          # layout of every DECODE Dynamo worker
-        tensor_model_parallel_size: 2     # -> width 2
-        pipeline_model_parallel_size: 1
+      prefill_engines:        # one entry per PREFILL Dynamo worker of a replica
+        - {tensor_model_parallel_size: 4}   # -> width 4
+      decode_engines:         # one entry per DECODE Dynamo worker of a replica
+        - {tensor_model_parallel_size: 2}   # -> width 2
+        - {tensor_model_parallel_size: 2}   # -> width 2 (could differ, e.g. TP 1 x PP 2)
     disaggregation:           # what ONE replica contains
       enabled: true
       num_prefill_engines: 1  #   1 prefill Dynamo worker  (4 GPUs)
