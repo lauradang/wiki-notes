@@ -164,6 +164,28 @@ $$
 - **sqrt(d_k)** — scale to keep softmax well-behaved
 - **softmax(...)V** — turn scores into weights, then mix the values
 
+## Causal masking
+
+When doing causal self-attention, the steps are:
+
+1. **Do the QK matmul** — specifically `QK^T`, since we transpose K. This gives a score matrix where rows are queries and columns are keys.
+2. **Divide by sqrt(d_k)** — this is the “Scale” in Figure 2. `d_k` is the query/key dimension per head.
+3. **Mask here** — literally take the scaled score matrix and sub in `-inf` for future positions. Keep the scores for the current token and earlier tokens.
+4. **Softmax the matrix that has the -inf** — softmax runs across each row. Since `exp(-inf) = 0`, future tokens get zero attention weight.
+5. **Then multiply this by V** — each token gets a weighted sum of the value vectors it is allowed to attend to.
+
+For four tokens, the scaled scores after masking look like:
+
+```text
+           key 1   key 2   key 3   key 4
+query 1     s11    -inf    -inf    -inf
+query 2     s21     s22    -inf    -inf
+query 3     s31     s32     s33    -inf
+query 4     s41     s42     s43     s44
+```
+
+So token 2 can attend to tokens 1 and 2, but can't look ahead at tokens 3 and 4.
+
 ## All tokens in parallel
 **The full attention computation — and what the output feeds into next**
 
