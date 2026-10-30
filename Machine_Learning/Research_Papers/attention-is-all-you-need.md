@@ -191,6 +191,29 @@ So token 2 can attend to tokens 1 and 2, but can't look ahead at tokens 3 and 4.
 
 ![Full attention computation for all tokens in parallel and mapping to vocabulary probabilities](assets/attention-is-all-you-need/22-all-tokens-in-parallel.png)
 
+## Multi-head attention
+
+**Basically, we do the whole attention thing multiple times in parallel, with different learned weights, then concatenate the results.**
+
+1. Each head gets the same input, but has its own weight matrices `W_Q`, `W_K`, and `W_V`.
+2. Each head does the whole attention thing: make Q, K, V → QK matmul → scale → mask if causal → softmax → multiply by V.
+3. We concatenate the **outputs after multiplying by V**, along the feature dimension.
+4. Then multiply the concatenated result by another learned weight matrix, `W_O`.
+
+The clarification: we concatenate the output vectors, not the attention weight matrices from softmax.
+
+Each head usually works with smaller vectors. With a model dimension of 512 and 8 heads, each head has 64-dimensional Q, K, and V vectors. Concatenating the 8 outputs gives a 512-dimensional vector per token.
+
+## How do we choose the initial weight matrices?
+
+**We start with random values, then training learns what those values should be.**
+
+- Each head's `W_Q`, `W_K`, and `W_V` start with different random draws.
+- An initialization scheme, like Xavier initialization, controls the scale of those random values.
+- Backpropagation updates the weights during training.
+- We don't assign each head a job. Different starting weights let heads learn different attention patterns, though distinct roles aren't guaranteed.
+- We initialize the matrices **once when creating the model**, then reuse and train them across examples. We don't reinitialize them each time we compute attention.
+
 ## TL;DR
 - RNNs process tokens sequentially, which limits parallelism and makes long-range memory fragile.
 - Self-attention lets each token compare its query to every token key, normalize those scores, and mix the value vectors.
