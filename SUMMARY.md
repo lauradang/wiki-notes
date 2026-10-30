@@ -334,4 +334,5 @@
     * [Context Parallelism](Work/Megatron/context-parallelism.md)
     * [CUDA Graphs](Work/Megatron/cuda-graphs.md)
     * [Disaggregated Inference](Work/Megatron/disaggregated-inference.md)
+    * [NRL-MLM Dynamo Integration](Work/Megatron/nrl-mlm-dynamo-integration.md)
     * [Packed THD Sequences](Work/Megatron/packed-thd-sequences.md)
