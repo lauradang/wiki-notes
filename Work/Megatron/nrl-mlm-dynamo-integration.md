@@ -39,6 +39,216 @@ Two layers:
 - **NRL `DynamoMegatronAdapterActor`** — CPU-only Ray actor that launches the adapter process next to the engine, assigns its handoff-owner id, and cleans up at shutdown.
 - It never touches GPUs or weights.
 
+## Object map: one Dynamo worker
+
+Engine = `DynamicInferenceEngine` (here the subclass `DynamoDynamicInferenceEngine`). There is **one engine per GPU rank**, and all engines of one Dynamo worker share **one coordinator**. "Dynamo worker" is a concept (one routable copy of the model), not a class; NRL's record of it is `DynamoWorkerRecord`.
+
+- **Coordinator** — one CPU process per Dynamo worker; the single entry point into its engines. Spawned by the rank with TP=0, PP=0, DP=0 (= rank 0 here, since each worker has DP=1) inside `start_listening_to_data_parallel_coordinator` (`dynamic_engine.py:1358-1373`). Listens on the node IP so the adapter and the other role's adapters can reach it.
+- **`InferenceClient`** — MLM's ZMQ client to a coordinator. Only **callers** have one; the engines do not. Two per worker:
+  - ① the **adapter's** — sends requests in, gets results back
+  - ② **NRL rank 0's** — sends pause / suspend / resume / unpause around a refit
+- **Engines** — connect to the coordinator through their own sockets, not through an `InferenceClient`. The coordinator talks only to **rank 0's engine**; rank 0's engine **republishes** each message to the other TP/PP ranks over a ZMQ publish/subscribe socket.
+
+Rank 0's process holds both an engine and client ②, but they are two separate objects: the engine listens on its socket, client ② is NRL's control phone.
+
+```
+ONE DYNAMO WORKER  (e.g. prefill-0)        = what the frontend routes to; NRL keeps a DynamoWorkerRecord for it
+│
+├── DynamoMegatronAdapterActor   (NRL, CPU Ray actor)            × 1
+│     └── adapter process = MegatronLLMEngine (MLM)              × 1
+│           └── InferenceClient ①  ── requests ──────────────┐
+│                                                            ▼
+│                                                  ┌──────────────────────┐
+│                                                  │ Coordinator          │
+│                                                  │ (CPU process, × 1)   │
+│                                                  └──────────────────────┘
+│                                                     ▲            │ sends only to rank 0's engine
+└── MegatronGeneration  (NRL)  × 1                    │            │
+      │  one torch.distributed world of TP×PP ranks   │            │
+      │                                               │            ▼
+      ├── MegatronPolicyWorker rank 0 (GPU 0, Ray actor)
+      │     ├── InferenceClient ② ── pause/suspend/resume ──┘
+      │     ├── spawned the coordinator
+      │     └── DynamicInferenceEngine  ◀── coordinator messages
+      │            │ ZMQ PUB (republish to the rest of the TP/PP group)
+      │            ▼
+      ├── MegatronPolicyWorker rank 1   └── DynamicInferenceEngine  (ZMQ SUB)
+      ├── …
+      └── MegatronPolicyWorker rank N-1 └── DynamicInferenceEngine  (ZMQ SUB)
+```
+
+| Thing | Count per worker (N = TP×PP) | Created by | Code |
+|---|---|---|---|
+| `DynamoWorkerRecord` | 1 | `MegatronDynamoWorkerPool.start` | `megatron_worker_pool.py:860` |
+| `MegatronGeneration` | 1 | same | `megatron_worker_pool.py:837` |
+| `MegatronPolicyWorker` (Ray actor, 1 GPU) | N | `MegatronGeneration` → `Policy` worker group | `megatron_generation.py:375` |
+| `DynamicInferenceEngine` | N | each rank, at the first refit | `megatron_worker.py:842` |
+| Coordinator | 1 | rank 0, spawned CPU process | `dynamic_engine.py:1358-1373` |
+| `InferenceClient` ① requests | 1 | adapter, after "ready" | `llm_engine.py:228` |
+| `InferenceClient` ② refit control | 1 | NRL rank 0 | `megatron_worker.py:877` |
+| Adapter sidecar + adapter process | 1 each | `_start_adapter` | `megatron_worker_pool.py:905` |
+
+A replica (`prefill-0` + `decode-0`) is two of these boxes: 2 `MegatronGeneration`s, 2 coordinators, 2 adapters, 2×N engines.
+
+### What each client sends
+
+| | Adapter's client ① | NRL rank 0's client ② |
+|---|---|---|
+| Purpose | Requests | Refit control |
+| Calls | `add_request_streaming` (prefill), `add_request_with_kv_handoff_streaming` (decode), `abort_request_and_wait`, `release_handoff` | `pause_engines`, `suspend_engines`, `resume_engines`, `unpause_engines` |
+| Header on the wire | `SUBMIT_REQUEST` / `SUBMIT_REQUEST_WITH_KV` | `PAUSE` / `SUSPEND` / `RESUME` / `UNPAUSE` |
+| Coordinator handler | `handle_submit_request`: remembers the sender, routes to an engine | `handle_control_signal`: updates coordinator state, broadcasts |
+| Reply? | Yes — `ENGINE_REPLY` streamed back to this client | No — NRL confirms in-process (`wait_until(EngineState.PAUSED)` + barrier) |
+
+Rank 0's client also has `add_request_with_id` / `abort_request` / `set_generation_epoch`, but those are NRL's non-Dynamo paths; in the Dynamo setting every request comes through the frontend and the adapter.
+
+Not through any `InferenceClient`: decode adapters send `CLAIM_KV` / `RELEASE_KV` over their own ZMQ socket straight to the **prefill** coordinator (`_remote_handoff_command`, `llm_engine.py:618`). So a prefill coordinator hears from three senders: its adapter's client ①, its NRL rank 0 client ②, and decode adapters.
+
+The adapter's client *can* send PAUSE (it does in `cleanup()` at shutdown), but it can't run a refit: nothing in NRL can tell it when, it can't confirm every rank reached PAUSED, the weight swap runs inside the ranks, and the prefill→decode pause order spans workers.
+
+### The code, end to end
+
+All MLM paths are under `megatron/core/inference/` (MLM `ed9c2c8`).
+
+**Shared: connect.** Client `inference_client.py:105-111`, `:644-659`:
+
+```python
+        socket = self.context.socket(zmq.DEALER)
+        ...
+        socket.connect(inference_coordinator_address)
+```
+
+```python
+        payload = [Headers.CONNECT.value]
+        self.socket.send(msgpack.packb(payload, use_bin_type=True))
+        ...
+        reply = msgpack.unpackb(self.socket.recv_multipart()[0], raw=False)
+        assert Headers(reply[0]) == Headers.CONNECT_ACK
+```
+
+Coordinator `data_parallel_inference_coordinator/handlers.py:95-109` (`handle_connect`):
+
+```python
+    coordinator.known_clients.add(sender_identity)
+    coordinator._send_to_client(
+        [
+            sender_identity,
+            msgpack.packb([Headers.CONNECT_ACK.value, coordinator.instance_id], use_bin_type=True),
+        ]
+    )
+```
+
+**Shared: coordinator main loop** (`coordinator.py:646-662`) — receive, read the header, dispatch to a handler:
+
+```python
+                sender_identity, *frames = self.router_socket.recv_multipart()
+            ...
+            metadata = msgpack.unpackb(frames[0], raw=False)
+            header = Headers(metadata[0])
+
+            handler = self._handlers.get(header)
+            ...
+            if handler(self, sender_identity, metadata, frames[1:]):
+```
+
+**Shared: rank 0's engine relays to the other ranks** (`engines/dynamic_engine.py:4658`, `schedule_requests`): rank 0 (`is_mp_coordinator`) drains `socket_for_receiving_requests` and republishes on `model_parallel_publisher_socket`; the other ranks read `model_parallel_subscriber_socket`. Sockets are set up in `start_listening_to_data_parallel_coordinator` (`:1433-1497`).
+
+**Path ② — NRL rank 0 pauses for refit.** `nemo_rl/models/generation/megatron/megatron_worker.py:919-922`:
+
+```python
+    async def _pause_engine(self):
+        if torch.distributed.get_rank() == 0:
+            self.inference_client.pause_engines()
+        await self.dynamic_inference_engine.wait_until(EngineState.PAUSED)
+```
+
+→ `inference_client.py:678-688` (`_send_signal_to_engines`):
+
+```python
+        payload = [signal.value, *args]
+        payload_serialized = msgpack.packb(payload, use_bin_type=True)
+        self.socket.send(payload_serialized)
+```
+
+→ coordinator `handlers.py:487-524` (`handle_control_signal`):
+
+```python
+    if sender_identity not in coordinator.known_clients:
+        logging.warning("Coordinator: ignoring signal from unknown client.")
+        return
+    ...
+    if transition.new_state is not None:
+        coordinator.state = transition.new_state
+    ...
+    coordinator._broadcast_to_engines(metadata)
+```
+
+→ `_broadcast_to_engines` (`coordinator.py:415-419`) sends to each DP rank's engine (DP=1 → only rank 0's), which relays to the others → each engine (`dynamic_engine.py:4951-4954`):
+
+```python
+            if header == Headers.PAUSE:
+                if self.state == EngineState.RUNNING:
+                    self.state = EngineState.PAUSING
+```
+
+No reply goes back to client ②. Every NRL rank confirms on its own: `wait_until(EngineState.PAUSED)` then `torch.distributed.barrier()`.
+
+**Path ① — adapter sends a prefill request.** `megatron/inference/integrations/dynamo/llm_engine.py:376-378`:
+
+```python
+            params.do_kv_handoff = True
+            params.num_tokens_to_generate = 0
+            stream = self.client.add_request_streaming(token_ids, params)
+```
+
+→ `inference_client.py:550-560` (`_submit_stream`):
+
+```python
+        self.socket.send_multipart(frames)
+        stream = AsyncStream(
+            request_id, functools.partial(self.abort_request, request_id), loop=self._loop
+        )
+        self.streams[request_id] = stream
+```
+
+→ coordinator `handlers.py:112`, `:195-202` (`handle_submit_request`) — remember who asked, route to an engine:
+
+```python
+    coordinator.request_id_to_client_id[request_id] = sender_identity
+    ...
+    engine_metadata = msgpack.packb(
+        [Headers.SUBMIT_REQUEST.value, request_id, sampling_params, media_meta], use_bin_type=True
+    )
+```
+
+→ engines run it → coordinator `handlers.py:548-607` (`handle_engine_reply`) — send the result back to that client:
+
+```python
+        client_identity, client_request_id = coordinator._forget_client_request(fid)
+        ...
+        reply_metadata = msgpack.packb(
+            [Headers.ENGINE_REPLY.value, client_request_id], use_bin_type=True
+        )
+        coordinator._send_to_client([client_identity, reply_metadata, body])
+```
+
+→ client `_recv_task` (`inference_client.py:562`) pushes the chunk into the request's `AsyncStream`, which the adapter reads and forwards to Dynamo.
+
+### One request / one refit pause, in steps
+
+**One request**
+1. Frontend routes to `prefill-0` → its adapter
+2. Adapter: client ① `add_request_streaming(...)` → `SUBMIT_REQUEST`
+3. Coordinator records the sender, sends the request to rank 0's engine
+4. Rank 0's engine republishes it to ranks 1…N-1; all N run the forward pass together, each on its TP/PP slice
+5. Rank 0's engine sends `ENGINE_REPLY` → coordinator → client ① → adapter → Dynamo
+
+**One refit pause**
+1. `MegatronRefitChannel` → Ray call on every `MegatronPolicyWorker`
+2. Rank 0: client ② `pause_engines()` → `PAUSE`
+3. Coordinator updates its state, sends PAUSE to rank 0's engine, which republishes to the others
+4. Every rank waits until its own engine reports PAUSED, then all ranks meet at a barrier
+
 ## We DO use the adapter — just not in local mode
 
 The adapter (`MegatronLLMEngine`) runs in both modes. The only thing that changes is **who starts the GPU ranks under it**. NRL's `DynamoMegatronAdapterActor` passes `--engine-launch-mode external`, and that flips one `if` inside the adapter's `start()`.
