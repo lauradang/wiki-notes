@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attention Is All You Need — matrices, step by step</title>
+<style>
+  :root {
+    --bg: #f7f7fb; --panel: #fff; --ink: #1d2030; --muted: #6b7086; --line: #e3e5ee;
+    --accent: #2b2f3f; --accent-soft: #ececf2; --hl: #1d2030; --cell: 52px;
+    /* one colour = one meaning */
+    --enc: #2f6fca; --enc-bg: #e4eefb; --enc-ink: #1b3f75;      /* source-sentence data */
+    --dec: #2e9150; --dec-bg: #e3f4e8; --dec-ink: #1b5a33;      /* target-sentence data */
+    --w: #c27c00;   --w-bg: #fdf1dc;   --w-ink: #6b4500;        /* learned weights */
+    --p: #6c4cd6;                                               /* probabilities */
+    --fix: #8a8ea3; --fix-bg: #ededf2;                          /* fixed (positional enc., mask) */
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; background: var(--bg); color: var(--ink); }
+  header { padding: 16px 28px; border-bottom: 1px solid var(--line); background: var(--panel); }
+  header h1 { margin: 0; font-size: 19px; }
+  header p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+  .keybar { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: #4a4f66; max-width: 640px; justify-content: flex-end; }
+  .keybar span { white-space: nowrap; }
+  .app { display: grid; grid-template-columns: 300px 1fr; height: calc(100vh - 74px); }
+  aside { border-right: 1px solid var(--line); background: var(--panel); padding: 14px 16px 80px; overflow: auto; }
+  main { padding: 22px 32px 140px; overflow: auto; }
+
+  /* mini architecture diagram */
+  .diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 10.5px; }
+  .dcol { display: flex; flex-direction: column; gap: 3px; border: 1px dashed #cfd2df; border-radius: 8px; padding: 6px; }
+  .dcol h4 { margin: 0 0 2px; font-size: 11px; text-align: center; color: var(--muted); font-weight: 600; }
+  .blk { padding: 3px 4px; border-radius: 5px; background: #f1f2f7; border: 1px solid var(--line); text-align: center; transition: all .3s; }
+  .dcol.enc .blk { background: var(--enc-bg); border-color: #cddcf3; color: var(--enc-ink); }
+  .dcol.dec .blk { background: var(--dec-bg); border-color: #c7e6d1; color: var(--dec-ink); }
+  .dcol.enc .blk.on { background: var(--enc); color: #fff; border-color: var(--enc); box-shadow: 0 0 0 3px #cddcf3; }
+  .dcol.dec .blk.on { background: var(--dec); color: #fff; border-color: var(--dec); box-shadow: 0 0 0 3px #c7e6d1; }
+  .memlink { grid-column: 1 / 3; text-align: center; font-size: 10.5px; color: var(--muted); }
+
+  .steps { list-style: none; padding: 0; margin: 14px 0 0; }
+  .steps li { padding: 5px 10px; border-radius: 7px; cursor: pointer; font-size: 13px; color: #4a4f66; }
+  .steps li:hover { background: #f4f4f9; }
+  .steps li.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .steps li .n { display: inline-block; width: 24px; color: #a0a4b8; }
+  .steps li.grp { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: #a0a4b8; margin-top: 10px; cursor: default; background: none; }
+
+  .step-title { font-size: 23px; margin: 0 0 6px; }
+  .explain { max-width: 900px; color: #33374a; }
+  .explain code, .note code { background: #efeff6; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  .stage { margin-top: 18px; display: flex; flex-direction: column; gap: 20px; }
+
+  .eq { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; animation: fade .45s ease; }
+  .op { font-size: 24px; color: var(--muted); font-weight: 300; }
+  .arrow { display: flex; flex-direction: column; align-items: center; color: var(--muted); font-size: 22px; }
+  .arrow span { font-size: 11px; white-space: nowrap; color: #4a4f66; font-weight: 600; }
+  .mat { display: inline-flex; flex-direction: column; align-items: center; }
+  .mat-title { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .mat-dim { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .grid { display: grid; gap: 2px; }
+  .cell { width: var(--cell); height: 30px; display: flex; align-items: center; justify-content: center;
+          font: 11.5px ui-monospace, SFMono-Regular, Menlo, monospace; border-radius: 4px; background: #f3f3f7;
+          transition: opacity .3s, transform .3s, box-shadow .2s; }
+  .cell.dark { color: #fff; }
+  .cell.hidden { opacity: 0; transform: scale(.5); }
+  .cell.hl { box-shadow: 0 0 0 2.5px var(--hl); position: relative; z-index: 1; }
+  .cell.target { opacity: 1; transform: none; box-shadow: 0 0 0 2px var(--hl); background: #fff !important; color: transparent; }
+  .cell.k-enc { background: var(--enc-bg); color: var(--enc-ink); }
+  .cell.k-dec { background: var(--dec-bg); color: var(--dec-ink); }
+  .cell.k-weight { background: var(--w-bg); color: var(--w-ink); }
+  .cell.k-fixed { background: var(--fix-bg); color: #55596b; }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: 0; }
+  .dot.k-enc { background: var(--enc); } .dot.k-dec { background: var(--dec); } .dot.k-weight { background: var(--w); } .dot.k-prob { background: var(--p); } .dot.k-fixed { background: var(--fix); }
+  .cell.masked { background: repeating-linear-gradient(45deg, #e4e4ec, #e4e4ec 4px, #f5f5f9 4px, #f5f5f9 8px) !important; color: #8a8ea3; }
+  .cell.zeroed { color: #a3a7b8 !important; text-decoration: line-through; }
+  .rlab { font: 11px ui-monospace, Menlo, monospace; color: var(--muted); padding-right: 6px; display: flex; align-items: center; justify-content: flex-end; white-space: nowrap; }
+  .clab { font: 10px ui-monospace, Menlo, monospace; color: var(--muted); text-align: center; align-self: end; white-space: nowrap; overflow: hidden; }
+
+  .calc { font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; background: #f6f6f9; border: 1px solid var(--line);
+          padding: 10px 14px; border-radius: 8px; min-height: 44px; overflow-x: auto; }
+  .note { font-size: 14px; color: #4a4f66; border-left: 3px solid #c9ccd8; padding: 4px 0 4px 12px; max-width: 900px; animation: fade .45s ease; }
+  .note.warn { border-left-style: dashed; border-left-color: #8a8ea3; }
+  .note.warn::before { content: '⚠ '; }
+
+  .vocab, .tokrow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .lbl { font-size: 12px; color: var(--muted); width: 100%; }
+  .chip { display: inline-flex; gap: 6px; align-items: center; padding: 4px 10px; border-radius: 999px; background: #f0f0f6; border: 1px solid var(--line); font: 13px ui-monospace, Menlo, monospace; transition: all .3s; }
+  .chip i { font-style: normal; font-size: 11px; color: var(--muted); }
+  .chip.big { font-size: 16px; padding: 6px 14px; }
+  .chip.enc { background: var(--enc-bg); border-color: #cddcf3; color: var(--enc-ink); }
+  .chip.dec { background: var(--dec-bg); border-color: #c7e6d1; color: var(--dec-ink); }
+  .chip.hlchip { box-shadow: 0 0 0 2.5px var(--hl); }
+  .chip.out { background: var(--dec); color: #fff; border-color: var(--dec); }
+  .chip.out i { color: #d3eedb; }
+  .pop { animation: pop .45s ease; }
+
+  .bars { display: flex; gap: 10px; align-items: flex-end; padding: 10px 0; }
+  .bar { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 210px; width: 66px; }
+  .bar .fill { width: 38px; height: 0; background: #cfc6f3; border-radius: 5px 5px 0 0; transition: height .9s ease; }
+  .bar.best .fill { background: var(--p); }
+  .bar .pv { font: 11px ui-monospace, Menlo, monospace; color: var(--muted); margin-bottom: 3px; }
+  .bar .bl { font: 12px ui-monospace, Menlo, monospace; margin-top: 5px; border-top: 1px solid var(--line); width: 100%; text-align: center; padding-top: 4px; }
+  .bar.best .bl { color: var(--p); font-weight: 700; }
+
+  .loop { display: flex; flex-direction: column; gap: 12px; }
+  .looprow { display: flex; align-items: center; gap: 16px; padding: 10px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; animation: fade .45s ease; }
+  .looprow .stp { font-weight: 700; width: 56px; color: var(--muted); font-size: 13px; }
+  .minimask { display: grid; gap: 2px; }
+  .minimask div { width: 14px; height: 14px; border-radius: 2px; background: var(--dec); }
+  .minimask div.x { background: repeating-linear-gradient(45deg, #ddd, #ddd 2px, #f4f4f4 2px, #f4f4f4 4px); }
+  .memory { padding: 12px 16px; border-radius: 10px; background: var(--enc-bg); border: 1px solid #cddcf3; color: var(--enc-ink); font-size: 14px; }
+
+  .wbox { background: #fffaf0; border: 1px solid #f0dcb0; border-radius: 10px; padding: 14px 18px; max-width: 900px; font-size: 14px; animation: fade .45s ease; }
+  .wbox h4 { margin: 0 0 8px; font-size: 15px; color: var(--w-ink); }
+  .wbox p { margin: 6px 0; }
+  .wbox ol { margin: 6px 0; padding-left: 22px; }
+  .wbox li { margin: 3px 0; }
+  .wbox table { margin: 8px 0; background: #fff; }
+  .wbox tr.cur td { background: #f3f3f7; }
+  .wbox .small { font-size: 12.5px; color: var(--muted); }
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: #4a4f66; }
+  .sw { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; }
+  table.sizes { border-collapse: collapse; font-size: 13px; }
+  table.sizes td, table.sizes th { border: 1px solid var(--line); padding: 4px 10px; text-align: left; }
+  table.sizes th { background: #f3f3f8; }
+
+  .controls { position: fixed; bottom: 0; left: 300px; right: 0; background: rgba(255,255,255,.96); border-top: 1px solid var(--line);
+              padding: 11px 32px; display: flex; gap: 10px; align-items: center; backdrop-filter: blur(6px); }
+  button { font: inherit; font-size: 14px; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+  button:hover { background: #f4f4f9; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  button.primary:hover { background: #11131c; }
+  button.on { background: var(--accent-soft); border-color: #c9ccd8; color: var(--accent); }
+  .controls .spacer { flex: 1; }
+  .controls label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .counter { font-size: 13px; color: var(--muted); min-width: 60px; }
+
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { 0% { transform: scale(.4); opacity: 0; } 70% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+</style>
+</head>
+<body>
+<header>
+  <div>
+  <h1>Attention Is All You Need: the matrices, step by step</h1>
+  <p>A toy Transformer translating <b>"I am AI" → "je suis IA"</b>. Every number below is actually computed in your browser.
+     Use <b>→ / ←</b> to move between steps and <b>space</b> to replay the current one.</p>
+  </div>
+  <div class="keybar" id="keybar"></div>
+</header>
+<div class="app">
+  <aside>
+    <div class="diagram" id="diagram"></div>
+    <ul class="steps" id="steps"></ul>
+  </aside>
+  <main>
+    <h2 class="step-title" id="title"></h2>
+    <div class="explain" id="explain"></div>
+    <div class="stage" id="stage"></div>
+  </main>
+</div>
+<div class="controls">
+  <button id="prev">← Prev</button>
+  <button id="replay">↻ Replay</button>
+  <button id="skip">Skip animation ⏭</button>
+  <button class="primary" id="next">Next →</button>
+  <button id="auto">▶ Autoplay</button>
+  <span class="counter" id="counter"></span>
+  <span class="spacer"></span>
+  <label>Speed <input type="range" id="speed" min="0.5" max="4" step="0.25" value="1"> <span id="speedv">1×</span></label>
+</div>
+
+<script>
+/* ============================================================
+   1. Toy model: sizes, weights, and the forward pass
+   ============================================================ */
+const VOCAB = ['<START>', '<END>', 'I', 'am', 'AI', 'je', 'suis', 'IA'];
+const SRC = ['I', 'am', 'AI'];
+const TGT = ['<START>', 'je'];          // decoder input at loop step 2
+const D = 4, DK = 2, DFF = 8;           // d_model, d_k per head, d_ff
+const DC = ['d0', 'd1', 'd2', 'd3'], KC = ['k0', 'k1'], FC = [...Array(DFF)].map((_, i) => 'h' + i);
+
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const rnd = mulberry32(7);
+const r2 = x => Math.round(x * 100) / 100;
+const map2 = (M, f) => M.map((row, i) => row.map((v, j) => f(v, i, j)));
+const round = M => map2(M, v => Number.isFinite(v) ? r2(v) : v);   // keep 2 decimals so the shown math matches
+const R = (r, c, s = 1) => Array.from({ length: r }, () => Array.from({ length: c }, () => r2((rnd() * 2 - 1) * s)));
+
+const T = M => M[0].map((_, j) => M.map(r => r[j]));
+const matmul = (A, B) => round(A.map(row => B[0].map((_, j) => row.reduce((s, a, k) => s + a * B[k][j], 0))));
+const add = (A, B) => round(map2(A, (v, i, j) => v + B[i][j]));
+const scale = (A, s) => round(map2(A, v => v * s));
+const relu = A => map2(A, v => Math.max(0, v));
+const concat = (A, B) => A.map((r, i) => [...r, ...B[i]]);
+const softmax = A => round(A.map(r => { const m = Math.max(...r); const e = r.map(v => Math.exp(v - m)); const s = e.reduce((a, b) => a + b); return e.map(v => v / s); }));
+const stats = r => { const m = r.reduce((a, b) => a + b) / r.length; const v = r.reduce((a, b) => a + (b - m) ** 2, 0) / r.length; return { m, sd: Math.sqrt(v + 1e-5) }; };
+const layerNorm = A => round(A.map(r => { const { m, sd } = stats(r); return r.map(v => (v - m) / sd); }));
+const causal = n => Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => j <= i ? 0 : -Infinity));
+const PE = n => round(Array.from({ length: n }, (_, p) => Array.from({ length: D }, (_, k) => {
+  const ang = p / Math.pow(10000, 2 * Math.floor(k / 2) / D);
+  return k % 2 === 0 ? Math.sin(ang) : Math.cos(ang);
+})));
+
+const E = R(VOCAB.length, D, 1);
+const mkMHA = () => ({ heads: [0, 1].map(() => ({ q: R(D, DK, .9), k: R(D, DK, .9), v: R(D, DK, .9) })), wo: R(D, D, .7) });
+const mkFFN = () => ({ w1: R(D, DFF, .8), w2: R(DFF, D, .5) });
+const P = { enc: mkMHA(), encF: mkFFN(), self: mkMHA(), cross: mkMHA(), decF: mkFFN(), out: R(D, VOCAB.length, 1.2) };
+
+function head(Xq, Xkv, W, masked) {
+  const Q = matmul(Xq, W.q), K = matmul(Xkv, W.k), V = matmul(Xkv, W.v);
+  const S = matmul(Q, T(K)), Ss = scale(S, 1 / Math.sqrt(DK));
+  const M = masked ? causal(Xq.length) : null;
+  const Sm = masked ? add(Ss, M) : Ss;
+  const A = softmax(Sm), Z = matmul(A, V);
+  return { Q, K, V, S, Ss, M, Sm, A, Z };
+}
+function mha(Xq, Xkv, p, masked) {
+  const heads = p.heads.map(W => head(Xq, Xkv, W, masked));
+  const cat = concat(heads[0].Z, heads[1].Z), out = matmul(cat, p.wo), res = add(Xq, out), norm = layerNorm(res);
+  return { heads, cat, out, res, norm };
+}
+function ffn(X, p) {
+  const H = matmul(X, p.w1), Hr = relu(H), F = matmul(Hr, p.w2), res = add(X, F), norm = layerNorm(res);
+  return { H, Hr, F, res, norm };
+}
+const id = t => VOCAB.indexOf(t);
+
+// Encoder
+const Xe = SRC.map(t => E[id(t)]), PEs = PE(SRC.length), X0 = add(Xe, PEs);
+const ENC = mha(X0, X0, P.enc, false), ENCF = ffn(ENC.norm, P.encF), MEM = ENCF.norm;
+// Decoder: one full pass for a given decoder input
+function decode(tgt) {
+  const Ye = tgt.map(t => E[id(t)]), PEt = PE(tgt.length), Y0 = add(Ye, PEt);
+  const SELF = mha(Y0, Y0, P.self, true), CROSS = mha(SELF.norm, MEM, P.cross, false), DECF = ffn(CROSS.norm, P.decF), DOUT = DECF.norm;
+  const LOGITS = matmul(DOUT, P.out), PROBS = softmax([LOGITS[LOGITS.length - 1]])[0];
+  return { Ye, PEt, Y0, SELF, CROSS, DECF, DOUT, LOGITS, PROBS, BEST: PROBS.indexOf(Math.max(...PROBS)) };
+}
+const STEP1 = decode(['<START>']);                       // loop step 1
+const { Ye, PEt, Y0, SELF, CROSS, DECF, DOUT, LOGITS, PROBS, BEST } = decode(TGT);   // loop step 2
+
+/* ============================================================
+   2. Rendering helpers
+   ============================================================ */
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+function fmt(v) { if (v === -Infinity) return '−∞'; let x = r2(v); if (Object.is(x, -0)) x = 0; return x.toFixed(2); }
+const fp = v => v < 0 ? `(${fmt(v)})` : fmt(v);
+const vec = a => `[${a.map(fmt).join(', ')}]`;
+const lab = (arr, i) => arr ? esc(arr[i]) : i;
+
+// Colour = role, not value. Only probabilities use shade to show magnitude.
+function inferKind(M, o) {
+  if (o.kind) return o.kind;
+  if (M.flat().every(v => v === 0 || v === -Infinity) && M.flat().includes(0)) return 'fixed';   // mask
+  const r = o.rows || [], c = o.cols || [];
+  if (r[0] && String(r[0]).startsWith('pos')) return 'fixed';                  // positional encoding
+  if (r === DC || r === FC || r === VOCAB) return 'weight';                    // learned matrices
+  const toks = r === KC ? c : r;                                                // Kᵀ: look at its columns
+  if (toks.length && toks.every(t => SRC.includes(t))) return 'enc';
+  if (toks.length && toks.every(t => t === '<START>' || TGT.includes(t))) return 'dec';
+  return 'fixed';
+}
+function color(v, kind) {
+  if (v === -Infinity) return { bg: null, dark: false };
+  if (kind === 'prob') return { bg: `rgba(108,76,214,${0.06 + 0.86 * v})`, dark: v > 0.5 };
+  return { bg: null, dark: false };
+}
+const KEY = [['enc', 'source-sentence data (I / am / AI)'], ['dec', 'target-sentence data (&lt;START&gt; / je …)'], ['weight', 'learned weights'], ['prob', 'probabilities (darker = higher)'], ['fixed', 'fixed: positions, mask']];
+const keyHTML = () => KEY.map(([k, t]) => `<span><span class="dot k-${k}"></span>${t}</span>`).join('') + `<span><span class="dot" style="box-shadow:0 0 0 2px var(--hl);background:#fff"></span>being used now</span>`;
+document.getElementById('keybar').innerHTML = keyHTML();
+
+function matEl(M, o = {}) {
+  const Rn = M.length, Cn = M[0].length;
+  const kind = inferKind(M, o);
+  const wrap = el('div', 'mat');
+  if (o.title) wrap.append(el('div', 'mat-title', `<span class="dot k-${kind}"></span>${o.title}`));
+  const grid = el('div', 'grid');
+  grid.style.gridTemplateColumns = `auto repeat(${Cn}, var(--cell))`;
+  grid.append(el('div'));
+  for (let j = 0; j < Cn; j++) grid.append(el('div', 'clab', o.cols ? esc(o.cols[j]) : ''));
+  wrap.cells = [];
+  for (let i = 0; i < Rn; i++) {
+    grid.append(el('div', 'rlab', o.rows ? esc(o.rows[i]) : ''));
+    const row = [];
+    for (let j = 0; j < Cn; j++) {
+      const v = M[i][j];
+      const c = el('div', 'cell', fmt(v));
+      const { bg, dark } = color(v, kind);
+      if (kind !== 'prob') c.classList.add('k-' + kind);
+      if (v === -Infinity) c.classList.add('masked');
+      if (bg) c.style.background = bg;
+      if (dark) c.classList.add('dark');
+      if (o.hidden) c.classList.add('hidden');
+      grid.append(c); row.push(c);
+    }
+    wrap.cells.push(row);
+  }
+  wrap.append(grid);
+  wrap.append(el('div', 'mat-dim', `${Rn} × ${Cn}` + (o.note ? ` · ${o.note}` : '')));
+  return wrap;
+}
+const op = s => el('div', 'op', s);
+const arrow = label => el('div', 'arrow', `<span>${label}</span>→`);
+function eqRow(...items) { const r = el('div', 'eq'); items.forEach(x => r.append(typeof x === 'string' ? op(x) : x)); return r; }
+function put(parent, node) { parent.append(node); node.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); return node; }
+const note = (html, cls = '') => el('div', 'note ' + cls, html);
+const hlRow = (m, i, on) => m.cells[i].forEach(c => c.classList.toggle('hl', !!on));
+const hlCol = (m, j, on) => m.cells.forEach(r => r[j].classList.toggle('hl', !!on));
+const revealRow = (m, i) => m.cells[i].forEach(c => c.classList.remove('hidden'));
+
+/* ---------- animation control ---------- */
+let runId = 0, speed = 1, instant = false, autoplay = false;
+class Cancel extends Error {}
+function sleep(ms) {
+  const myId = runId;
+  return new Promise((res, rej) => setTimeout(() => myId === runId ? res() : rej(new Cancel()), instant ? 0 : ms / speed));
+}
+
+async function animMatmul(parent, A, B, C, o) {
+  const a = matEl(A, o.a), b = matEl(B, o.b), c = matEl(C, { ...o.c, hidden: true });
+  put(parent, eqRow(a, '×', b, '=', c));
+  const calc = put(parent, el('div', 'calc', 'Each output cell = (row of the left matrix) · (column of the right matrix)'));
+  await sleep(600);
+  for (let i = 0; i < A.length; i++) for (let j = 0; j < B[0].length; j++) {
+    hlRow(a, i, 1); hlCol(b, j, 1); c.cells[i][j].classList.add('target');
+    const terms = A[i].map((x, k) => `${fp(x)}·${fp(B[k][j])}`).join(' + ');
+    calc.innerHTML = `<b>${o.c.name || 'C'}[${lab(o.a.rows, i)}, ${lab(o.b.cols, j)}]</b> = ${terms} = <b>${fmt(C[i][j])}</b>`;
+    await sleep(o.delay || 700);
+    c.cells[i][j].classList.remove('target', 'hidden');
+    hlRow(a, i, 0); hlCol(b, j, 0);
+  }
+  if (o.done) calc.innerHTML = o.done;
+  return { a, b, c, calc };
+}
+
+async function animElementwise(parent, A, B, C, sym, o) {
+  const a = matEl(A, o.a), b = matEl(B, o.b), c = matEl(C, { ...o.c, hidden: true });
+  put(parent, eqRow(a, sym, b, '=', c));
+  const calc = put(parent, el('div', 'calc', 'Element-wise: each cell combines with the cell in the same position.'));
+  await sleep(500);
+  for (let i = 0; i < A.length; i++) {
+    hlRow(a, i, 1); hlRow(b, i, 1);
+    calc.innerHTML = `row <b>${lab(o.a.rows, i)}</b>: ${vec(A[i])} ${sym} ${vec(B[i])} = <b>${vec(C[i])}</b>`;
+    await sleep(o.delay || 1000);
+    revealRow(c, i); hlRow(a, i, 0); hlRow(b, i, 0);
+  }
+  if (o.done) calc.innerHTML = o.done;
+  return { a, b, c, calc };
+}
+
+async function animRowwise(parent, A, C, o) {
+  const a = matEl(A, o.a), c = matEl(C, { ...o.c, hidden: true });
+  put(parent, eqRow(a, arrow(o.label), c));
+  const calc = put(parent, el('div', 'calc', 'Applied to each row independently.'));
+  await sleep(500);
+  for (let i = 0; i < A.length; i++) {
+    hlRow(a, i, 1);
+    calc.innerHTML = o.rowText(i);
+    await sleep(o.delay || 1100);
+    revealRow(c, i); hlRow(a, i, 0);
+    if (o.after) o.after(c, i);
+  }
+  if (o.done) calc.innerHTML = o.done;
+  return { a, c, calc };
+}
+
+/* ============================================================
+   3. Architecture mini-diagram
+   ============================================================ */
+const DIAG = {
+  enc: [['tok', 'Tokenize'], ['emb', 'Embedding'], ['pe', '+ Positional enc.'], ['enc-mha', 'Multi-head self-attn', 1], ['enc-an1', 'Add & Norm'], ['enc-ffn', 'Feed-forward'], ['enc-an2', 'Add & Norm']],
+  dec: [['dec-emb', 'Embed + Pos. enc.'], ['dec-mmha', 'Masked self-attn', 1], ['dec-an1', 'Add & Norm'], ['dec-cross', 'Cross-attn ◀ memory', 1], ['dec-an2', 'Add & Norm'], ['dec-ffn', 'Feed-forward'], ['dec-an3', 'Add & Norm'], ['lin', 'Linear → vocab'], ['soft', 'Softmax → next token']],
+};
+const blkEls = {};
+(function buildDiagram() {
+  const d = document.getElementById('diagram');
+  for (const [k, name] of [['enc', 'Encoder (×6 in paper)'], ['dec', 'Decoder (×6 in paper)']]) {
+    const col = el('div', 'dcol ' + k); col.append(el('h4', '', name));
+    for (const [bid, txt, attn] of DIAG[k]) { const b = el('div', 'blk', txt); blkEls[bid] = b; col.append(b); }
+    d.append(col);
+  }
+  d.append(el('div', 'memlink', 'Encoder output ("memory") feeds every decoder cross-attention'));
+})();
+function setBlocks(ids) { Object.entries(blkEls).forEach(([k, b]) => b.classList.toggle('on', ids.includes(k))); }
+
+/* ============================================================
+   4. The steps
+   ============================================================ */
+const STEPS = [
+{ grp: 'Setup', title: 'The big picture', blk: [],
+  explain: `We'll push one example through a <b>tiny</b> Transformer and watch every matrix change shape.
+    The architecture is the same as the paper's, just shrunk so you can read every number.
+    <br><br><b>Note:</b> the weights are random (untrained), so the attention patterns and the predicted word are arbitrary.
+    What matters here is the <i>mechanics</i>: which matrix multiplies which, and the shapes that come out.`,
+  run: async s => {
+    const t = el('table', 'sizes');
+    t.innerHTML = `<tr><th></th><th>This page</th><th>Paper (base)</th></tr>
+      <tr><td>d_model (embedding size)</td><td>4</td><td>512</td></tr>
+      <tr><td>heads</td><td>2</td><td>8</td></tr>
+      <tr><td>d_k = d_v per head</td><td>2</td><td>64</td></tr>
+      <tr><td>d_ff (feed-forward hidden)</td><td>8</td><td>2048</td></tr>
+      <tr><td>vocabulary</td><td>8</td><td>~37,000</td></tr>
+      <tr><td>layers (encoder / decoder)</td><td>1 / 1</td><td>6 / 6</td></tr>`;
+    put(s, t);
+    put(s, note(`<b>How to read the colours.</b> Each colour means one thing, and the key stays in the top-right corner:`));
+    put(s, el('div', 'legend', keyHTML()));
+    put(s, note(`Matrices with one row per source token are <b>blue</b> and those with one row per target token are <b>green</b>, so you can always see which sentence a row belongs to.
+      Cross-attention mixes them: blue keys/values (from the encoder memory) meet green queries (from the decoder).`));
+    for (const id of [...DIAG.enc, ...DIAG.dec].map(x => x[0])) { setBlocks([id]); await sleep(260); }
+    setBlocks([]);
+  } },
+
+{ grp: 'Encoder', title: '1. Tokenize', blk: ['tok'],
+  explain: `The text is split into tokens, and each token is replaced by its integer ID in the vocabulary.
+    (Real models use sub-word tokens such as BPE. Here each word is one token.)`,
+  run: async s => {
+    const v = el('div', 'vocab'); v.append(el('div', 'lbl', 'Vocabulary'));
+    const chips = VOCAB.map((t, i) => { const c = el('span', 'chip', `<i>${i}</i>${esc(t)}`); v.append(c); return c; });
+    put(s, v);
+    put(s, el('div', '', `Input text: <b>"I am AI"</b>`));
+    const out = put(s, el('div', 'tokrow'));
+    for (const t of SRC) {
+      chips[id(t)].classList.add('hlchip'); await sleep(700);
+      out.append(el('span', 'chip big enc pop', `${esc(t)} <i>id ${id(t)}</i>`)); await sleep(400);
+      chips[id(t)].classList.remove('hlchip');
+    }
+    put(s, el('div', 'calc', `token IDs = [${SRC.map(id).join(', ')}] → 3 tokens, so every encoder matrix from here on has <b>3 rows</b>`));
+  } },
+
+{ title: '2. Embedding lookup', blk: ['emb'],
+  explain: `The embedding table <code>E</code> has one learned row per vocabulary word (8 × d_model).
+    Embedding a token just means copying its row. (This is the same as multiplying a one-hot vector by <code>E</code>.)
+    The result <code>X</code> has one row per token: <b>3 × 4</b>.`,
+  run: async s => {
+    const e = matEl(E, { title: 'Embedding table E', rows: VOCAB, cols: DC });
+    const x = matEl(Xe, { title: 'X (token embeddings)', rows: SRC, cols: DC, hidden: true });
+    put(s, eqRow(e, arrow('look up rows'), x));
+    const calc = put(s, el('div', 'calc', ''));
+    for (let i = 0; i < SRC.length; i++) {
+      const k = id(SRC[i]);
+      hlRow(e, k, 1);
+      calc.innerHTML = `"${esc(SRC[i])}" → id ${k} → row ${k} of E = <b>${vec(E[k])}</b>`;
+      await sleep(1100); revealRow(x, i); hlRow(e, k, 0);
+    }
+    put(s, note(`The paper also multiplies embeddings by √d_model. That step is skipped here to keep the numbers readable.`));
+  } },
+
+{ title: '3. Add positional encoding', blk: ['pe'],
+  explain: `Attention has no built-in sense of word order, so we <b>add</b> a position-dependent vector to each row:
+    <code>PE(pos, 2i) = sin(pos / 10000<sup>2i/d</sup>)</code>, <code>PE(pos, 2i+1) = cos(…)</code>.
+    Position 0 is <code>[0, 1, 0, 1]</code>. The shape stays <b>3 × 4</b>.`,
+  run: async s => {
+    await animElementwise(s, Xe, PEs, X0, '+', {
+      a: { title: 'X (embeddings)', rows: SRC, cols: DC },
+      b: { title: 'PE (positions 0,1,2)', rows: ['pos 0', 'pos 1', 'pos 2'], cols: DC },
+      c: { title: 'X₀ = X + PE', rows: SRC, cols: DC },
+      done: `X₀ is the input to the encoder layer. Each row now encodes <i>what</i> the token is and <i>where</i> it is.`,
+    });
+  } },
+
+{ title: '4. Project to Q, K, V (head 1)', blk: ['enc-mha'],
+  explain: `Each attention head has three weight matrices: <code>W<sub>Q</sub>, W<sub>K</sub>, W<sub>V</sub></code> (each 4 × 2). These are <b>learned parameters</b>: random at first, tuned by backpropagation during training, and frozen at inference (random here). They belong to <i>this</i> encoder sub-layer only.
+    The <b>same</b> weights are applied to every token, so we multiply the whole matrix X₀ at once.
+    Watch one row of X₀ meet one column of W<sub>Q</sub> to make each cell of Q.`,
+  run: async s => {
+    const h = ENC.heads[0], W = P.enc.heads[0];
+    await animMatmul(s, X0, W.q, h.Q, {
+      a: { title: 'X₀', rows: SRC, cols: DC }, b: { title: 'W<sub>Q</sub> (encoder, learned)', rows: DC, cols: KC },
+      c: { title: 'Q (queries)', name: 'Q', rows: SRC, cols: KC }, delay: 750,
+      done: `Q: one 2-dim <b>query</b> per token, meaning "what am I looking for?"`,
+    });
+    await sleep(500);
+    put(s, eqRow(matEl(X0, { title: 'X₀', rows: SRC, cols: DC }), '×', matEl(W.k, { title: 'W<sub>K</sub> (encoder, learned)', rows: DC, cols: KC }), '=', matEl(h.K, { title: 'K (keys)', rows: SRC, cols: KC })));
+    await sleep(700);
+    put(s, eqRow(matEl(X0, { title: 'X₀', rows: SRC, cols: DC }), '×', matEl(W.v, { title: 'W<sub>V</sub> (encoder, learned)', rows: DC, cols: KC }), '=', matEl(h.V, { title: 'V (values)', rows: SRC, cols: KC })));
+    put(s, note(`<b>K</b> = "what do I contain?" (matched against queries). <b>V</b> = "what do I pass along if someone attends to me?"`));
+  } },
+
+{ title: '5. Scores = Q · Kᵀ', blk: ['enc-mha'],
+  explain: `Every query is dot-producted with every key. Row <i>i</i> of the result scores how relevant each token is to token <i>i</i>.
+    Shapes: (3 × 2) · (2 × 3) = <b>3 × 3</b>, one score for every pair of tokens.`,
+  run: async s => {
+    const h = ENC.heads[0];
+    await animMatmul(s, h.Q, T(h.K), h.S, {
+      a: { title: 'Q', rows: SRC, cols: KC }, b: { title: 'Kᵀ', rows: KC, cols: SRC },
+      c: { title: 'S = QKᵀ', name: 'S', rows: SRC, cols: SRC }, delay: 850,
+      done: `S[i, j] = how much token i's query matches token j's key.`,
+    });
+  } },
+
+{ title: '6. Scale by √d_k, then softmax', blk: ['enc-mha'],
+  explain: `Divide by <code>√d_k = √2</code> so the dot products don't grow too large, then apply softmax <b>row by row</b>.
+    Each row becomes a probability distribution: the <b>attention weights</b>. Note the order: softmax comes <i>before</i> multiplying by V.`,
+  run: async s => {
+    const h = ENC.heads[0];
+    const sM = matEl(h.S, { title: 'S', rows: SRC, cols: SRC });
+    const ssM = matEl(h.Ss, { title: 'S / √2', rows: SRC, cols: SRC, hidden: true });
+    const aM = matEl(h.A, { title: 'A = softmax(S / √2)', rows: SRC, cols: SRC, kind: 'prob', hidden: true });
+    put(s, eqRow(sM, arrow('÷ √2'), ssM, arrow('softmax each row'), aM));
+    const calc = put(s, el('div', 'calc', ''));
+    await sleep(500);
+    for (let i = 0; i < SRC.length; i++) {
+      hlRow(sM, i, 1);
+      calc.innerHTML = `row "${esc(SRC[i])}": ${vec(h.S[i])} ÷ 1.41 = ${vec(h.Ss[i])}`;
+      await sleep(1000); revealRow(ssM, i); hlRow(sM, i, 0); hlRow(ssM, i, 1);
+      const ex = h.Ss[i].map(v => Math.exp(v));
+      calc.innerHTML += `<br>softmax: e^x = ${vec(ex)}, divide by their sum ${fmt(ex.reduce((a, b) => a + b))} → <b>${vec(h.A[i])}</b> (sums to 1)`;
+      await sleep(1500); revealRow(aM, i); hlRow(ssM, i, 0);
+    }
+    calc.innerHTML = `Row "${esc(SRC[0])}" of A says: build the new "${esc(SRC[0])}" vector from ${h.A[0].map((p, j) => `${Math.round(p * 100)}% of "${esc(SRC[j])}"`).join(', ')}.`;
+  } },
+
+{ title: '7. Weighted sum: A · V', blk: ['enc-mha'],
+  explain: `Multiply the attention weights by V. Each output row is a <b>weighted average of the value vectors</b>, using that row's attention weights.
+    Shapes: (3 × 3) · (3 × 2) = <b>3 × 2</b>. That's head 1's output.`,
+  run: async s => {
+    const h = ENC.heads[0];
+    await animMatmul(s, h.A, h.V, h.Z, {
+      a: { title: 'A (weights)', rows: SRC, cols: SRC, kind: 'prob' }, b: { title: 'V', rows: SRC, cols: KC },
+      c: { title: 'Z₁ (head 1 output)', name: 'Z₁', rows: SRC, cols: KC }, delay: 800,
+      done: `Z₁ = softmax(QKᵀ/√d_k) · V. That's the whole attention formula for one head.`,
+    });
+  } },
+
+{ title: '8. Multi-head: concat heads, multiply by W_O', blk: ['enc-mha'],
+  explain: `Head 2 runs the exact same steps <b>in parallel</b> with its own W<sub>Q</sub>, W<sub>K</sub>, W<sub>V</sub>, so it can learn a different attention pattern.
+    The head outputs are concatenated side by side (3 × 2 ‖ 3 × 2 → <b>3 × 4</b>) and mixed by an output projection <code>W<sub>O</sub></code> (4 × 4).`,
+  run: async s => {
+    const [h1, h2] = ENC.heads;
+    put(s, note(`Head 2's attention pattern and output:`));
+    put(s, eqRow(matEl(h2.A, { title: 'A₂', rows: SRC, cols: SRC, kind: 'prob' }), '×', matEl(h2.V, { title: 'V₂', rows: SRC, cols: KC }), '=', matEl(h2.Z, { title: 'Z₂', rows: SRC, cols: KC })));
+    await sleep(1400);
+    const cat = matEl(ENC.cat, { title: 'Concat(Z₁, Z₂)', rows: SRC, cols: ['Z₁·0', 'Z₁·1', 'Z₂·0', 'Z₂·1'], hidden: true });
+    put(s, eqRow(matEl(h1.Z, { title: 'Z₁', rows: SRC, cols: KC }), '‖', matEl(h2.Z, { title: 'Z₂', rows: SRC, cols: KC }), '=', cat));
+    for (let i = 0; i < SRC.length; i++) { await sleep(450); revealRow(cat, i); }
+    await sleep(700);
+    await animMatmul(s, ENC.cat, P.enc.wo, ENC.out, {
+      a: { title: 'Concat', rows: SRC, cols: ['Z₁·0', 'Z₁·1', 'Z₂·0', 'Z₂·1'] }, b: { title: 'W<sub>O</sub>', rows: DC, cols: DC },
+      c: { title: 'MultiHead(X₀)', name: 'MH', rows: SRC, cols: DC }, delay: 320,
+      done: `We're back to <b>3 × 4</b>, the same shape as X₀, so it can be added to X₀ next.`,
+    });
+  } },
+
+{ title: '9. Add & Norm (residual + layer norm)', blk: ['enc-an1'],
+  explain: `<b>Residual:</b> add the sub-layer's input back to its output (<code>X₀ + MultiHead(X₀)</code>). This keeps the original signal and helps gradients flow.
+    <b>LayerNorm:</b> normalize each row to mean 0 and std 1. (Real LayerNorm also has a learned scale and shift, left out here.)`,
+  run: async s => {
+    await animElementwise(s, X0, ENC.out, ENC.res, '+', {
+      a: { title: 'X₀ (residual)', rows: SRC, cols: DC }, b: { title: 'MultiHead(X₀)', rows: SRC, cols: DC },
+      c: { title: 'sum', rows: SRC, cols: DC }, delay: 800,
+    });
+    await sleep(400);
+    await animRowwise(s, ENC.res, ENC.norm, {
+      a: { title: 'sum', rows: SRC, cols: DC }, c: { title: 'N₁ = LayerNorm(sum)', rows: SRC, cols: DC }, label: 'LayerNorm',
+      rowText: i => { const { m, sd } = stats(ENC.res[i]); return `row "${esc(SRC[i])}": mean = ${fmt(m)}, std = ${fmt(sd)} → (x − mean) / std = <b>${vec(ENC.norm[i])}</b>`; },
+      done: `Every sub-layer in the Transformer is wrapped this way: <code>LayerNorm(x + Sublayer(x))</code>.`,
+    });
+  } },
+
+{ title: '10. Feed-forward network (+ Add & Norm)', blk: ['enc-ffn', 'enc-an2'],
+  explain: `A small 2-layer MLP is applied to <b>each token row independently</b>: <code>FFN(x) = ReLU(x·W₁)·W₂</code>.
+    It expands 4 → 8, applies ReLU, then projects back 8 → 4. (Biases are omitted here.) Attention mixes information <i>between</i> tokens; the FFN processes each token <i>on its own</i>.`,
+  run: async s => {
+    await animMatmul(s, ENC.norm, P.encF.w1, ENCF.H, {
+      a: { title: 'N₁', rows: SRC, cols: DC }, b: { title: 'W₁', rows: DC, cols: FC },
+      c: { title: 'N₁ · W₁', name: 'H', rows: SRC, cols: FC }, delay: 170,
+    });
+    await animRowwise(s, ENCF.H, ENCF.Hr, {
+      a: { title: 'N₁ · W₁', rows: SRC, cols: FC }, c: { title: 'ReLU', rows: SRC, cols: FC }, label: 'ReLU: max(0, x)', delay: 800,
+      rowText: i => `row "${esc(SRC[i])}": ${ENCF.H[i].filter(v => v < 0).length} negative values → set to 0`,
+      after: (c, i) => ENCF.H[i].forEach((v, j) => { if (v < 0) c.cells[i][j].classList.add('zeroed'); }),
+    });
+    await sleep(500);
+    put(s, eqRow(matEl(ENCF.Hr, { title: 'ReLU(…)', rows: SRC, cols: FC }), '×', matEl(P.encF.w2, { title: 'W₂', rows: FC, cols: DC }), '=', matEl(ENCF.F, { title: 'FFN(N₁)', rows: SRC, cols: DC })));
+    await sleep(1000);
+    put(s, eqRow(matEl(ENC.norm, { title: 'N₁', rows: SRC, cols: DC }), '+', matEl(ENCF.F, { title: 'FFN(N₁)', rows: SRC, cols: DC }), arrow('LayerNorm'), matEl(MEM, { title: '<span style="color:#b56a00">Encoder memory</span>', rows: SRC, cols: DC })));
+    put(s, note(`This <b>3 × 4 memory</b> is the encoder's final output. (In the paper it would go through 5 more identical layers first.)
+      It is computed <b>once</b> and reused by the decoder at every generation step.`));
+  } },
+
+{ grp: 'Decoder · loop step 1', title: '11. Step 1: the decoder sees only <START>', blk: ['dec-emb', 'dec-mmha', 'dec-an1', 'dec-cross', 'dec-an2', 'dec-ffn', 'dec-an3', 'lin', 'soft'],
+  explain: `The first generation step. The decoder input is a single token, <code>&lt;START&gt;</code>, so every decoder matrix has <b>1 row</b>.
+    The encoder memory (3 × 4) is already computed. Here is the whole decoder pass at a glance.
+    The following steps then walk through step 2 in detail.`,
+  run: async s => {
+    const D1 = STEP1, h = D1.SELF.heads[0], c = D1.CROSS.heads[0], one = ['<START>'];
+    put(s, el('div', 'tokrow', `<span class="chip big dec">&lt;START&gt; <i>id ${id('<START>')}</i></span>`));
+    await sleep(600);
+    put(s, note(`<b>Embed + position:</b> row ${id('<START>')} of E plus PE for position 0 → a 1 × 4 matrix.`));
+    put(s, eqRow(matEl(D1.Ye, { title: 'embedding', rows: one, cols: DC }), '+', matEl(D1.PEt, { title: 'PE (pos 0)', rows: ['pos 0'], cols: DC }), '=', matEl(D1.Y0, { title: 'Y₀', rows: one, cols: DC })));
+    await sleep(1500);
+    put(s, note(`<b>Masked self-attention:</b> Q, K, V are each 1 × 2, so QKᵀ is <b>1 × 1</b>. The mask is applied, but its only entry is 0, since a token may always see itself.
+      Softmax of one number is always <b>1.00</b>. So <code>&lt;START&gt;</code> attends 100% to itself, and the output is just its own V row.`));
+    put(s, eqRow(matEl(h.Ss, { title: 'QKᵀ / √2', rows: one, cols: one }), '+', matEl(h.M, { title: 'mask', rows: one, cols: one }), arrow('softmax'),
+      matEl(h.A, { title: 'A', rows: one, cols: one, kind: 'prob' }), '×', matEl(h.V, { title: 'V', rows: one, cols: KC }), '=', matEl(h.Z, { title: 'Z₁ (= V)', rows: one, cols: KC })));
+    await sleep(2200);
+    put(s, note(`<b>Cross-attention</b> is where step 1 gets its information. The single query from <code>&lt;START&gt;</code> scores all 3 source tokens,
+      so the attention weights are <b>1 × 3</b>. Without this, the decoder would know nothing about "I am AI".`));
+    await sleep(1200);
+
+    // Where the cross-attention weights come from
+    const wbox = el('div', 'wbox');
+    wbox.innerHTML = `<h4>First: where do this layer's W<sub>Q</sub>, W<sub>K</sub>, W<sub>V</sub> come from?</h4>
+      <p>The encoder hands over <b>only the memory</b> (3 × 4). It does <b>not</b> send K or V. Its own K and V from step 4 were used inside the encoder and then discarded.</p>
+      <p>The cross-attention sub-layer <b>owns its own weight matrices</b>. They are <b>learned parameters</b>, like the embedding table:</p>
+      <ol>
+        <li><b>Before training:</b> filled with random numbers. That's what this page uses, so the attention patterns are meaningless.</li>
+        <li><b>During training:</b> after each predicted token, the error is backpropagated and gradient descent nudges every weight, including these.
+          W<sub>K</sub> learns to shape source words so the right queries match them. W<sub>V</sub> learns what information to copy over.</li>
+        <li><b>At inference:</b> frozen. They're loaded from the checkpoint and just multiplied. Nothing computes them.</li>
+      </ol>
+      <p>There are <b>three independent sets</b> of Q/K/V weights in an encoder + decoder layer pair:</p>
+      <table class="sizes">
+        <tr><th>Sub-layer</th><th>Q from</th><th>K, V from</th><th>Weights</th></tr>
+        <tr><td>Encoder self-attention (step 4)</td><td>encoder</td><td>encoder</td><td>its own</td></tr>
+        <tr><td>Decoder masked self-attention</td><td>decoder</td><td>decoder</td><td>its own</td></tr>
+        <tr class="cur"><td><b>Decoder cross-attention (here)</b></td><td>decoder</td><td><b>memory</b></td><td><b>its own</b></td></tr>
+      </table>
+      <p class="small">Every head has its own set, and every layer has its own copy. In the paper, each cross-attention head's W<sub>K</sub> is 512 × 64.</p>`;
+    put(s, wbox);
+    await sleep(2500);
+
+    const W = P.cross.heads[0], dstate = D1.SELF.norm;
+    put(s, note(`<b>K = memory × W<sub>K</sub><sup>cross</sup></b>: the decoder's own key weights turn each source token's memory row into a key.`));
+    await animMatmul(s, MEM, W.k, c.K, {
+      a: { title: 'Encoder memory (handed over)', rows: SRC, cols: DC },
+      b: { title: 'W<sub>K</sub> (cross-attn, learned, decoder-owned)', rows: DC, cols: KC },
+      c: { title: 'K', name: 'K', rows: SRC, cols: KC }, delay: 380,
+      done: `K: one key per <i>source</i> token. Note that W<sub>K</sub> is a different matrix from the encoder's own W<sub>K</sub> in step 4.`,
+    });
+    await sleep(600);
+    put(s, note(`<b>V = memory × W<sub>V</sub><sup>cross</sup></b>: same memory, different learned matrix, giving the values to copy.`));
+    put(s, eqRow(matEl(MEM, { title: 'Encoder memory', rows: SRC, cols: DC }), '×', matEl(W.v, { title: 'W<sub>V</sub> (cross-attn, learned)', rows: DC, cols: KC }), '=', matEl(c.V, { title: 'V', rows: SRC, cols: KC })));
+    await sleep(1400);
+    put(s, note(`<b>Q = decoder state × W<sub>Q</sub><sup>cross</sup></b>: the query comes from the decoder (the <code>&lt;START&gt;</code> row after masked self-attention + Add & Norm).`));
+    put(s, eqRow(matEl(dstate, { title: 'decoder state', rows: one, cols: DC }), '×', matEl(W.q, { title: 'W<sub>Q</sub> (cross-attn, learned)', rows: DC, cols: KC }), '=', matEl(c.Q, { title: 'Q', rows: one, cols: KC })));
+    await sleep(1400);
+    put(s, note(`<b>Now the attention itself</b>, the same formula as always: softmax(QKᵀ/√d_k)·V.
+      The memory never changes, so K and V are computed <b>once</b> and cached for every later step. Only Q changes.`));
+    put(s, eqRow(matEl(c.Q, { title: 'Q (decoder)', rows: one, cols: KC }), '×', matEl(T(c.K), { title: 'Kᵀ (memory·W<sub>K</sub>)', rows: KC, cols: SRC }), arrow('÷√2, softmax'),
+      matEl(c.A, { title: 'cross-attn weights', rows: one, cols: SRC, kind: 'prob' }), '×', matEl(c.V, { title: 'V (memory·W<sub>V</sub>)', rows: SRC, cols: KC }), '=', matEl(c.Z, { title: 'Z₁', rows: one, cols: KC })));
+    await sleep(2200);
+    put(s, note(`<b>Feed-forward, Add & Norm, linear → vocab, softmax</b> work as before, still with 1 row:`));
+    put(s, eqRow(matEl(D1.DOUT, { title: 'decoder output', rows: one, cols: DC }), '×', matEl(P.out, { title: 'W<sub>vocab</sub>', rows: DC, cols: VOCAB }), '=', matEl(D1.LOGITS, { title: 'logits', rows: one, cols: VOCAB })));
+    await sleep(1200);
+    const bars = put(s, el('div', 'bars'));
+    const fills = D1.PROBS.map((p, k) => {
+      const b = el('div', 'bar' + (k === D1.BEST ? ' best' : ''));
+      b.innerHTML = `<div class="pv">${(p * 100).toFixed(0)}%</div><div class="fill"></div><div class="bl">${esc(VOCAB[k])}</div>`;
+      bars.append(b); return b.querySelector('.fill');
+    });
+    await sleep(100);
+    fills.forEach((f, k) => f.style.height = (D1.PROBS[k] * 150 + 2) + 'px');
+    await sleep(1000);
+    put(s, note(`This random model picks <b>"${esc(VOCAB[D1.BEST])}"</b>. A trained model would pick <b>"je"</b>.
+      To keep the example on track, we continue as the trained model would: step 2's input is <code>&lt;START&gt; je</code>.`, 'warn'));
+  } },
+
+{ grp: 'Decoder · loop step 2 in detail', title: '12. Decoder input: embed + position', blk: ['dec-emb'],
+  explain: `Now <b>step 2</b> of the generation loop. Step 1 produced "je", so it is appended, and the decoder input is <code>&lt;START&gt; je</code>.
+    It is embedded and position-encoded exactly like the encoder input, giving <b>2 × 4</b>.
+    Note that the <code>&lt;START&gt;</code> row is identical to step 1's. Only the new row is new, which is why a KV cache works.`,
+  run: async s => {
+    put(s, el('div', 'tokrow', TGT.map(t => `<span class="chip big dec">${esc(t)} <i>id ${id(t)}</i></span>`).join('')));
+    await sleep(600);
+    await animElementwise(s, Ye, PEt, Y0, '+', {
+      a: { title: 'embeddings (rows of E)', rows: TGT, cols: DC }, b: { title: 'PE (pos 0, 1)', rows: ['pos 0', 'pos 1'], cols: DC },
+      c: { title: 'Y₀', rows: TGT, cols: DC },
+      done: `Y₀ is 2 × 4: one row per token generated so far.`,
+    });
+  } },
+
+{ title: '13. Masked self-attention', blk: ['dec-mmha', 'dec-an1'],
+  explain: `Same Q/K/V attention as before (with the decoder's own weights), but before the softmax we <b>add a causal mask</b>:
+    −∞ wherever a token would look at a <i>later</i> position. Since e<sup>−∞</sup> = 0, those weights become exactly 0.
+    At inference the "future" doesn't exist yet anyway. The mask matters most during training, when the whole target sentence is fed in at once.`,
+  run: async s => {
+    const h = SELF.heads[0];
+    put(s, note(`Head 1: Q, K, V = Y₀·W<sub>Q</sub>, Y₀·W<sub>K</sub>, Y₀·W<sub>V</sub> (each 2 × 2), then scaled scores QKᵀ/√2:`));
+    const ss = matEl(h.Ss, { title: 'QKᵀ / √2', rows: TGT, cols: TGT });
+    const mk = matEl(h.M, { title: 'causal mask', rows: TGT, cols: TGT });
+    const sm = matEl(h.Sm, { title: 'masked scores', rows: TGT, cols: TGT, hidden: true });
+    const am = matEl(h.A, { title: 'A = softmax(…)', rows: TGT, cols: TGT, kind: 'prob', hidden: true });
+    put(s, eqRow(ss, '+', mk, '=', sm, arrow('softmax'), am));
+    const calc = put(s, el('div', 'calc', ''));
+    await sleep(700);
+    calc.innerHTML = `Row "&lt;START&gt;" may only see position 0, so position 1 ("je") is set to −∞.<br>Row "je" may see positions 0 and 1, so nothing is masked.`;
+    await sleep(1800);
+    for (let i = 0; i < TGT.length; i++) { revealRow(sm, i); await sleep(500); }
+    await sleep(600);
+    for (let i = 0; i < TGT.length; i++) {
+      hlRow(sm, i, 1);
+      calc.innerHTML = `softmax(${vec(h.Sm[i])}) = <b>${vec(h.A[i])}</b>` + (i === 0 ? `   ← e^(−∞) = 0, so &lt;START&gt; attends 100% to itself` : '');
+      await sleep(1400); revealRow(am, i); hlRow(sm, i, 0);
+    }
+    put(s, note(`Compare with step 11: with only <code>&lt;START&gt;</code> this was a 1 × 1 matrix <code>[1.00]</code>, and the mask had nothing to hide. Notice the <code>&lt;START&gt;</code> row here is the same as it was then, because the mask stops it from seeing "je".`));
+    await sleep(900);
+    put(s, eqRow(matEl(h.A, { title: 'A', rows: TGT, cols: TGT, kind: 'prob' }), '×', matEl(h.V, { title: 'V', rows: TGT, cols: KC }), '=', matEl(h.Z, { title: 'Z₁', rows: TGT, cols: KC })));
+    await sleep(900);
+    put(s, eqRow(el('div', 'note', 'Both heads → concat → ×W<sub>O</sub> → add Y₀ → LayerNorm'), arrow(''), matEl(SELF.norm, { title: 'decoder state D₁', rows: TGT, cols: DC })));
+  } },
+
+{ title: '14. Cross-attention: the decoder reads the encoder', blk: ['dec-cross', 'dec-an2'],
+  explain: `This is the link between the two halves. The encoder passes along only its final output, the <b>memory</b> (3 × 4). Its internal Q/K/V were discarded.
+    The decoder's cross-attention layer has its <b>own</b> W<sub>Q</sub>, W<sub>K</sub>, W<sub>V</sub>: <b>Q = D₁ · W<sub>Q</sub></b> (from the decoder), while <b>K = memory · W<sub>K</sub></b> and <b>V = memory · W<sub>V</sub></b>. In the paper, each of the 6 decoder layers projects the same memory with its own weights.
+    So each target token asks: "which <i>source</i> words should I look at?" There's no causal mask here, because the whole source sentence is fair game.
+    Shapes: Q is 2 × 2, K and V are 3 × 2, so the scores are <b>2 × 3</b> (target rows × source columns).`,
+  run: async s => {
+    const h = CROSS.heads[0], W = P.cross.heads[0];
+    put(s, eqRow(matEl(SELF.norm, { title: 'D₁ (decoder)', rows: TGT, cols: DC }), '×', matEl(W.q, { title: 'W<sub>Q</sub> (cross)', rows: DC, cols: KC }), '=', matEl(h.Q, { title: 'Q (from decoder)', rows: TGT, cols: KC })));
+    await sleep(900);
+    put(s, eqRow(matEl(MEM, { title: 'Encoder memory', rows: SRC, cols: DC }), '×', matEl(W.k, { title: 'W<sub>K</sub> (cross, decoder-owned)', rows: DC, cols: KC }), '=', matEl(h.K, { title: 'K (from memory)', rows: SRC, cols: KC }),
+      el('div', 'op', '&nbsp;&nbsp;'), matEl(MEM, { title: 'Encoder memory', rows: SRC, cols: DC }), '×', matEl(W.v, { title: 'W<sub>V</sub> (cross, decoder-owned)', rows: DC, cols: KC }), '=', matEl(h.V, { title: 'V (from memory)', rows: SRC, cols: KC })));
+    await sleep(1100);
+    await animMatmul(s, h.Q, T(h.K), h.S, {
+      a: { title: 'Q (decoder)', rows: TGT, cols: KC }, b: { title: 'Kᵀ (memory·W<sub>K</sub>)', rows: KC, cols: SRC },
+      c: { title: 'scores', name: 'S', rows: TGT, cols: SRC }, delay: 800,
+    });
+    await animRowwise(s, h.S, h.A, {
+      a: { title: 'scores', rows: TGT, cols: SRC }, c: { title: 'cross-attention weights', rows: TGT, cols: SRC, kind: 'prob' }, label: '÷√2, softmax',
+      rowText: i => `"${esc(TGT[i])}" looks at the source: ${h.A[i].map((p, j) => `${Math.round(p * 100)}% "${esc(SRC[j])}"`).join(', ')}`,
+    });
+    await sleep(500);
+    put(s, eqRow(matEl(h.A, { title: 'A', rows: TGT, cols: SRC, kind: 'prob' }), '×', matEl(h.V, { title: 'V (memory·W<sub>V</sub>)', rows: SRC, cols: KC }), '=', matEl(h.Z, { title: 'Z₁', rows: TGT, cols: KC }),
+      arrow('heads, W<sub>O</sub>, add D₁, norm'), matEl(CROSS.norm, { title: 'decoder state D₂', rows: TGT, cols: DC })));
+    put(s, note(`In a trained model, when predicting the word after "je", the "je" row would attend mostly to <b>"am"</b>, which is the word it needs to translate next.`));
+  } },
+
+{ title: '15. Decoder feed-forward (+ Add & Norm)', blk: ['dec-ffn', 'dec-an3'],
+  explain: `Same per-token MLP as in the encoder, with its own weights: 4 → 8 → ReLU → 4, then residual + LayerNorm.`,
+  run: async s => {
+    put(s, eqRow(matEl(CROSS.norm, { title: 'D₂', rows: TGT, cols: DC }), '×', matEl(P.decF.w1, { title: 'W₁', rows: DC, cols: FC }), arrow('ReLU'), matEl(DECF.Hr, { title: 'hidden', rows: TGT, cols: FC })));
+    await sleep(1000);
+    put(s, eqRow(matEl(DECF.Hr, { title: 'hidden', rows: TGT, cols: FC }), '×', matEl(P.decF.w2, { title: 'W₂', rows: FC, cols: DC }), '=', matEl(DECF.F, { title: 'FFN(D₂)', rows: TGT, cols: DC })));
+    await sleep(1000);
+    put(s, eqRow(matEl(CROSS.norm, { title: 'D₂', rows: TGT, cols: DC }), '+', matEl(DECF.F, { title: 'FFN(D₂)', rows: TGT, cols: DC }), arrow('LayerNorm'), matEl(DOUT, { title: 'decoder output', rows: TGT, cols: DC })));
+    put(s, note(`Still one 4-dim vector per target position. In the paper this would repeat for 6 decoder layers.`));
+  } },
+
+{ title: '16. Linear → vocabulary, softmax → next token', blk: ['lin', 'soft'],
+  explain: `A final linear layer projects each 4-dim vector to <b>one score (logit) per vocabulary word</b> (4 → 8).
+    Only the <b>last row</b> matters for generation, since it predicts the token that comes after "je". Softmax turns those logits into probabilities.`,
+  run: async s => {
+    const r = await animMatmul(s, DOUT, P.out, LOGITS, {
+      a: { title: 'decoder output', rows: TGT, cols: DC }, b: { title: 'W<sub>vocab</sub>', rows: DC, cols: VOCAB },
+      c: { title: 'logits', name: 'logits', rows: TGT, cols: VOCAB }, delay: 220,
+    });
+    hlRow(r.c, TGT.length - 1, 1);
+    r.calc.innerHTML = `The highlighted last row predicts the next token. Row 0 (what follows &lt;START&gt;) is only used as a training signal.`;
+    await sleep(1200);
+    const bars = put(s, el('div', 'bars'));
+    const fills = PROBS.map((p, k) => {
+      const b = el('div', 'bar' + (k === BEST ? ' best' : ''));
+      b.innerHTML = `<div class="pv">${(p * 100).toFixed(0)}%</div><div class="fill"></div><div class="bl">${esc(VOCAB[k])}</div>`;
+      bars.append(b); return b.querySelector('.fill');
+    });
+    await sleep(100);
+    fills.forEach((f, k) => f.style.height = (PROBS[k] * 150 + 2) + 'px');
+    await sleep(1000);
+    put(s, el('div', 'calc', `softmax(${vec(LOGITS[LOGITS.length - 1])})<br>→ greedy pick (argmax) = <b>"${esc(VOCAB[BEST])}"</b>`));
+    put(s, note(`The weights are random, so this prediction is meaningless. A <b>trained</b> model would put most of the probability on <b>"suis"</b>.
+      Instead of argmax, the paper used <b>beam search</b> (keep the top 4 partial sentences at each step).`, 'warn'));
+  } },
+
+{ title: '17. Repeat: the autoregressive loop', blk: ['dec-emb', 'dec-mmha', 'dec-an1', 'dec-cross', 'dec-an2', 'dec-ffn', 'dec-an3', 'lin', 'soft'],
+  explain: `Append the chosen token to the decoder input and run the decoder again. The encoder memory is <b>not</b> recomputed.
+    The decoder input grows by one row each step, and so does its causal mask. Generation stops at <code>&lt;END&gt;</code> or a length limit.
+    (Shown here is what a <i>trained</i> model would output.)`,
+  run: async s => {
+    put(s, el('div', 'memory', `<b>Encoder memory</b> for "I am AI" (3 × 4): computed once, used by cross-attention at every step below.`));
+    const seq = ['<START>', 'je', 'suis', 'IA'], outs = ['je', 'suis', 'IA', '<END>'];
+    const loop = put(s, el('div', 'loop'));
+    for (let t = 0; t < seq.length; t++) {
+      const row = el('div', 'looprow');
+      row.append(el('div', 'stp', `Step ${t + 1}`));
+      row.append(el('div', 'tokrow', seq.slice(0, t + 1).map(x => `<span class="chip dec">${esc(x)}</span>`).join('')));
+      const mm = el('div', 'minimask'); mm.style.gridTemplateColumns = `repeat(${t + 1}, 14px)`;
+      for (let i = 0; i <= t; i++) for (let j = 0; j <= t; j++) mm.append(el('div', j > i ? 'x' : ''));
+      const mw = el('div', 'mat'); mw.append(mm); mw.append(el('div', 'mat-dim', `mask ${t + 1}×${t + 1}`));
+      row.append(mw);
+      row.append(el('div', 'op', '→ decoder →'));
+      put(loop, row);
+      await sleep(1000);
+      row.append(el('span', 'chip out pop', `${esc(outs[t])} <i>next</i>`));
+      await sleep(900);
+    }
+    put(s, el('div', 'calc', `Output: <b>je suis IA</b>`));
+    put(s, note(`<b>KV cache:</b> real implementations don't recompute K and V for old tokens each step. They store them, so each step only processes the newest token.`));
+  } },
+];
+
+/* ============================================================
+   5. Navigation
+   ============================================================ */
+let cur = 0;
+const $ = id => document.getElementById(id);
+(function buildList() {
+  const ul = $('steps');
+  STEPS.forEach((st, i) => {
+    if (st.grp) ul.append(el('li', 'grp', st.grp));
+    const li = el('li', '', `<span class="n">${i}</span>${esc(st.title.replace(/^\d+\.\s*/, ''))}`);
+    li.onclick = () => go(i); st.li = li; ul.append(li);
+  });
+})();
+
+async function go(i) {
+  i = Math.max(0, Math.min(STEPS.length - 1, i));
+  cur = i; runId++; instant = false;
+  const myId = runId, st = STEPS[i];
+  STEPS.forEach((x, k) => x.li.classList.toggle('active', k === i));
+  st.li.scrollIntoView({ block: 'nearest' });
+  $('title').textContent = st.title;
+  $('explain').innerHTML = st.explain;
+  $('counter').textContent = `${i + 1} / ${STEPS.length}`;
+  setBlocks(st.blk);
+  const stage = $('stage'); stage.innerHTML = '';
+  document.querySelector('main').scrollTop = 0;
+  try {
+    await st.run(stage);
+    if (i === 0) setBlocks(st.blk);
+    if (autoplay && myId === runId && i < STEPS.length - 1) { await sleep(1800); go(i + 1); }
+  } catch (e) { if (!(e instanceof Cancel)) throw e; }
+}
+
+$('prev').onclick = () => go(cur - 1);
+$('next').onclick = () => go(cur + 1);
+$('replay').onclick = () => go(cur);
+$('skip').onclick = () => { instant = true; };
+$('auto').onclick = () => { autoplay = !autoplay; $('auto').classList.toggle('on', autoplay); $('auto').textContent = autoplay ? '⏸ Autoplay' : '▶ Autoplay'; if (autoplay) go(cur + 1); };
+$('speed').oninput = e => { speed = +e.target.value; $('speedv').textContent = speed + '×'; };
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'ArrowRight') go(cur + 1);
+  else if (e.key === 'ArrowLeft') go(cur - 1);
+  else if (e.key === ' ') { e.preventDefault(); go(cur); }
+});
+go(0);
+</script>
+</body>
+</html>

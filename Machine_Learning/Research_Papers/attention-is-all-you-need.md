@@ -11,6 +11,11 @@ Source: Vaswani et al., 2017, `arXiv:1706.03762`.
 - Where RNNs broke down — **sequential** + **forgetful**
 - Then: **attention, self-attention**, and the architecture
 
+## Interactive walkthrough
+**[Open the interactive matrix walkthrough →](https://lauradang.github.io/wiki-notes/attention-is-all-you-need.html)**
+
+A toy Transformer translating "I am AI" → "je suis IA", animated step by step: tokenize → embed → Q/K/V → attention → multi-head → Add & Norm → FFN → masked self-attention → cross-attention → next-token softmax → the autoregressive loop. Every number is computed live, and colours show what each matrix is: source data, target data, learned weights, probabilities.
+
 ## A short history
 - **Pre-2017:** language models were RNN / LSTM / GRU based — slow and forgetful
 - **June 2017:** Google Brain + UofT publish "Attention Is All You Need"
