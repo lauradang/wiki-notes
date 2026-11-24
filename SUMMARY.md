@@ -335,4 +335,5 @@
     * [CUDA Graphs](Work/Megatron/cuda-graphs.md)
     * [Disaggregated Inference](Work/Megatron/disaggregated-inference.md)
     * [NRL-MLM Dynamo Integration](Work/Megatron/nrl-mlm-dynamo-integration.md)
+    * [NVLink Placement Behind Dynamo](Work/Megatron/nvlink-placement-behind-dynamo.md)
     * [Packed THD Sequences](Work/Megatron/packed-thd-sequences.md)
